@@ -1,4 +1,5 @@
-﻿using IdentitySample.Models;
+﻿using FireSafetyStore.Web.Client.Infrastructure.Security;
+using FireSafetyStore.Web.Client.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;

@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
+﻿using FireSafetyStore.Web.Client.Core;
+using FireSafetyStore.Web.Client.Infrastructure.Security;
+using FireSafetyStore.Web.Client.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
 
-namespace IdentitySample.Models
+namespace FireSafetyStore.Web.Client.Infrastructure.DbContext
 {
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

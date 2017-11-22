@@ -1,4 +1,4 @@
-﻿using IdentitySample.Models;
+﻿using FireSafetyStore.Web.Client.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -10,6 +10,7 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using FireSafetyStore.Web.Client.Infrastructure.Security;
 
 namespace IdentitySample.Controllers
 {

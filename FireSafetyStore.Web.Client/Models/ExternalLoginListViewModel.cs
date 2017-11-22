@@ -1,4 +1,4 @@
-﻿namespace IdentitySample.Models
+﻿namespace FireSafetyStore.Web.Client.Models
 {
     public class ExternalLoginListViewModel
     {

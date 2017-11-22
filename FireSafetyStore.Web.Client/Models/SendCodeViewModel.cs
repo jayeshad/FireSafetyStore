@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace IdentitySample.Models
+namespace FireSafetyStore.Web.Client.Models
 {
     public class SendCodeViewModel
     {

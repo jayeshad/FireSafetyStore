@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using System.Collections.Generic;
 
-namespace IdentitySample.Models
+namespace FireSafetyStore.Web.Client.Models
 {
     public class IndexViewModel
     {

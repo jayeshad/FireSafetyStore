@@ -2,9 +2,11 @@
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
-using IdentitySample.Models;
+using FireSafetyStore.Web.Client.Models;
 using Owin;
 using System;
+using FireSafetyStore.Web.Client.Infrastructure.DbContext;
+using FireSafetyStore.Web.Client.Infrastructure.Security;
 
 namespace IdentitySample
 {
