@@ -14,13 +14,16 @@ namespace FireSafetyStore.Web.Client.Core
     // This example shows you how to create a new database if the Model changes
     public class ApplicationDbInitializer : DropCreateDatabaseIfModelChanges<ApplicationDbContext> 
     {
-        protected override void Seed(ApplicationDbContext context) {
+        protected override void Seed(ApplicationDbContext context)
+        {
             InitializeIdentityForEF(context);
             base.Seed(context);
+            
         }
 
         //Create User=Admin@Admin.com with password=Admin@123456 in the Admin role        
-        public static void InitializeIdentityForEF(ApplicationDbContext db) {
+        public static void InitializeIdentityForEF(ApplicationDbContext db)
+        {
             var userManager = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var roleManager = HttpContext.Current.GetOwinContext().Get<ApplicationRoleManager>();
             const string name = "admin@firesafe.com";

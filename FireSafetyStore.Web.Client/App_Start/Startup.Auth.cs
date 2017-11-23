@@ -7,11 +7,13 @@ using Owin;
 using System;
 using FireSafetyStore.Web.Client.Infrastructure.DbContext;
 using FireSafetyStore.Web.Client.Infrastructure.Security;
+using FireSafetyStore.Web.Client.Migrations;
 
 namespace IdentitySample
 {
     public partial class Startup
     {
+        
         // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301864
         public void ConfigureAuth(IAppBuilder app)
         {

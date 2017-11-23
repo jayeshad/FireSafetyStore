@@ -34,11 +34,11 @@ namespace FireSafetyStore.Web.Client.Migrations
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 128),
-                        FirstName = c.String(),
-                        LastName = c.String(),
-                        Address = c.String(),
-                        State = c.String(),
-                        City = c.String(),
+                        FirstName = c.String(maxLength: 15),
+                        LastName = c.String(maxLength: 15),
+                        Address = c.String(maxLength: 150),
+                        State = c.String(maxLength: 15),
+                        City = c.String(maxLength: 15),
                         PostalCode = c.String(),
                         Email = c.String(maxLength: 256),
                         EmailConfirmed = c.Boolean(nullable: false),
