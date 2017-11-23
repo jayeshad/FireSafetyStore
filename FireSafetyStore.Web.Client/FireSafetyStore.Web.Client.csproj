@@ -193,11 +193,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Infrastructure\Common\SmsService.cs" />
+    <Compile Include="Infrastructure\Common\EmailService.cs" />
+    <Compile Include="Infrastructure\Security\ApplicationSignInManager.cs" />
+    <Compile Include="Infrastructure\Security\ApplicationRoleManager.cs" />
+    <Compile Include="Infrastructure\Security\ApplicationUserManager.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
-    <Compile Include="Infrastructure\Core\ApplicationDbInitializer.cs" />
+    <Compile Include="Infrastructure\Common\ApplicationDbInitializer.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -308,6 +312,7 @@
     <Content Include="Views\Account\DisplayEmail.cshtml" />
     <Content Include="Views\Employee\Register.cshtml" />
     <Content Include="Views\Employee\Index.cshtml" />
+    <Content Include="Views\Employee\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

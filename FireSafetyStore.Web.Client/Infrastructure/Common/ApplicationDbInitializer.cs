@@ -7,7 +7,7 @@ using FireSafetyStore.Web.Client.Infrastructure.Security;
 using FireSafetyStore.Web.Client.Infrastructure.DbContext;
 using FireSafetyStore.Web.Client.Models;
 
-namespace FireSafetyStore.Web.Client.Core
+namespace FireSafetyStore.Web.Client.Infrastructure.Common
 {
     // This is useful if you do not want to tear down the database each time you run the application.
     // public class ApplicationDbInitializer : DropCreateDatabaseAlways<ApplicationDbContext>

@@ -1,9 +1,11 @@
-﻿using FireSafetyStore.Web.Client.Infrastructure.Security;
+﻿using FireSafetyStore.Web.Client.Infrastructure.DbContext;
+using FireSafetyStore.Web.Client.Infrastructure.Security;
 using FireSafetyStore.Web.Client.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -35,6 +37,48 @@ namespace FireSafetyStore.Web.Client.Controllers
             }
         }
 
+        //
+        // GET: /Users/Details/5
+        public async Task<ActionResult> Details(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var user = await UserManager.FindByIdAsync(id);
+
+            ViewBag.RoleNames = await UserManager.GetRolesAsync(user.Id);
+
+            return View(user);
+        }
+
+        //
+        // GET: /Users/Edit/1
+        public async Task<ActionResult> Edit(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var user = await UserManager.FindByIdAsync(id);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+
+            var userRoles = await UserManager.GetRolesAsync(user.Id);
+
+            return View(new RegisterViewModel()
+            {
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Address = user.Address,
+                City = user.City,
+                State = user.State,
+                PostalCode = user.PostalCode                
+            });
+        }
+
         private ApplicationRoleManager _roleManager;
         public ApplicationRoleManager RoleManager
         {
@@ -50,6 +94,11 @@ namespace FireSafetyStore.Web.Client.Controllers
 
         public async Task<ActionResult> Index()
         {
+            //using (var context = new ApplicationDbContext())
+            //{ var ff = (from u in context.Users join r in context.Roles on u.Roles)
+            //}
+
+            var roles = RoleManager.Roles.Where(x => x.Name == EmployeeRoleConstant).ToList();
             return View(await UserManager.Users.ToListAsync());
         }
 
@@ -59,7 +108,7 @@ namespace FireSafetyStore.Web.Client.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+            return View(new RegisterViewModel());
         }
 
         //

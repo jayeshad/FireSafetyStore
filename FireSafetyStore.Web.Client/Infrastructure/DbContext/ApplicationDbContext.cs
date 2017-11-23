@@ -1,6 +1,5 @@
-﻿using FireSafetyStore.Web.Client.Core;
+﻿using FireSafetyStore.Web.Client.Infrastructure.Common;
 using FireSafetyStore.Web.Client.Infrastructure.Security;
-using FireSafetyStore.Web.Client.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
 
