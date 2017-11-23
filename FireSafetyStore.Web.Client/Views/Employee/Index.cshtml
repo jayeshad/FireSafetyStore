@@ -1,34 +1,34 @@
 ﻿@model IEnumerable<FireSafetyStore.Web.Client.Infrastructure.Security.ApplicationUser>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Manage Employees";
 }
 
-<h2>Index</h2>
+<h2>Manage Employees</h2>
 
 <p>
     @Html.ActionLink("Create New", "Register","Employee")
 </p>
-<table class="table">
+<table class="table table-bordered">
     <tr>
-        <th>
+        <td class="success">
             @Html.DisplayNameFor(model => model.FirstName)
-        </th>
-        <th>
+        </td>
+        <td class="success">
             @Html.DisplayNameFor(model => model.LastName)
-        </th>
-        <th>
+        </td>
+        <td class="success">
             @Html.DisplayNameFor(model => model.City)
-        </th>
-        <th>
+        </td>
+        <td class="success">
             @Html.DisplayNameFor(model => model.State)
-        </th>
-        <th>
+        </td>
+        <td class="success">
             @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
+        </td>
+        <td class="success">
 
-        </th>
+        </td>
     </tr>
 
     @foreach (var item in Model)
