@@ -193,6 +193,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Infrastructure\Common\FireSafetyAppConstants.cs" />
     <Compile Include="Infrastructure\Common\SmsService.cs" />
     <Compile Include="Infrastructure\Common\EmailService.cs" />
     <Compile Include="Infrastructure\Security\ApplicationSignInManager.cs" />

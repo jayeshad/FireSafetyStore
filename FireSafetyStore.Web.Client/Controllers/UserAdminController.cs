@@ -11,9 +11,11 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using FireSafetyStore.Web.Client.Infrastructure.Security;
+using FireSafetyStore.Web.Client.Infrastructure.Common;
 
 namespace IdentitySample.Controllers
 {
+
     [Authorize(Roles = "Admin")]
     public class UsersAdminController : Controller
     {
@@ -79,27 +81,36 @@ namespace IdentitySample.Controllers
         // GET: /Users/Create
         public async Task<ActionResult> Create()
         {
+            var vm = new RegisterViewModel
+            {
+                RolesList = RoleManager.Roles.Where(x => x.Name == FireSafetyAppConstants.EmployeeRoleName).ToList().Select(x => new SelectListItem()
+                {
+                    Selected = true,
+                    Text = x.Name,
+                    Value = x.Name
+                })
+            };
             //Get the list of Roles
-            ViewBag.RoleId = new SelectList(await RoleManager.Roles.ToListAsync(), "Name", "Name");
-            return View();
+           return View(vm);
         }
 
         //
         // POST: /Users/Create
         [HttpPost]
-        public async Task<ActionResult> Create(RegisterViewModel userViewModel, params string[] selectedRoles)
+        public async Task<ActionResult> Create(RegisterViewModel userViewModel)
         {
+            var vm = PopulateEmployeeRole();
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = userViewModel.Email, Email = userViewModel.Email };
+                var user = MapUserModel(userViewModel);
                 var adminresult = await UserManager.CreateAsync(user, userViewModel.Password);
-
+                var selectedRole = RoleManager.Roles.Where(x => x.Name == FireSafetyAppConstants.EmployeeRoleName).Select(x => x.Name).ToArray();
                 //Add User to the selected Roles 
                 if (adminresult.Succeeded)
                 {
-                    if (selectedRoles != null)
+                    if (selectedRole != null)
                     {
-                        var result = await UserManager.AddToRolesAsync(user.Id, selectedRoles);
+                        var result = await UserManager.AddToRolesAsync(user.Id, selectedRole);
                         if (!result.Succeeded)
                         {
                             ModelState.AddModelError("", result.Errors.First());
@@ -110,15 +121,39 @@ namespace IdentitySample.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", adminresult.Errors.First());
-                    ViewBag.RoleId = new SelectList(RoleManager.Roles, "Name", "Name");
-                    return View();
-
+                    ModelState.AddModelError("", adminresult.Errors.First());                    
+                    return View(vm);
                 }
                 return RedirectToAction("Index");
             }
-            ViewBag.RoleId = new SelectList(RoleManager.Roles, "Name", "Name");
-            return View();
+            return View(vm);
+        }
+
+        private ApplicationUser MapUserModel(RegisterViewModel vm)
+        {
+            return new ApplicationUser
+            {
+                FirstName = vm.FirstName,
+                LastName = vm.LastName,
+                Address = vm.Address,
+                City = vm.City,
+                State =vm.State,
+                PostalCode = vm.PostalCode,
+                UserName = vm.Email,
+                Email = vm.Email };
+        }
+
+        private RegisterViewModel PopulateEmployeeRole()
+        {
+            return new RegisterViewModel
+            {
+                RolesList = RoleManager.Roles.Where(x => x.Name == FireSafetyAppConstants.EmployeeRoleName).ToList().Select(x => new SelectListItem()
+                {
+                    Selected = true,
+                    Text = x.Name,
+                    Value = x.Name
+                })
+            };
         }
 
         //
@@ -141,9 +176,15 @@ namespace IdentitySample.Controllers
             {
                 Id = user.Id,
                 Email = user.Email,
-                RolesList = RoleManager.Roles.ToList().Select(x => new SelectListItem()
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Address = user.Address,
+                City = user.City,
+                State = user.State,
+                PostalCode = user.PostalCode,
+                RolesList = RoleManager.Roles.Where(x=>x.Name == FireSafetyAppConstants.EmployeeRoleName).ToList().Select(x => new SelectListItem()
                 {
-                    Selected = userRoles.Contains(x.Name),
+                    Selected = true,
                     Text = x.Name,
                     Value = x.Name
                 })
@@ -154,7 +195,7 @@ namespace IdentitySample.Controllers
         // POST: /Users/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Email,Id")] EditUserViewModel editUser, params string[] selectedRole)
+        public async Task<ActionResult> Edit([Bind(Include = "FirstName,LastName,Address,City,State,PostalCode,Email,Id,RolesList")] EditUserViewModel editUser, params string[] selectedRole)
         {
             if (ModelState.IsValid)
             {
@@ -166,6 +207,12 @@ namespace IdentitySample.Controllers
 
                 user.UserName = editUser.Email;
                 user.Email = editUser.Email;
+                user.FirstName = editUser.FirstName;
+                user.LastName = editUser.LastName;
+                user.Address = editUser.Address;
+                user.City = editUser.City;
+                user.State = editUser.State;
+                user.PostalCode = editUser.PostalCode;
 
                 var userRoles = await UserManager.GetRolesAsync(user.Id);
 
