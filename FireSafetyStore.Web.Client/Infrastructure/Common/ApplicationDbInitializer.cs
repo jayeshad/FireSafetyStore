@@ -30,11 +30,10 @@ namespace FireSafetyStore.Web.Client.Infrastructure.Common
             var systemRoles = new[] { "Admin", "Employee", "Customer" };
             const string name = "admin@firesafe.com";
             const string password = "Admin@123";
-            const string roleName = "Admin";
-            IdentityRole role = null;
+            
             //Create Role Admin if it does not exist
             systemRoles.ToList().ForEach(x => {
-                role = roleManager.FindByName(x);
+                var role = roleManager.FindByName(x);
                 if (role == null)
                 {
                     role = new IdentityRole(x);
@@ -52,9 +51,10 @@ namespace FireSafetyStore.Web.Client.Infrastructure.Common
             }
 
             // Add user admin to Role Admin if not already added
+            IdentityRole adminRole = roleManager.FindByName(FireSafetyAppConstants.AdminRoleName);            
             var rolesForUser = userManager.GetRoles(user.Id);
-            if (!rolesForUser.Contains(role.Name)) {
-                var result = userManager.AddToRole(user.Id, role.Name);
+            if (!rolesForUser.Contains(adminRole.Name)) {
+                var result = userManager.AddToRole(user.Id, adminRole.Name);
             }
         }
     }
