@@ -55,7 +55,8 @@ namespace FireSafetyStore.Web.Client.Controllers
         // GET: /Users/
         public async Task<ActionResult> Index()
         {
-            return View(await UserManager.Users.ToListAsync());
+            var employeeRole = await RoleManager.Roles.FirstOrDefaultAsync(x => x.Name == FireSafetyAppConstants.CustomerRoleName);
+            return View(await UserManager.Users.Where(x => x.Roles.Select(y => y.RoleId).Contains(employeeRole.Id)).ToListAsync());
         }
 
         //
@@ -192,7 +193,7 @@ namespace FireSafetyStore.Web.Client.Controllers
         // POST: /Users/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "FirstName,LastName,Address,City,State,PostalCode,Email,Id,RolesList")] EditUserViewModel editUser, params string[] selectedRole)
+        public async Task<ActionResult> Edit([Bind(Include = "FirstName,LastName,Address,City,State,PostalCode,Email,Id,RolesList")] EditUserViewModel editUser)
         {
             if (ModelState.IsValid)
             {
@@ -213,7 +214,7 @@ namespace FireSafetyStore.Web.Client.Controllers
 
                 var userRoles = await UserManager.GetRolesAsync(user.Id);
 
-                selectedRole = selectedRole ?? new string[] { };
+                var selectedRole = userRoles.ToArray();
 
                 var result = await UserManager.AddToRolesAsync(user.Id, selectedRole.Except(userRoles).ToArray<string>());
 

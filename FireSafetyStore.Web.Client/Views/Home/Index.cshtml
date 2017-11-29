@@ -7,7 +7,7 @@
 
 <div class="row">
     <div class="col-md-4">
-        <dl>
+        @*<dl>
             <dt>Initialize ASP.NET Identity</dt>
             <dd>
                 You can initialize ASP.NET Identity when the application starts. Since ASP.NET Identity is Entity Framework based in this sample,
@@ -21,10 +21,10 @@
                     <li>Add Admin user to Admin role</li>
                 </ul>
             </dd>
-        </dl>
+        </dl>*@
     </div>
     <div class="col-md-4">
-        <dl>
+        @*<dl>
             <dt>Add profile data for the user</dt>
             <dd>
                 <a href="http://blogs.msdn.com/b/webdev/archive/2013/10/16/customizing-profile-information-in-asp-net-identity-in-vs-2013-templates.aspx">Please follow this tutorial.</a>
@@ -34,29 +34,29 @@
                     <li>Look in Models\IdentityModels.cs for examples</li>
                 </ul>
             </dd>
-        </dl>
+        </dl>*@
     </div>
     <div class="col-md-4">
-        <dl>
+        @*<dl>
             <dt>Validation</dt>
             <dd>
                 When you create a User using a username or password, the Identity system performs validation on the username and password, and the passwords are hashed before they are
                 stored in the database. You can customize the validation by changing some of the properties of the validators such as Turn alphanumeric on/off, set minimum password length
                 or you can write your own custom validators and register them with the UserManager.
             </dd>
-        </dl>
+        </dl>*@
     </div>
     <div class="col-md-4">
-        <dl>
+        @*<dl>
             <dt>Register a user and login</dt>
             <dd>
                 Click @Html.ActionLink("Register", "Register", "Account") and see the code in AccountController.cs and Register Action.
                 Click @Html.ActionLink("Log in", "Login", "Account") and see the code in AccountController.cs and Login Action.
             </dd>
-        </dl>
+        </dl>*@
     </div>
     <div class="col-md-4">
-        <dl>
+        @*<dl>
             <dt>Social Logins</dt>
             <dd>
                 You can the support so that users can login using their Facebook, Google, Twitter, Microsoft Account and more.
@@ -71,29 +71,29 @@
                     </li>
                 </ul>
             </dd>
-        </dl>
+        </dl>*@
     </div>
     <div class="col-md-4">
-        <dl>
+        @*<dl>
             <dt>Basic User Management</dt>
             <dd>
                 Do Create, Update, List and Delete Users.
                 Assign a Role to a User.
                 Only Users In Role Admin can access this page. This uses the [Authorize(Roles = "Admin")] on the Employee controller.
             </dd>
-        </dl>
+        </dl>*@
     </div>
     <div class="col-md-4">
-        <dl>
+        @*<dl>
             <dt>Basic Role Management</dt>
             <dd>
                 Do Create, Update, List and Delete Roles.
                 Only Users In Role Admin can access this page. This authorization is doen by using the [Authorize(Roles = "Admin")] on the RolesAdmin controller.
             </dd>
-        </dl>
+        </dl>*@
     </div>
     <div class="col-md-4">
-        <dl>
+        @*<dl>
             <dt>Account Confirmation</dt>
             <dd>
                 When you register a new account, you will be sent an email confirmation.
@@ -101,10 +101,10 @@
                 set up an SMTP server to send email.
                 You can send email using the EmailService which is registered in App_Start\IdentityConfig.cs
             </dd>
-        </dl>
+        </dl>*@
     </div>
     <div class="col-md-4">
-        <dl>
+        @*<dl>
             <dt>Two-Factor Authentication</dt>
             <dd>
                 This sample shows how you can use Two-Factor authentication. This sample has a SMS and email service registered where you can send SMS or email for sending the security code.
@@ -146,10 +146,10 @@
                     </li>
                 </ul>
             </dd>
-        </dl>
+        </dl>*@
     </div>
     <div class="col-md-4">
-        <dl>
+        @*<dl>
             <dt>Account Lockout</dt>
             <dd>
                 Provide a way to Lockout out the user if the user enters their password or two-factor codes incorrectly.
@@ -159,10 +159,10 @@
             <ul>
                 <li>Account LockOut settings can be configured in the UserManager in IdentityConfig.cs</li>
             </ul>
-        </dl>
+        </dl>*@
     </div>
     <div class="col-md-4">
-        <dl>
+        @*<dl>
             <dt>Security Token provider</dt>
             <dd>
                 Support a way to regenerate the Security Token for the user in cases when the User changes there password or any other security related information such as removing an associated login(such as Facebook, Google, Microsoft Account etc).
@@ -174,18 +174,18 @@
                     <li>The provider is registered when you add CookieAuthentication in StartupAuth to your application.</li>
                 </ul>
             </dd>
-        </dl>
+        </dl>*@
     </div>
     <div class="col-md-4">
-        <dl>
+        @*<dl>
             <dt>Password Reset</dt>
             <dd>
                 Allows the user to reset their passwords if they have forgotten their password. In this sample users need to confirm their email before they can reset their passwords.
             </dd>
-        </dl>
+        </dl>*@
     </div>
     <div class="col-md-4">
-        <dl>
+        @*<dl>
             <dt>Custom Storage providers</dt>
             <dd>
                 You can extend ASP.NET Identity to write your own custom storage provider for storing the ASP.NET Identity system and user data
@@ -200,10 +200,10 @@
                     </li>
                 </ul>
             </dd>
-        </dl>
+        </dl>*@
     </div>
     <div class="col-md-4">
-        <dl>
+        @*<dl>
             <dt>Documentation</dt>
             <dd>
                 <ul>
@@ -224,6 +224,6 @@
                     </li>
                 </ul>
             </dd>
-        </dl>
+        </dl>*@
     </div>
 </div>

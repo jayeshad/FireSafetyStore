@@ -12,6 +12,7 @@ using System.Web;
 using System.Web.Mvc;
 using FireSafetyStore.Web.Client.Infrastructure.Security;
 using FireSafetyStore.Web.Client.Infrastructure.Common;
+using FireSafetyStore.Web.Client.Infrastructure.DbContext;
 
 namespace IdentitySample.Controllers
 {
@@ -57,27 +58,17 @@ namespace IdentitySample.Controllers
 
         //
         // GET: /Users/
-        public async Task<ActionResult> Index()
-        {
-            return View(await UserManager.Users.ToListAsync());
-        }
-
-        //
-        // GET: /Users/
         //public async Task<ActionResult> Index()
         //{
-        //    using (var dbcontext = new FiresafeDbContext())
-        //    {
-        //        var roles = await dbcontext.AspNetRoles.Where(x => x.Name == FireSafetyAppConstants.EmployeeRoleName).ToListAsync();
-        //        var users = await dbcontext.AspNetUsers.ToListAsync();
-        //        var usersInRole = (from u in users
-        //                           join r in roles on u. equals sl.id
-        //                           where sl.id = s.id
-        //                           select s).ToList();
-        //    }
-
-        //    return View(await UserManager.Users.Where(x => x.Roles == employeeRole).ToListAsync());
+        //    return View(await UserManager.Users.ToListAsync());
         //}
+
+
+        public async Task<ActionResult> Index()
+        {
+            var employeeRole = await RoleManager.Roles.FirstOrDefaultAsync(x => x.Name == FireSafetyAppConstants.EmployeeRoleName);
+            return View(await UserManager.Users.Where(x => x.Roles.Select(y => y.RoleId).Contains(employeeRole.Id)).ToListAsync());
+        }
 
         //
         // GET: /Users/Details/5
@@ -98,16 +89,7 @@ namespace IdentitySample.Controllers
         // GET: /Users/Create
         public async Task<ActionResult> Create()
         {
-            var vm = new RegisterViewModel
-            {
-                RolesList = RoleManager.Roles.Where(x => x.Name == FireSafetyAppConstants.EmployeeRoleName).ToList().Select(x => new SelectListItem()
-                {
-                    Selected = true,
-                    Text = x.Name,
-                    Value = x.Name
-                })
-            };
-            //Get the list of Roles
+            var vm = PopulateEmployeeRole();
            return View(vm);
         }
 
@@ -212,7 +194,7 @@ namespace IdentitySample.Controllers
         // POST: /Users/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "FirstName,LastName,Address,City,State,PostalCode,Email,Id,RolesList")] EditUserViewModel editUser, params string[] selectedRole)
+        public async Task<ActionResult> Edit([Bind(Include = "FirstName,LastName,Address,City,State,PostalCode,Email,Id,RolesList")] EditUserViewModel editUser)
         {
             if (ModelState.IsValid)
             {
@@ -232,9 +214,7 @@ namespace IdentitySample.Controllers
                 user.PostalCode = editUser.PostalCode;
 
                 var userRoles = await UserManager.GetRolesAsync(user.Id);
-
-                selectedRole = selectedRole ?? new string[] { };
-
+                var selectedRole = userRoles.ToArray();
                 var result = await UserManager.AddToRolesAsync(user.Id, selectedRole.Except(userRoles).ToArray<string>());
 
                 if (!result.Succeeded)

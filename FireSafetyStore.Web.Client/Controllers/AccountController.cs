@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using FireSafetyStore.Web.Client.Infrastructure.Security;
+using FireSafetyStore.Web.Client.Infrastructure.Common;
 
 namespace IdentitySample.Controllers
 {
@@ -36,6 +37,19 @@ namespace IdentitySample.Controllers
             private set
             {
                 _userManager = value;
+            }
+        }
+
+        private ApplicationRoleManager _roleManager;
+        public ApplicationRoleManager RoleManager
+        {
+            get
+            {
+                return _roleManager ?? HttpContext.GetOwinContext().Get<ApplicationRoleManager>();
+            }
+            private set
+            {
+                _roleManager = value;
             }
         }
 
@@ -161,9 +175,18 @@ namespace IdentitySample.Controllers
                     UserName = model.Email,
                     Email = model.Email
                 };
+                var selectedRole = RoleManager.Roles.Where(x => x.Name == FireSafetyAppConstants.CustomerRoleName).Select(x => x.Name).ToArray();
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    if (selectedRole != null)
+                    {
+                        var roleresult = await UserManager.AddToRolesAsync(user.Id, selectedRole);
+                        if (!roleresult.Succeeded)
+                        {
+                            ModelState.AddModelError("", result.Errors.First());
+                        }
+                    }
                     var code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking this link: <a href=\"" + callbackUrl + "\">link</a>");
