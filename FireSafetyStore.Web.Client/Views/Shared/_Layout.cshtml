@@ -37,9 +37,9 @@
                     }
                     @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                     {
-                        <li>@Html.ActionLink("Role Management", "Index", "RolesAdmin")</li>
-                        <li>@Html.ActionLink("User Management", "Index", "UsersAdmin")</li>
-                        <li>@Html.ActionLink("Staff Registration", "Index", "Employee")</li>
+                        <li>@Html.ActionLink("Roles", "Index", "RolesAdmin")</li>
+                        <li>@Html.ActionLink("Employees", "Index", "Employee")</li>
+                        <li>@Html.ActionLink("Customers", "Index", "Customer")</li>
                     }                    
                 </ul>
                 @Html.Partial("_LoginPartial")

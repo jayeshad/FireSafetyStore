@@ -4,5 +4,6 @@
     {
         public const string AdminRoleName = "Admin";
         public const string EmployeeRoleName = "Employee";
+        public const string CustomerRoleName = "Customer";
     }
 }

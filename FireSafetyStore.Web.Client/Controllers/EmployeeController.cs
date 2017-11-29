@@ -1,27 +1,32 @@
-﻿using FireSafetyStore.Web.Client.Infrastructure.DbContext;
-using FireSafetyStore.Web.Client.Infrastructure.Security;
-using FireSafetyStore.Web.Client.Models;
+﻿using FireSafetyStore.Web.Client.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using FireSafetyStore.Web.Client.Infrastructure.Security;
+using FireSafetyStore.Web.Client.Infrastructure.Common;
 
-namespace FireSafetyStore.Web.Client.Controllers
+namespace IdentitySample.Controllers
 {
+
+    [Authorize(Roles = "Admin")]
     public class EmployeeController : Controller
     {
-        private const string EmployeeRoleConstant = "Employee";
         public EmployeeController()
         {
         }
 
-        public EmployeeController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
+        public EmployeeController(ApplicationUserManager userManager, ApplicationRoleManager roleManager)
         {
             UserManager = userManager;
+            RoleManager = roleManager;
         }
 
         private ApplicationUserManager _userManager;
@@ -37,6 +42,43 @@ namespace FireSafetyStore.Web.Client.Controllers
             }
         }
 
+        private ApplicationRoleManager _roleManager;
+        public ApplicationRoleManager RoleManager
+        {
+            get
+            {
+                return _roleManager ?? HttpContext.GetOwinContext().Get<ApplicationRoleManager>();
+            }
+            private set
+            {
+                _roleManager = value;
+            }
+        }
+
+        //
+        // GET: /Users/
+        public async Task<ActionResult> Index()
+        {
+            return View(await UserManager.Users.ToListAsync());
+        }
+
+        //
+        // GET: /Users/
+        //public async Task<ActionResult> Index()
+        //{
+        //    using (var dbcontext = new FiresafeDbContext())
+        //    {
+        //        var roles = await dbcontext.AspNetRoles.Where(x => x.Name == FireSafetyAppConstants.EmployeeRoleName).ToListAsync();
+        //        var users = await dbcontext.AspNetUsers.ToListAsync();
+        //        var usersInRole = (from u in users
+        //                           join r in roles on u. equals sl.id
+        //                           where sl.id = s.id
+        //                           select s).ToList();
+        //    }
+
+        //    return View(await UserManager.Users.Where(x => x.Roles == employeeRole).ToListAsync());
+        //}
+
         //
         // GET: /Users/Details/5
         public async Task<ActionResult> Details(string id)
@@ -50,6 +92,85 @@ namespace FireSafetyStore.Web.Client.Controllers
             ViewBag.RoleNames = await UserManager.GetRolesAsync(user.Id);
 
             return View(user);
+        }
+
+        //
+        // GET: /Users/Create
+        public async Task<ActionResult> Create()
+        {
+            var vm = new RegisterViewModel
+            {
+                RolesList = RoleManager.Roles.Where(x => x.Name == FireSafetyAppConstants.EmployeeRoleName).ToList().Select(x => new SelectListItem()
+                {
+                    Selected = true,
+                    Text = x.Name,
+                    Value = x.Name
+                })
+            };
+            //Get the list of Roles
+           return View(vm);
+        }
+
+        //
+        // POST: /Users/Create
+        [HttpPost]
+        public async Task<ActionResult> Create(RegisterViewModel userViewModel)
+        {
+            var vm = PopulateEmployeeRole();
+            if (ModelState.IsValid)
+            {
+                var user = MapUserModel(userViewModel);
+                var adminresult = await UserManager.CreateAsync(user, userViewModel.Password);
+                var selectedRole = RoleManager.Roles.Where(x => x.Name == FireSafetyAppConstants.EmployeeRoleName).Select(x => x.Name).ToArray();
+                //Add User to the selected Roles 
+                if (adminresult.Succeeded)
+                {
+                    if (selectedRole != null)
+                    {
+                        var result = await UserManager.AddToRolesAsync(user.Id, selectedRole);
+                        if (!result.Succeeded)
+                        {
+                            ModelState.AddModelError("", result.Errors.First());
+                            ViewBag.RoleId = new SelectList(await RoleManager.Roles.ToListAsync(), "Name", "Name");
+                            return View();
+                        }
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("", adminresult.Errors.First());                    
+                    return View(vm);
+                }
+                return RedirectToAction("Index");
+            }
+            return View(vm);
+        }
+
+        private ApplicationUser MapUserModel(RegisterViewModel vm)
+        {
+            return new ApplicationUser
+            {
+                FirstName = vm.FirstName,
+                LastName = vm.LastName,
+                Address = vm.Address,
+                City = vm.City,
+                State =vm.State,
+                PostalCode = vm.PostalCode,
+                UserName = vm.Email,
+                Email = vm.Email };
+        }
+
+        private RegisterViewModel PopulateEmployeeRole()
+        {
+            return new RegisterViewModel
+            {
+                RolesList = RoleManager.Roles.Where(x => x.Name == FireSafetyAppConstants.EmployeeRoleName).ToList().Select(x => new SelectListItem()
+                {
+                    Selected = true,
+                    Text = x.Name,
+                    Value = x.Name
+                })
+            };
         }
 
         //
@@ -68,108 +189,115 @@ namespace FireSafetyStore.Web.Client.Controllers
 
             var userRoles = await UserManager.GetRolesAsync(user.Id);
 
-            return View(new RegisterViewModel()
+            return View(new EditUserViewModel()
             {
+                Id = user.Id,
+                Email = user.Email,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 Address = user.Address,
                 City = user.City,
                 State = user.State,
-                PostalCode = user.PostalCode                
+                PostalCode = user.PostalCode,
+                RolesList = RoleManager.Roles.Where(x=>x.Name == FireSafetyAppConstants.EmployeeRoleName).ToList().Select(x => new SelectListItem()
+                {
+                    Selected = true,
+                    Text = x.Name,
+                    Value = x.Name
+                })
             });
         }
 
-        private ApplicationRoleManager _roleManager;
-        public ApplicationRoleManager RoleManager
-        {
-            get
-            {
-                return _roleManager ?? HttpContext.GetOwinContext().Get<ApplicationRoleManager>();
-            }
-            private set
-            {
-                _roleManager = value;
-            }
-        }
-
-        public async Task<ActionResult> Index()
-        {
-            //using (var context = new ApplicationDbContext())
-            //{ var ff = (from u in context.Users join r in context.Roles on u.Roles)
-            //}
-
-            var roles = RoleManager.Roles.Where(x => x.Name == EmployeeRoleConstant).ToList();
-            return View(await UserManager.Users.ToListAsync());
-        }
-
-
         //
-        // GET: /Employee/Register
-        [AllowAnonymous]
-        public ActionResult Register()
-        {
-            return View(new RegisterViewModel());
-        }
-
-        //
-        // POST: /Employee/Register
+        // POST: /Users/Edit/5
         [HttpPost]
-        [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
+        public async Task<ActionResult> Edit([Bind(Include = "FirstName,LastName,Address,City,State,PostalCode,Email,Id,RolesList")] EditUserViewModel editUser, params string[] selectedRole)
         {
             if (ModelState.IsValid)
             {
-                
-                var user = new ApplicationUser
+                var user = await UserManager.FindByIdAsync(editUser.Id);
+                if (user == null)
                 {
-                    FirstName = model.FirstName,
-                    LastName = model.LastName,
-                    Address = model.Address,
-                    City = model.City,
-                    State = model.State,
-                    PostalCode = model.PostalCode,
-                    UserName = model.Email,
-                    Email = model.Email
-                };
-                var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
-                {
-                    var status = await AssignDefaultRole(user.Id, EmployeeRoleConstant);
-                    if(status.Succeeded)
-                    {
-                        var code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                        var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                        await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking this link: <a href=\"" + callbackUrl + "\">link</a>");
-                        ViewBag.Link = callbackUrl;
-                        return View("DisplayEmail");
-                    }
+                    return HttpNotFound();
                 }
-                AddErrors(result);
-            }
 
-            // If we got this far, something failed, redisplay form
-            return View(model);
+                user.UserName = editUser.Email;
+                user.Email = editUser.Email;
+                user.FirstName = editUser.FirstName;
+                user.LastName = editUser.LastName;
+                user.Address = editUser.Address;
+                user.City = editUser.City;
+                user.State = editUser.State;
+                user.PostalCode = editUser.PostalCode;
+
+                var userRoles = await UserManager.GetRolesAsync(user.Id);
+
+                selectedRole = selectedRole ?? new string[] { };
+
+                var result = await UserManager.AddToRolesAsync(user.Id, selectedRole.Except(userRoles).ToArray<string>());
+
+                if (!result.Succeeded)
+                {
+                    ModelState.AddModelError("", result.Errors.First());
+                    return View();
+                }
+                result = await UserManager.RemoveFromRolesAsync(user.Id, userRoles.Except(selectedRole).ToArray<string>());
+
+                if (!result.Succeeded)
+                {
+                    ModelState.AddModelError("", result.Errors.First());
+                    return View();
+                }
+                return RedirectToAction("Index");
+            }
+            ModelState.AddModelError("", "Something failed.");
+            return View();
         }
 
-        private async Task<IdentityResult> AssignDefaultRole(string userId, string role)
+        //
+        // GET: /Users/Delete/5
+        public async Task<ActionResult> Delete(string id)
         {
-            var result = await UserManager.AddToRolesAsync(userId, role);
-            if (!result.Succeeded)
+            if (id == null)
             {
-                ModelState.AddModelError("", result.Errors.First());
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            return result;
-        }       
-
-
-        private void AddErrors(IdentityResult result)
-        {
-            foreach (var error in result.Errors)
+            var user = await UserManager.FindByIdAsync(id);
+            if (user == null)
             {
-                ModelState.AddModelError("", error);
+                return HttpNotFound();
             }
+            return View(user);
         }
 
+        //
+        // POST: /Users/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> DeleteConfirmed(string id)
+        {
+            if (ModelState.IsValid)
+            {
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+
+                var user = await UserManager.FindByIdAsync(id);
+                if (user == null)
+                {
+                    return HttpNotFound();
+                }
+                var result = await UserManager.DeleteAsync(user);
+                if (!result.Succeeded)
+                {
+                    ModelState.AddModelError("", result.Errors.First());
+                    return View();
+                }
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
     }
 }

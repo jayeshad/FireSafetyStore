@@ -1,29 +1,25 @@
-﻿using FireSafetyStore.Web.Client.Models;
+﻿using FireSafetyStore.Web.Client.Infrastructure.Common;
+using FireSafetyStore.Web.Client.Infrastructure.DbContext;
+using FireSafetyStore.Web.Client.Infrastructure.Security;
+using FireSafetyStore.Web.Client.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
-using Microsoft.AspNet.Identity.EntityFramework;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using FireSafetyStore.Web.Client.Infrastructure.Security;
-using FireSafetyStore.Web.Client.Infrastructure.Common;
 
-namespace IdentitySample.Controllers
+namespace FireSafetyStore.Web.Client.Controllers
 {
-
-    [Authorize(Roles = "Admin")]
-    public class UsersAdminController : Controller
+    public class CustomerController : Controller
     {
-        public UsersAdminController()
+        public CustomerController()
         {
         }
 
-        public UsersAdminController(ApplicationUserManager userManager, ApplicationRoleManager roleManager)
+        public CustomerController(ApplicationUserManager userManager, ApplicationRoleManager roleManager)
         {
             UserManager = userManager;
             RoleManager = roleManager;
@@ -83,7 +79,7 @@ namespace IdentitySample.Controllers
         {
             var vm = new RegisterViewModel
             {
-                RolesList = RoleManager.Roles.Where(x => x.Name == FireSafetyAppConstants.EmployeeRoleName).ToList().Select(x => new SelectListItem()
+                RolesList = RoleManager.Roles.Where(x => x.Name == FireSafetyAppConstants.CustomerRoleName).ToList().Select(x => new SelectListItem()
                 {
                     Selected = true,
                     Text = x.Name,
@@ -91,7 +87,7 @@ namespace IdentitySample.Controllers
                 })
             };
             //Get the list of Roles
-           return View(vm);
+            return View(vm);
         }
 
         //
@@ -104,7 +100,7 @@ namespace IdentitySample.Controllers
             {
                 var user = MapUserModel(userViewModel);
                 var adminresult = await UserManager.CreateAsync(user, userViewModel.Password);
-                var selectedRole = RoleManager.Roles.Where(x => x.Name == FireSafetyAppConstants.EmployeeRoleName).Select(x => x.Name).ToArray();
+                var selectedRole = RoleManager.Roles.Where(x => x.Name == FireSafetyAppConstants.CustomerRoleName).Select(x => x.Name).ToArray();
                 //Add User to the selected Roles 
                 if (adminresult.Succeeded)
                 {
@@ -121,7 +117,7 @@ namespace IdentitySample.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", adminresult.Errors.First());                    
+                    ModelState.AddModelError("", adminresult.Errors.First());
                     return View(vm);
                 }
                 return RedirectToAction("Index");
@@ -137,17 +133,18 @@ namespace IdentitySample.Controllers
                 LastName = vm.LastName,
                 Address = vm.Address,
                 City = vm.City,
-                State =vm.State,
+                State = vm.State,
                 PostalCode = vm.PostalCode,
                 UserName = vm.Email,
-                Email = vm.Email };
+                Email = vm.Email
+            };
         }
 
         private RegisterViewModel PopulateEmployeeRole()
         {
             return new RegisterViewModel
             {
-                RolesList = RoleManager.Roles.Where(x => x.Name == FireSafetyAppConstants.EmployeeRoleName).ToList().Select(x => new SelectListItem()
+                RolesList = RoleManager.Roles.Where(x => x.Name == FireSafetyAppConstants.CustomerRoleName).ToList().Select(x => new SelectListItem()
                 {
                     Selected = true,
                     Text = x.Name,
@@ -182,7 +179,7 @@ namespace IdentitySample.Controllers
                 City = user.City,
                 State = user.State,
                 PostalCode = user.PostalCode,
-                RolesList = RoleManager.Roles.Where(x=>x.Name == FireSafetyAppConstants.EmployeeRoleName).ToList().Select(x => new SelectListItem()
+                RolesList = RoleManager.Roles.Where(x => x.Name == FireSafetyAppConstants.CustomerRoleName).ToList().Select(x => new SelectListItem()
                 {
                     Selected = true,
                     Text = x.Name,
@@ -282,5 +279,6 @@ namespace IdentitySample.Controllers
             }
             return View();
         }
+
     }
 }

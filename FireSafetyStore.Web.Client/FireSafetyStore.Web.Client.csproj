@@ -52,7 +52,10 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -196,10 +199,16 @@
     <Compile Include="Infrastructure\Common\FireSafetyAppConstants.cs" />
     <Compile Include="Infrastructure\Common\SmsService.cs" />
     <Compile Include="Infrastructure\Common\EmailService.cs" />
+    <Compile Include="Infrastructure\DbContext\AspNetRole.cs" />
+    <Compile Include="Infrastructure\DbContext\AspNetUser.cs" />
+    <Compile Include="Infrastructure\DbContext\AspNetUserClaim.cs" />
+    <Compile Include="Infrastructure\DbContext\AspNetUserLogin.cs" />
+    <Compile Include="Infrastructure\DbContext\C__MigrationHistory.cs" />
+    <Compile Include="Infrastructure\DbContext\FiresafeDbContext.cs" />
     <Compile Include="Infrastructure\Security\ApplicationSignInManager.cs" />
     <Compile Include="Infrastructure\Security\ApplicationRoleManager.cs" />
     <Compile Include="Infrastructure\Security\ApplicationUserManager.cs" />
-    <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Infrastructure\Common\ApplicationDbInitializer.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -210,7 +219,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
-    <Compile Include="Controllers\UserAdminController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -300,20 +309,22 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\UsersAdmin\Index.cshtml" />
-    <Content Include="Views\UsersAdmin\Edit.cshtml" />
-    <Content Include="Views\UsersAdmin\Details.cshtml" />
-    <Content Include="Views\UsersAdmin\Delete.cshtml" />
-    <Content Include="Views\UsersAdmin\Create.cshtml" />
+    <Content Include="Views\Employee\Index.cshtml" />
+    <Content Include="Views\Employee\Edit.cshtml" />
+    <Content Include="Views\Employee\Details.cshtml" />
+    <Content Include="Views\Employee\Delete.cshtml" />
+    <Content Include="Views\Employee\Create.cshtml" />
     <Content Include="Views\RolesAdmin\Index.cshtml" />
     <Content Include="Views\RolesAdmin\Edit.cshtml" />
     <Content Include="Views\RolesAdmin\Details.cshtml" />
     <Content Include="Views\RolesAdmin\Delete.cshtml" />
     <Content Include="Views\RolesAdmin\Create.cshtml" />
     <Content Include="Views\Account\DisplayEmail.cshtml" />
-    <Content Include="Views\Employee\Register.cshtml" />
-    <Content Include="Views\Employee\Index.cshtml" />
-    <Content Include="Views\Employee\Edit.cshtml" />
+    <Content Include="Views\Customer\Create.cshtml" />
+    <Content Include="Views\Customer\Delete.cshtml" />
+    <Content Include="Views\Customer\Details.cshtml" />
+    <Content Include="Views\Customer\Edit.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -336,6 +347,9 @@
     <EmbeddedResource Include="Migrations\201711221640285_FirstName.resx">
       <DependentUpon>201711221640285_FirstName.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

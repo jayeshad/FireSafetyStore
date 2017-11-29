@@ -6,6 +6,7 @@ using System.Web;
 using FireSafetyStore.Web.Client.Infrastructure.Security;
 using FireSafetyStore.Web.Client.Infrastructure.DbContext;
 using FireSafetyStore.Web.Client.Models;
+using System.Linq;
 
 namespace FireSafetyStore.Web.Client.Infrastructure.Common
 {
@@ -26,16 +27,22 @@ namespace FireSafetyStore.Web.Client.Infrastructure.Common
         {
             var userManager = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var roleManager = HttpContext.Current.GetOwinContext().Get<ApplicationRoleManager>();
+            var systemRoles = new[] { "Admin", "Employee", "Customer" };
             const string name = "admin@firesafe.com";
             const string password = "Admin@123";
             const string roleName = "Admin";
-
+            IdentityRole role = null;
             //Create Role Admin if it does not exist
-            var role = roleManager.FindByName(roleName);
-            if (role == null) {
-                role = new IdentityRole(roleName);
-                var roleresult = roleManager.Create(role);
-            }
+            systemRoles.ToList().ForEach(x => {
+                role = roleManager.FindByName(x);
+                if (role == null)
+                {
+                    role = new IdentityRole(x);
+                    var roleresult = roleManager.Create(role);
+                }
+            });
+            
+            
 
             var user = userManager.FindByName(name);
             if (user == null) {
