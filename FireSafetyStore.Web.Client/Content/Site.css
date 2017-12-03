@@ -11,6 +11,9 @@
     width: 470px;
     background-image: url('../Content/images/logo.gif') !important;
 }
+.bg-white {
+    background-color:white;
+}
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
