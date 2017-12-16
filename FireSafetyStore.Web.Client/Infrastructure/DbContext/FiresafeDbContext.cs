@@ -16,7 +16,10 @@ namespace FireSafetyStore.Web.Client.Infrastructure.DbContext
         public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
         public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
-
+        public virtual DbSet<Brand> Brands { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<UnitMaster> UnitMasters { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<AspNetRole>()
@@ -33,6 +36,21 @@ namespace FireSafetyStore.Web.Client.Infrastructure.DbContext
                 .HasMany(e => e.AspNetUserLogins)
                 .WithRequired(e => e.AspNetUser)
                 .HasForeignKey(e => e.UserId);
+
+            modelBuilder.Entity<Brand>()
+                .HasMany(e => e.Products)
+                .WithRequired(e => e.Brand)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Category>()
+                .HasMany(e => e.Products)
+                .WithRequired(e => e.Category)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<UnitMaster>()
+                .HasMany(e => e.Products)
+                .WithRequired(e => e.UnitMaster)
+                .WillCascadeOnDelete(false);
         }
     }
 }

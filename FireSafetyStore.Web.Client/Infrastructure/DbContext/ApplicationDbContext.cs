@@ -8,7 +8,7 @@ namespace FireSafetyStore.Web.Client.Infrastructure.DbContext
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext() : base("FireSafetyDB", throwIfV1Schema: false)
+        public ApplicationDbContext() : base("FiresafeDbContext", throwIfV1Schema: false)
         {
         }
 
