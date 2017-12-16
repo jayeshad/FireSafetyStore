@@ -2,6 +2,7 @@ namespace FireSafetyStore.Web.Client
 {
     using System;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
     using System.Web;
 
     public partial class Product
@@ -29,9 +30,9 @@ namespace FireSafetyStore.Web.Client
 
         [Required]
         [StringLength(2500)]
-        public string ImageUrl { get; set; }
-        
-        //[Required, Microsoft.Web.Mvc.FileExtensions(Extensions = "csv",ErrorMessage = "Specify a CSV file. (Comma-separated values)")]
+        public byte[] Image { get; set; }
+
+        [NotMapped]
         public HttpPostedFileBase File { get; set; }
 
         public int Stock { get; set; }

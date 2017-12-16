@@ -9,6 +9,8 @@ using System.Web;
 using System.Web.Mvc;
 using FireSafetyStore.Web.Client;
 using FireSafetyStore.Web.Client.Infrastructure.DbContext;
+using FireSafetyStore.Web.Client.Infrastructure.Common;
+using System.Web.Hosting;
 
 namespace FireSafetyStore.Web.Client.Controllers
 {
@@ -58,6 +60,7 @@ namespace FireSafetyStore.Web.Client.Controllers
             {
                 product.ItemId = Guid.NewGuid();
                 product.UpdatedAt = DateTime.UtcNow;
+                product.Image = product.File.GetByteArray();
                 product.IsActive = true;
                 db.Products.Add(product);
                 await db.SaveChangesAsync();
@@ -68,6 +71,11 @@ namespace FireSafetyStore.Web.Client.Controllers
             ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Description", product.CategoryId);
             ViewBag.UnitId = new SelectList(db.UnitMasters, "UnitId", "Description", product.UnitId);
             return View(product);
+        }
+
+        private string GenerateFileName(string fileStore)
+        {
+            return string.Format("{0}.jpeg",Guid.NewGuid().ToString("N"));
         }
 
         // GET: Products/Edit/5
