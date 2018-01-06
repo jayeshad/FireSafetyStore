@@ -280,6 +280,11 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\logo.gif" />
     <Content Include="favicon.ico" />
+    <Content Include="FileStore\A.jpg" />
+    <Content Include="FileStore\B.jpg" />
+    <Content Include="FileStore\D.jpg" />
+    <Content Include="FileStore\E.jpg" />
+    <Content Include="FileStore\F.jpg" />
     <Content Include="FileStore\Firensafety.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
