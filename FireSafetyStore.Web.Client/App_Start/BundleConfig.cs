@@ -11,7 +11,7 @@ namespace IdentitySample
                         "~/Scripts/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/popper").Include(
-                        "~/Scripts/umd/popper.js"));
+                        "~/Scripts/umd/popper.js", "~/Scripts/holder.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
