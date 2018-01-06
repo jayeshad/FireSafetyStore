@@ -28,12 +28,12 @@ namespace FireSafetyStore.Web.Client
 
         public decimal Rate { get; set; }
 
-        [Required]
-        [StringLength(2500)]
         public byte[] Image { get; set; }
-
-        [NotMapped]
-        public HttpPostedFileBase File { get; set; }
+        
+        //[NotMapped]
+        //[Required(ErrorMessage = "Upload Image")]
+        //[RegularExpression(@"([a-zA-Z0-9\s_\\.\-:])+(.png|.jpg|.gif)$", ErrorMessage = "Only Image files allowed.")]
+        //public HttpPostedFileBase File { get; set; }
 
         public int Stock { get; set; }
 

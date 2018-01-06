@@ -11,6 +11,7 @@ using FireSafetyStore.Web.Client;
 using FireSafetyStore.Web.Client.Infrastructure.DbContext;
 using FireSafetyStore.Web.Client.Infrastructure.Common;
 using System.Web.Hosting;
+using System.IO;
 
 namespace FireSafetyStore.Web.Client.Controllers
 {
@@ -54,13 +55,13 @@ namespace FireSafetyStore.Web.Client.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ItemId,ItemName,Description,BrandId,CategoryId,UnitId,Rate,ImageUrl,Stock,UpdatedAt,IsActive")] Product product)
+        public async Task<ActionResult> Create(Product product)
         {
             if (ModelState.IsValid)
             {
                 product.ItemId = Guid.NewGuid();
                 product.UpdatedAt = DateTime.UtcNow;
-                product.Image = product.File.GetByteArray();
+                //product.Image = GetByteArray(product.);
                 product.IsActive = true;
                 db.Products.Add(product);
                 await db.SaveChangesAsync();
@@ -71,6 +72,33 @@ namespace FireSafetyStore.Web.Client.Controllers
             ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Description", product.CategoryId);
             ViewBag.UnitId = new SelectList(db.UnitMasters, "UnitId", "Description", product.UnitId);
             return View(product);
+        }
+
+        [HttpPost]
+        public ActionResult UploadFile(HttpPostedFileBase file)
+        {
+            try
+            {
+                if (file.ContentLength > 0)
+                {
+                    string _FileName = Path.GetFileName(file.FileName);
+                    string _path = Path.Combine(Server.MapPath("~/FileStore"), _FileName);
+                    file.SaveAs(_path);
+                }
+                ViewBag.Message = "File Uploaded Successfully!!";
+                return View();
+            }
+            catch
+            {
+                ViewBag.Message = "File upload failed!!";
+                return View();
+            }
+        }
+
+        [HttpGet]
+        public ActionResult UploadFile()
+        {
+            return View();
         }
 
         private string GenerateFileName(string fileStore)
@@ -140,6 +168,22 @@ namespace FireSafetyStore.Web.Client.Controllers
             db.Products.Remove(product);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
+        }
+
+        public byte[] GetByteArray(HttpPostedFileBase file)
+        {
+            byte[] data;
+            using (Stream inputStream = file.InputStream)
+            {
+                MemoryStream memoryStream = inputStream as MemoryStream;
+                if (memoryStream == null)
+                {
+                    memoryStream = new MemoryStream();
+                    inputStream.CopyTo(memoryStream);
+                }
+                data = memoryStream.ToArray();
+            }
+            return data;
         }
 
         protected override void Dispose(bool disposing)
