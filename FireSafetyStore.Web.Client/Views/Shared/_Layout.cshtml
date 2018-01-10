@@ -28,7 +28,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
-                    @if (!Request.IsAuthenticated)
+                    @if (!Request.IsAuthenticated && (!User.IsInRole("Admin")  && !User.IsInRole("Employee") && !User.IsInRole("Customer")))
                     {
                         <li class="nav-item active">@Html.ActionLink("Home", "Index", "Home", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
                         <li class="nav-item">@Html.ActionLink("About", "About", "Home", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
@@ -43,7 +43,7 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                         </li>
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown padleft-5 padright-5">
                             <div class="dropdown show">
                                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Shop by category
