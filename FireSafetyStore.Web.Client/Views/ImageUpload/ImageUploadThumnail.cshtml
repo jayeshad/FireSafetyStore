@@ -1,0 +1,30 @@
+﻿@model FireSafetyStore.Web.Client.Models.ImageUploadModel
+@{
+    ViewBag.Title = "ImageUploadThumnail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ImageUploadThumnail</h2>
+
+ @using (Html.BeginForm("ImageUploadThumnail", "Home", null, FormMethod.Post, new {
+    enctype = "multipart/form-data"
+}))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true);
+    <fieldset>
+        <legend>
+            Image
+        </legend>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ImagePath)
+        </div>
+        <div class="editor-field">
+            <input id="ImagePath" title="Upload an image" type="file" name="file" />
+        </div>
+        <p>
+            <input type="submit" value="Upload" />
+        </p>
+    </fieldset>
+}
+
