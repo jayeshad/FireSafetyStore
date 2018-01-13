@@ -31,10 +31,9 @@
 </div>
 
 <div class="product-container">
-    @foreach (var item in Model.ProductList)
-    {
-        <div class="row">
-
+    <div class="row">
+        @foreach (var item in Model.ProductList)
+        {
             <div class="col-xs-18 col-sm-6 col-md-3">
                 <div class="thumbnail">
                     <img src="@item.ImageUrl" alt="">
@@ -45,38 +44,6 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-18 col-sm-6 col-md-3">
-                <div class="thumbnail">
-                    <img src="@item.ImageUrl" alt="">
-                    <div class="caption">
-                        <h4>@item.ProductName</h4>
-                        <p>@item.Description</p>
-                        <p><a href="#" class="btn btn-info btn-xs" role="button">Button</a> <a href="#" class="btn btn-default btn-xs" role="button">Button</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-18 col-sm-6 col-md-3">
-                <div class="thumbnail">
-                    <img src="@item.ImageUrl" alt="">
-                    <div class="caption">
-                        <h4>@item.ProductName</h4>
-                        <p>@item.Description</p>
-                        <p><a href="#" class="btn btn-info btn-xs" role="button">Button</a> <a href="#" class="btn btn-default btn-xs" role="button">Button</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-18 col-sm-6 col-md-3">
-                <div class="thumbnail">
-                    <img src="@item.ImageUrl" alt="">
-                    <div class="caption">
-                        <h4>@item.ProductName</h4>
-                        <p>@item.Description</p>
-                        <p><a href="#" class="btn btn-info btn-xs" role="button">Button</a> <a href="#" class="btn btn-default btn-xs" role="button">Button</a></p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    }
-
+        }
+    </div>
 </div>
