@@ -11,6 +11,7 @@
     width: 470px;
     background-image: url('../Content/images/logo.gif') !important;
 }
+
 .bg-white {
     background-color: azure;
 }
@@ -51,4 +52,19 @@ input[type="checkbox"].input-validation-error {
 
 .validation-summary-valid {
     display: none;
+}
+
+.product-container {
+    margin-top: 10px;
+}
+
+.thumbnail {
+    position: relative;
+    padding: 0px;
+    margin-bottom: 20px;
+}
+
+.thumbnail img {
+    width: 256px;
+    height: 150px;
 }
