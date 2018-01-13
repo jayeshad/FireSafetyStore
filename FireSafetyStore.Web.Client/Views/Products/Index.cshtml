@@ -8,7 +8,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add New Product", "Create")
 </p>
 <table class="table">
     <tr>
@@ -19,9 +19,6 @@
             @Html.DisplayNameFor(model => model.Category.Description)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.UnitMaster.Description)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.ItemName)
         </th>
         <th>
@@ -30,17 +27,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Rate)
         </th>
+
         <th>
-            @Html.DisplayNameFor(model => model.Image)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Stock)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UpdatedAt)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsActive)
+            @Html.DisplayNameFor(model => model.Quantity)
         </th>
         <th></th>
     </tr>
@@ -54,9 +43,6 @@
             @Html.DisplayFor(modelItem => item.Category.Description)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.UnitMaster.Description)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.ItemName)
         </td>
         <td>
@@ -66,16 +52,7 @@
             @Html.DisplayFor(modelItem => item.Rate)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Image)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Stock)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UpdatedAt)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsActive)
+            @Html.DisplayFor(modelItem => item.Quantity)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ItemId }) |

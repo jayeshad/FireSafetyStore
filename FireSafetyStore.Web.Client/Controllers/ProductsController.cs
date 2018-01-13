@@ -12,6 +12,8 @@ using FireSafetyStore.Web.Client.Infrastructure.DbContext;
 using FireSafetyStore.Web.Client.Infrastructure.Common;
 using System.Web.Hosting;
 using System.IO;
+using Kendo.Mvc.UI;
+using Kendo.Mvc.Extensions;
 
 namespace FireSafetyStore.Web.Client.Controllers
 {
@@ -25,6 +27,13 @@ namespace FireSafetyStore.Web.Client.Controllers
             var products = db.Products.Include(p => p.Brand).Include(p => p.Category).Include(p => p.UnitMaster);
             return View(await products.ToListAsync());
         }
+
+
+        private int GetCurrentStock(Guid itemId)
+        {
+            return db.Products.Count(x => x.ItemId == itemId);
+        }
+
 
         // GET: Products/Details/5
         public async Task<ActionResult> Details(Guid? id)
@@ -65,6 +74,7 @@ namespace FireSafetyStore.Web.Client.Controllers
                 file.InputStream.Read(product.Image, 0, file.ContentLength);
                 string ImageName = Path.GetFileName(file.FileName);
                 string extension = Path.GetExtension(file.FileName);
+                product.OriginalFileName = ImageName;
                 string generatedname = string.Format("{0}{1}",Guid.NewGuid().ToString("N"), extension);
                 string physicalPath = Server.MapPath("~/FileStore/Products/" + generatedname);
                 file.SaveAs(physicalPath);
@@ -79,31 +89,6 @@ namespace FireSafetyStore.Web.Client.Controllers
             ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Description", product.CategoryId);
             ViewBag.UnitId = new SelectList(db.UnitMasters, "UnitId", "Description", product.UnitId);
             return View(product);
-        }
-
-        public ActionResult FileUpload(HttpPostedFileBase file)
-        {
-            if (file != null)
-            {
-                string ImageName = System.IO.Path.GetFileName(file.FileName);
-                string physicalPath = Server.MapPath("~/Images/" + ImageName);
-                file.SaveAs(physicalPath);
-                TempData.Add("UploadedFile", physicalPath);
-
-            }
-            return RedirectToAction("../home/DisplayImage/");
-        }
-
-
-        [HttpGet]
-        public ActionResult UploadFile()
-        {
-            return View();
-        }
-
-        private string GenerateFileName(string fileStore)
-        {
-            return string.Format("{0}.jpeg",Guid.NewGuid().ToString("N"));
         }
 
         // GET: Products/Edit/5
@@ -129,12 +114,36 @@ namespace FireSafetyStore.Web.Client.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "ItemId,ItemName,Description,BrandId,CategoryId,UnitId,Rate,ImageUrl,Stock,UpdatedAt,IsActive")] Product product)
+        public async Task<ActionResult> Edit([Bind(Include = "ItemId,ItemName,Description,BrandId,CategoryId,UnitId,Rate,Image,ImagePath,OriginalFileName,Stock,UpdatedAt,IsActive")] Product product,HttpPostedFileBase file)
         {
+            //
             if (ModelState.IsValid)
             {
+                db.Products.Attach(product);
+                db.Entry(product).Property(x => x.ItemName).IsModified = true;
+                db.Entry(product).Property(x => x.Description).IsModified = true;
+                db.Entry(product).Property(x => x.BrandId).IsModified = true;
+                db.Entry(product).Property(x => x.CategoryId).IsModified = true;
+
+                if (file != null)
+                {
+                    product.Image = new byte[file.ContentLength];
+                    file.InputStream.Read(product.Image, 0, file.ContentLength);
+                    string ImageName = Path.GetFileName(file.FileName);
+                    string extension = Path.GetExtension(file.FileName);
+                    string generatedname = string.Format("{0}{1}", Guid.NewGuid().ToString("N"), extension);
+                    string physicalPath = Server.MapPath("~/FileStore/Products/" + generatedname);
+                    file.SaveAs(physicalPath);
+                    product.OriginalFileName = ImageName;
+                    product.ImagePath = "FileStore/Products/" + generatedname;
+                    db.Entry(product).Property(x => x.ImagePath).IsModified = true;
+                    db.Entry(product).Property(x => x.Image).IsModified = true;
+                }
+
                 product.UpdatedAt = DateTime.UtcNow;
-                db.Entry(product).State = EntityState.Modified;
+                db.Entry(product).Property(x => x.UpdatedAt).IsModified = true;
+                //product.UpdatedAt = DateTime.UtcNow;
+                //db.Entry(product).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
