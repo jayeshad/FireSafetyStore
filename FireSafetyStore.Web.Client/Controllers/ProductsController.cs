@@ -1,18 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using FireSafetyStore.Web.Client;
 using FireSafetyStore.Web.Client.Infrastructure.DbContext;
-using FireSafetyStore.Web.Client.Infrastructure.Common;
-using System.Web.Hosting;
 using System.IO;
-using Kendo.Mvc.UI;
 using Kendo.Mvc.Extensions;
 
 namespace FireSafetyStore.Web.Client.Controllers
@@ -124,7 +118,8 @@ namespace FireSafetyStore.Web.Client.Controllers
                 db.Entry(product).Property(x => x.Description).IsModified = true;
                 db.Entry(product).Property(x => x.BrandId).IsModified = true;
                 db.Entry(product).Property(x => x.CategoryId).IsModified = true;
-
+                db.Entry(product).Property(x => x.Rate).IsModified = true;
+                db.Entry(product).Property(x => x.Quantity).IsModified = true;
                 if (file != null)
                 {
                     product.Image = new byte[file.ContentLength];
@@ -142,8 +137,6 @@ namespace FireSafetyStore.Web.Client.Controllers
 
                 product.UpdatedAt = DateTime.UtcNow;
                 db.Entry(product).Property(x => x.UpdatedAt).IsModified = true;
-                //product.UpdatedAt = DateTime.UtcNow;
-                //db.Entry(product).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }

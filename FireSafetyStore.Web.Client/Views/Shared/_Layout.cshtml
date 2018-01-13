@@ -19,6 +19,7 @@
 	<script src="@Url.Content("~/Scripts/kendo.modernizr.custom.js")"></script>
 </head>
 <body>
+    
     <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <a class="navbar-brand" href="#">FireSAFE</a>
@@ -72,14 +73,17 @@
 
                     @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                     {
-                            <li class="nav-item active">@Html.ActionLink("Home", "Index", "Home", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
+                       
+
+
+                            @*<li class="nav-item active">@Html.ActionLink("Home", "Index", "Home", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
                             <li class="nav-item active">@Html.ActionLink("Roles", "Index", "RolesAdmin", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
                             <li class="nav-item active">@Html.ActionLink("Employees", "Index", "Employee", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
                             <li class="nav-item active">@Html.ActionLink("Customers", "Index", "Customer", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
                             <li class="nav-item active">@Html.ActionLink("Unit", "Index", "UnitMaster", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
                             <li class="nav-item active">@Html.ActionLink("Categories", "Index", "Categories", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
                             <li class="nav-item active">@Html.ActionLink("Brands", "Index", "Brands", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
-                            <li class="nav-item active">@Html.ActionLink("Products", "Index", "Products", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
+                            <li class="nav-item active">@Html.ActionLink("Products", "Index", "Products", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>*@
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")
