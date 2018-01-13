@@ -58,18 +58,17 @@ namespace FireSafetyStore.Web.Client.Controllers
         public async Task<ActionResult> Create(Product product, HttpPostedFileBase file)
         {
             if (ModelState.IsValid && file != null && file.ContentLength > 0)
-            {
-                
+            {                
                 product.ItemId = Guid.NewGuid();
                 product.UpdatedAt = DateTime.UtcNow;
                 product.Image = new byte[file.ContentLength];
                 file.InputStream.Read(product.Image, 0, file.ContentLength);
                 string ImageName = Path.GetFileName(file.FileName);
-                string physicalPath = Server.MapPath("~/FileStore/Products/" + ImageName);
-                // save image in folder  
+                string extension = Path.GetExtension(file.FileName);
+                string generatedname = string.Format("{0}{1}",Guid.NewGuid().ToString("N"), extension);
+                string physicalPath = Server.MapPath("~/FileStore/Products/" + generatedname);
                 file.SaveAs(physicalPath);
-                // store path in database  
-                product.ImagePath = "FileStore/Products/" + ImageName;
+                product.ImagePath = "FileStore/Products/" + generatedname;
                 product.IsActive = true;
                 db.Products.Add(product);
                 await db.SaveChangesAsync();
@@ -82,27 +81,19 @@ namespace FireSafetyStore.Web.Client.Controllers
             return View(product);
         }
 
-        //[HttpPost]
-        //public ActionResult Index(Product product, HttpPostedFileBase file)
-        //{
-        //    // file1 to store image in binary formate and file2 to store path and url  
-        //    // we are checking file1 and file2 are null or not according to that different case are there  
-        //    if (file != null && file.ContentLength > 0)
-        //    {
-        //        product.Image = new byte[file.ContentLength]; // file1 to store image in binary formate  
-        //        file.InputStream.Read(product.Image, 0, file.ContentLength);
+        public ActionResult FileUpload(HttpPostedFileBase file)
+        {
+            if (file != null)
+            {
+                string ImageName = System.IO.Path.GetFileName(file.FileName);
+                string physicalPath = Server.MapPath("~/Images/" + ImageName);
+                file.SaveAs(physicalPath);
+                TempData.Add("UploadedFile", physicalPath);
 
-        //        string ImageName = Path.GetFileName(file.FileName); //file2 to store path and url  
-        //        string physicalPath = Server.MapPath("~/FileStore/Products/" + ImageName);
-        //        // save image in folder  
-        //        file.SaveAs(physicalPath);
-        //        // store path in database  
-        //        product.ImagePath = "FileStore/Products/" + ImageName;
-        //        db.CandidateDetails.Add(Details);
-        //        db.SaveChanges();
-        //        return PartialView("detail");
-        //    }
-        //}
+            }
+            return RedirectToAction("../home/DisplayImage/");
+        }
+
 
         [HttpGet]
         public ActionResult UploadFile()
