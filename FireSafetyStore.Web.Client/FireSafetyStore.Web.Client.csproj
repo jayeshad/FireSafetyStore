@@ -421,6 +421,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="FileStore\Products\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

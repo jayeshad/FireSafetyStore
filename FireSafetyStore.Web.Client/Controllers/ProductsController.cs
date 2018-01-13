@@ -55,13 +55,21 @@ namespace FireSafetyStore.Web.Client.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(Product product)
+        public async Task<ActionResult> Create(Product product, HttpPostedFileBase file)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && file != null && file.ContentLength > 0)
             {
+                
                 product.ItemId = Guid.NewGuid();
                 product.UpdatedAt = DateTime.UtcNow;
-                //product.Image = GetByteArray(product.);
+                product.Image = new byte[file.ContentLength];
+                file.InputStream.Read(product.Image, 0, file.ContentLength);
+                string ImageName = Path.GetFileName(file.FileName);
+                string physicalPath = Server.MapPath("~/FileStore/Products/" + ImageName);
+                // save image in folder  
+                file.SaveAs(physicalPath);
+                // store path in database  
+                product.ImagePath = "FileStore/Products/" + ImageName;
                 product.IsActive = true;
                 db.Products.Add(product);
                 await db.SaveChangesAsync();
@@ -74,26 +82,27 @@ namespace FireSafetyStore.Web.Client.Controllers
             return View(product);
         }
 
-        [HttpPost]
-        public ActionResult UploadFile(HttpPostedFileBase file)
-        {
-            try
-            {
-                if (file.ContentLength > 0)
-                {
-                    string _FileName = Path.GetFileName(file.FileName);
-                    string _path = Path.Combine(Server.MapPath("~/FileStore"), _FileName);
-                    file.SaveAs(_path);
-                }
-                ViewBag.Message = "File Uploaded Successfully!!";
-                return View();
-            }
-            catch
-            {
-                ViewBag.Message = "File upload failed!!";
-                return View();
-            }
-        }
+        //[HttpPost]
+        //public ActionResult Index(Product product, HttpPostedFileBase file)
+        //{
+        //    // file1 to store image in binary formate and file2 to store path and url  
+        //    // we are checking file1 and file2 are null or not according to that different case are there  
+        //    if (file != null && file.ContentLength > 0)
+        //    {
+        //        product.Image = new byte[file.ContentLength]; // file1 to store image in binary formate  
+        //        file.InputStream.Read(product.Image, 0, file.ContentLength);
+
+        //        string ImageName = Path.GetFileName(file.FileName); //file2 to store path and url  
+        //        string physicalPath = Server.MapPath("~/FileStore/Products/" + ImageName);
+        //        // save image in folder  
+        //        file.SaveAs(physicalPath);
+        //        // store path in database  
+        //        product.ImagePath = "FileStore/Products/" + ImageName;
+        //        db.CandidateDetails.Add(Details);
+        //        db.SaveChanges();
+        //        return PartialView("detail");
+        //    }
+        //}
 
         [HttpGet]
         public ActionResult UploadFile()
