@@ -22,7 +22,7 @@
     
     <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <a class="navbar-brand" href="#">FireSAFE</a>
+            @Html.ActionLink("FireSAFE", "Index", "Home", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "navbar-brand" })
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -73,7 +73,20 @@
 
                     @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                     {
-                       
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="administrationMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Website Administration
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="administrationMenu">
+                                @Html.ActionLink("Manage Roles", "Index", "RolesAdmin", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "dropdown-item" })
+                                @Html.ActionLink("Manage Employees", "Index", "Employee", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "dropdown-item" })
+                                @Html.ActionLink("Manage Customers", "Index", "Customer", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "dropdown-item" })
+                                @Html.ActionLink("Manage Units", "Index", "UnitMaster", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "dropdown-item" })
+                                @Html.ActionLink("Manage Categories", "Index", "Categories", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "dropdown-item" })
+                                @Html.ActionLink("Manage Brands", "Index", "Brands", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "dropdown-item" })
+                                @Html.ActionLink("Manage Products", "Index", "Products", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "dropdown-item" })
+                            </div>
+                        </li>
 
 
                             @*<li class="nav-item active">@Html.ActionLink("Home", "Index", "Home", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>

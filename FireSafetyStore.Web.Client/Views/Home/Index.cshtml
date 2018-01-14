@@ -1,8 +1,20 @@
-﻿@model FireSafetyStore.Web.Client.Models.ProductsViewModel
+﻿@model FireSafetyStore.Web.Client.Models.HomeViewModel
 @{
     ViewBag.Title = "Home Page";
 }
-
+<script src="~/Scripts/custom/home_controller.js"></script>
+@*<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    @(Html.Kendo().DropDownList()
+          .Name("brandscombo")
+          .DataTextField("Text")
+          .DataValueField("Value")
+          .Events(e => e.Change("onBrandComboChanged"))
+          .BindTo(Model.BrandList)
+          .Height(400)
+          .Value("1")
+          .HtmlAttributes(new { style = "width: 250px" })
+    )
+</nav>*@
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -33,7 +45,7 @@
 <div class="product-container">
     <div class="row">
         @foreach (var item in Model.ProductList)
-        {
+            {
             <div class="col-xs-18 col-sm-6 col-md-3">
                 <div class="thumbnail">
                     <img src="@item.ImageUrl" alt="">
