@@ -1,0 +1,43 @@
+﻿@model FireSafetyStore.Web.Client.Models.ShoppingCartViewModel
+@{
+    ViewBag.Title = "AddToCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Scripts {
+    @*<script src="~/Scripts/custom/cart_controller.js"></script>*@
+    <link href="~/Content/Cart.css" rel="stylesheet" />
+}
+
+
+<h5>My Shopping Cart</h5>
+<hr />
+<table>
+    <tr>
+        <th>Item Name</th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Rate</th>
+        <th></th>
+    </tr>
+
+
+    @foreach (var item in Model.ShoppingCartItems)
+    {
+        <tr>
+            <td>@item.ProductName</td>
+            <td>@item.Description</td>
+            <td>@item.Quantity</td>
+            <td>@item.Rate</td>
+            <td>@Html.ActionLink("X", "RemoveFromCart", "Shopping", new { id = item.ProductId }, htmlAttributes: new { @class = "glyphicon glyphicon-remove" })</td>
+        </tr>
+
+    }
+</table>
+<hr />
+<input type="submit" name="name" value="Checkout" />
+<input type="submit" name="name" value="Continue Shopping" />
+
+
+
+
+

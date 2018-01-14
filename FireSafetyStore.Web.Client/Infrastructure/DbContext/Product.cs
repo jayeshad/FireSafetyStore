@@ -2,8 +2,6 @@ namespace FireSafetyStore.Web.Client
 {
     using System;
     using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Web;
 
     public partial class Product
     {
@@ -26,9 +24,6 @@ namespace FireSafetyStore.Web.Client
         [Display(Name = "Product Category")]
         public Guid CategoryId { get; set; }
 
-        [Display(Name = "Unit of Measure")]
-        public Guid UnitId { get; set; }
-
         public int Quantity { get; set; }
 
         [Display(Name = "Unit Price")]
@@ -48,7 +43,5 @@ namespace FireSafetyStore.Web.Client
         public virtual Brand Brand { get; set; }
 
         public virtual Category Category { get; set; }
-
-        public virtual UnitMaster UnitMaster { get; set; }
     }
 }

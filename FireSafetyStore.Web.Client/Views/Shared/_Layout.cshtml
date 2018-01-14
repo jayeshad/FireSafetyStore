@@ -81,73 +81,17 @@
                                 @Html.ActionLink("Manage Roles", "Index", "RolesAdmin", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "dropdown-item" })
                                 @Html.ActionLink("Manage Employees", "Index", "Employee", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "dropdown-item" })
                                 @Html.ActionLink("Manage Customers", "Index", "Customer", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "dropdown-item" })
-                                @Html.ActionLink("Manage Units", "Index", "UnitMaster", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "dropdown-item" })
                                 @Html.ActionLink("Manage Categories", "Index", "Categories", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "dropdown-item" })
                                 @Html.ActionLink("Manage Brands", "Index", "Brands", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "dropdown-item" })
                                 @Html.ActionLink("Manage Products", "Index", "Products", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "dropdown-item" })
                             </div>
                         </li>
-
-
-                            @*<li class="nav-item active">@Html.ActionLink("Home", "Index", "Home", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
-                            <li class="nav-item active">@Html.ActionLink("Roles", "Index", "RolesAdmin", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
-                            <li class="nav-item active">@Html.ActionLink("Employees", "Index", "Employee", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
-                            <li class="nav-item active">@Html.ActionLink("Customers", "Index", "Customer", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
-                            <li class="nav-item active">@Html.ActionLink("Unit", "Index", "UnitMaster", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
-                            <li class="nav-item active">@Html.ActionLink("Categories", "Index", "Categories", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
-                            <li class="nav-item active">@Html.ActionLink("Brands", "Index", "Brands", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
-                            <li class="nav-item active">@Html.ActionLink("Products", "Index", "Products", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>*@
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </nav>
     </header>
-
-
-    @*<div class="navbar navbar-nav">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                @if (User.IsInRole("Admin"))
-                {
-                    @Html.ActionLink("Fire-Safety Store Admininstration", "Index", "Home", null, new { @class = "navbar-brand" })
-                }
-                else
-                {
-                    @Html.ActionLink("Fire-Safety Store", "Index", "Home", null, new { @class = "navbar-brand" })
-                }
-
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        @if (!Request.IsAuthenticated && User.IsInRole("Admin"))
-                        {
-                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.ActionLink("About", "About", "Home")</li>
-                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                        }
-                        @if (Request.IsAuthenticated && User.IsInRole("Admin"))
-                        {
-                            <li>@Html.ActionLink("Roles", "Index", "RolesAdmin")</li>
-                            <li>@Html.ActionLink("Employees", "Index", "Employee")</li>
-                            <li>@Html.ActionLink("Customers", "Index", "Customer")</li>
-
-                            <li>@Html.ActionLink("Unit", "Index", "UnitMaster")</li>
-                            <li>@Html.ActionLink("Categories", "Index", "Categories")</li>
-                            <li>@Html.ActionLink("Brands", "Index", "Brands")</li>
-                            <li>@Html.ActionLink("Products", "Index", "Products")</li>
-                        }
-                    </ul>
-                    @Html.Partial("_LoginPartial")
-                </div>
-            </div>
-        </div>*@
-
 
     <main role="main">
         <div class="container body-content">

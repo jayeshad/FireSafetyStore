@@ -14,6 +14,7 @@ namespace FireSafetyStore.Web.Client
             Products = new HashSet<Product>();
         }
 
+        [Display(Name = "Product Category")]
         public Guid CategoryId { get; set; }
 
         [Required]

@@ -14,6 +14,7 @@ namespace FireSafetyStore.Web.Client
             Products = new HashSet<Product>();
         }
 
+        [Display(Name = "Name of Brand")]
         public Guid BrandId { get; set; }
 
         [Required]

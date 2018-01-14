@@ -18,7 +18,7 @@ namespace FireSafetyStore.Web.Client.Controllers
         // GET: Products
         public async Task<ActionResult> Index()
         {
-            var products = db.Products.Include(p => p.Brand).Include(p => p.Category).Include(p => p.UnitMaster);
+            var products = db.Products.Include(p => p.Brand).Include(p => p.Category);
             return View(await products.ToListAsync());
         }
 
@@ -49,7 +49,6 @@ namespace FireSafetyStore.Web.Client.Controllers
         {
             ViewBag.BrandId = new SelectList(db.Brands, "BrandId", "Description");
             ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Description");
-            ViewBag.UnitId = new SelectList(db.UnitMasters, "UnitId", "Description");
             return View();
         }
 
@@ -72,7 +71,7 @@ namespace FireSafetyStore.Web.Client.Controllers
                 string generatedname = string.Format("{0}{1}",Guid.NewGuid().ToString("N"), extension);
                 string physicalPath = Server.MapPath("~/FileStore/Products/" + generatedname);
                 file.SaveAs(physicalPath);
-                product.ImagePath = "FileStore/Products/" + generatedname;
+                product.ImagePath = "/FileStore/Products/" + generatedname;
                 product.IsActive = true;
                 db.Products.Add(product);
                 await db.SaveChangesAsync();
@@ -81,7 +80,6 @@ namespace FireSafetyStore.Web.Client.Controllers
 
             ViewBag.BrandId = new SelectList(db.Brands, "BrandId", "Description", product.BrandId);
             ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Description", product.CategoryId);
-            ViewBag.UnitId = new SelectList(db.UnitMasters, "UnitId", "Description", product.UnitId);
             return View(product);
         }
 
@@ -99,7 +97,6 @@ namespace FireSafetyStore.Web.Client.Controllers
             }
             ViewBag.BrandId = new SelectList(db.Brands, "BrandId", "Description", product.BrandId);
             ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Description", product.CategoryId);
-            ViewBag.UnitId = new SelectList(db.UnitMasters, "UnitId", "Description", product.UnitId);
             return View(product);
         }
 
@@ -142,7 +139,6 @@ namespace FireSafetyStore.Web.Client.Controllers
             }
             ViewBag.BrandId = new SelectList(db.Brands, "BrandId", "Description", product.BrandId);
             ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Description", product.CategoryId);
-            ViewBag.UnitId = new SelectList(db.UnitMasters, "UnitId", "Description", product.UnitId);
             return View(product);
         }
 

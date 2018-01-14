@@ -19,7 +19,6 @@ namespace FireSafetyStore.Web.Client.Infrastructure.DbContext
         public virtual DbSet<Brand> Brands { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Product> Products { get; set; }
-        public virtual DbSet<UnitMaster> UnitMasters { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<AspNetRole>()
@@ -47,10 +46,6 @@ namespace FireSafetyStore.Web.Client.Infrastructure.DbContext
                 .WithRequired(e => e.Category)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<UnitMaster>()
-                .HasMany(e => e.Products)
-                .WithRequired(e => e.UnitMaster)
-                .WillCascadeOnDelete(false);
         }
     }
 }

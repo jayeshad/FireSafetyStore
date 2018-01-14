@@ -1,0 +1,24 @@
+﻿@model FireSafetyStore.Web.Client.Models.ItemViewModel
+@{
+    ViewBag.Title = "AddToCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AddToCart</h2>
+<table>
+    <tr>
+        <td>Item</td>
+        <td>Image</td>
+        <td>Rate</td>
+        <td>Quantity</td>
+        <td></td>
+    </tr>
+</table>
+
+<tr>
+    <td>@Model.ProductName</td>
+    <td>@Model.ImageUrl</td>
+    <td>@Model.Rate</td>
+    <td>@Model.Quantity</td>
+    <td></td>
+</tr>
