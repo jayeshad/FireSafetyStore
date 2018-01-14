@@ -34,8 +34,10 @@
     }
 </table>
 <hr />
-<input type="submit" name="name" value="Checkout" />
-<input type="submit" name="name" value="Continue Shopping" />
+@*<input type="submit" name="name" value="Checkout" />
+<input type="submit" name="name" value="Continue Shopping" />*@
+@Html.ActionLink("Checkout", "AddOrder", "Shopping", null, htmlAttributes: new { @class = "btn btn-default" })
+@Html.ActionLink("Continue Shopping", "Index", "Home", null, htmlAttributes: new { @class = "btn btn-default" })
 
 
 

@@ -49,27 +49,18 @@ namespace FireSafetyStore.Web.Client.Controllers
         {
             var shoppingCart = new ShoppingCartViewModel { ShoppingCartItems = new List<ItemViewModel>() };
             var productId = new Guid(id);
-            var entity = db.Products.Find(productId);
-
-            var model = MapToViewModel(entity);
             var currentCart = SessionManager<ShoppingCartViewModel>.GetValue(CartConstant);
-            if (currentCart == null || !currentCart.ShoppingCartItems.Any())
+            if (currentCart != null && currentCart.ShoppingCartItems.Any())
             {
-                shoppingCart.ShoppingCartItems.Add(model);
+                var itemsInCart = currentCart.ShoppingCartItems.Where(x => x.ProductId != productId).ToList();
+                shoppingCart.ShoppingCartItems.AddRange(itemsInCart);
                 SessionManager<ShoppingCartViewModel>.SetValue(CartConstant, shoppingCart);
             }
-            else
-            {
-                shoppingCart = currentCart;
-                shoppingCart.ShoppingCartItems.Add(model);
-                SessionManager<ShoppingCartViewModel>.SetValue(CartConstant, shoppingCart);
-            }
-            return View(shoppingCart);
+            return RedirectToAction("AddToCart", shoppingCart);
         }
 
         public ActionResult Details(string id)
         {
-
             var productId = new Guid(id);
             var entity = db.Products.FirstOrDefault(x => x.ItemId == productId);
             var model = MapToViewModel(entity);
@@ -90,14 +81,6 @@ namespace FireSafetyStore.Web.Client.Controllers
                     Quantity = entity.Quantity,
                     Rate = entity.Rate
                 };
-        }
-
-
-
-
-        private void RemoveItem(Product product)
-        {
-
         }
 
         protected override void Dispose(bool disposing)
