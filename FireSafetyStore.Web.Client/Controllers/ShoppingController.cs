@@ -1,4 +1,5 @@
-﻿using FireSafetyStore.Web.Client.Infrastructure.Common;
+﻿using AutoMapper;
+using FireSafetyStore.Web.Client.Infrastructure.Common;
 using FireSafetyStore.Web.Client.Infrastructure.DbContext;
 using FireSafetyStore.Web.Client.Infrastructure.Security;
 using FireSafetyStore.Web.Client.Models;
@@ -16,7 +17,6 @@ namespace FireSafetyStore.Web.Client.Controllers
     public class ShoppingController : Controller
     {
         private ShoppingCartViewModel vm;
-        
         private FiresafeDbContext db = new FiresafeDbContext();
         public ShoppingController()
         {
@@ -55,15 +55,64 @@ namespace FireSafetyStore.Web.Client.Controllers
             return View(vm);
         }
 
-        [HttpPost]
-        public ActionResult GoToCart()
+        [Authorize]
+        public ActionResult Checkout()
         {
             var currentCart = SessionManager<List<OrderDetail>>.GetValue(Infrastructure.Common.Constants.CartSessionKey);
             if (currentCart != null || currentCart.Any())
-            {
+            {                
                 vm.ShoppingCartItems = MapToViewModel(currentCart);
             }
             return View(vm);
+        }
+
+        [Authorize]
+        public ActionResult Payment()
+        {
+            var  viewmodel = new CheckoutViewModel();
+            viewmodel.OrderMaster = new OrderMasterViewModel();
+            viewmodel.OrderDetails = new List<OrderDetailViewModel>();
+            viewmodel.OrderMaster.Total = 0;
+            var model = PopulateCustomerInfo();
+            viewmodel.OrderMaster = MapOrderMasterToView(model);
+            var currentCart = SessionManager<List<OrderDetail>>.GetValue(Infrastructure.Common.Constants.CartSessionKey);
+            if (currentCart != null && currentCart.Any())
+            {
+                currentCart.ForEach(x =>
+                {
+                    viewmodel.OrderMaster.Total += x.Total;
+                    viewmodel.OrderDetails.Add(new OrderDetailViewModel
+                    {
+                         ItemId = x.ItemId,
+                         ItemName = GetProductInfo(x.ItemId).ItemName,
+                         Quantity = x.Quantity,
+                         Rate = x.Rate,
+                         Total = x.Total
+                    });
+                });                
+                SessionManager<CheckoutViewModel>.SetValue(Infrastructure.Common.Constants.PaymentSessionKey, viewmodel);
+            }
+            return View(viewmodel);
+        }
+
+        private OrderMasterViewModel MapOrderMasterToView(OrderMaster model)
+        {
+            return new OrderMasterViewModel
+            {
+                OrderId = Guid.NewGuid(),
+                OrderCode = model.OrderCode,
+                OrderDate = model.OrderDate,
+                UserId = model.UserId,
+                CustomerFullName = model.CustomerFullName,
+                CustomerAddress = model.CustomerAddress,
+                CustomerState = model.CustomerState,
+                CustomerCountry = model.CustomerCountry,
+                CustomerPostalCode = model.CustomerPostalCode,
+                CustomerContactNumber = model.CustomerContactNumber,
+                ContactEmail = model.ContactEmail,
+                IsOrderConfirmed = true,
+                IsOrderCancelled = false
+            };
         }
 
         [Authorize]
@@ -154,7 +203,7 @@ namespace FireSafetyStore.Web.Client.Controllers
                     ImageUrl = GetProductInfo(x.ItemId).ImagePath,
                     Quantity = x.Quantity,
                     Rate = x.Rate,
-                    Total = x.Total
+                    Total = decimal.Multiply(Convert.ToDecimal(x.Quantity), x.Rate)
                 });
             });
             return itemsList;
@@ -182,9 +231,11 @@ namespace FireSafetyStore.Web.Client.Controllers
             return master;
         }
 
-        private List<OrderDetail> AppendToShoppingCart(List<OrderDetail> activeCart, Product product)
+        private List<OrderDetail> AppendToShoppingCart(List<OrderDetail> activeList, Product product)
         {
-            foreach (OrderDetail item in activeCart)
+            var newList = new List<OrderDetail>();
+            int updatedcount = 0;
+            foreach (OrderDetail item in activeList)
             {
                 if (item.ItemId == product.ItemId)
                 {
@@ -193,7 +244,8 @@ namespace FireSafetyStore.Web.Client.Controllers
                 }
                 else
                 {
-                    activeCart.Add(new OrderDetail
+                    updatedcount += 1;
+                    newList.Add(new OrderDetail
                     {
                         ItemId = product.ItemId,
                         Quantity = 1,
@@ -202,7 +254,9 @@ namespace FireSafetyStore.Web.Client.Controllers
                     });
                 }
             }
-            return activeCart;
+            if(newList.Any() && updatedcount == 1)
+            activeList.AddRange(newList);
+            return activeList;
         }
 
         private Product GetProductInfo(Guid productId)

@@ -1,9 +1,4 @@
-﻿function onBrandComboChanged() {
-    alert('brand changed');
-
-}
-
-$(document).ready(function () {
+﻿$(document).ready(function () {
 
     $('#btnShoppingCart').click(function () {
 

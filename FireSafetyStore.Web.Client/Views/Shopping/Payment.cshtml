@@ -1,0 +1,39 @@
+﻿@model FireSafetyStore.Web.Client.Models.CheckoutViewModel
+@{
+    ViewBag.Title = "Payment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Scripts {
+    <link href="~/Content/Cart.css" rel="stylesheet" />
+}
+<h2>Enter your Credit/Debit Card Details</h2>
+<hr />
+@if (Model.OrderDetails.Any())
+{
+    <table>
+        <tr>
+            <th style="text-align:left;padding:2px">Item Name</th>
+            <th style="text-align:left;padding:2px">Quantity</th>
+            <th style="text-align:left;padding:2px">Rate</th>
+            <th style="text-align:left;padding:2px">Total</th>
+        </tr>
+
+        @foreach (var item in Model.OrderDetails)
+        {
+            <tr>
+                <td style="text-align:left;padding:2px">@item.ItemName</td>
+                <td style="text-align:left;padding:2px">@item.Quantity</td>
+                <td style="text-align:left;padding:2px">@item.Rate</td>
+                <td style="text-align:left;padding:2px">@item.Total</td>
+            </tr>
+        }
+        <tr>
+            <th style="text-align:left;padding:2px"></th>
+            <th style="text-align:left;padding:2px"></th>
+            <th style="text-align:left;padding:2px"></th>
+            <th style="text-align:left;padding:2px">Total : @Model.OrderMaster.Total</th>
+        </tr>
+    </table>
+    <hr />
+}
+
