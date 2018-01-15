@@ -4,10 +4,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @section Scripts {
-    @*<script src="~/Scripts/custom/cart_controller.js"></script>*@
     <link href="~/Content/Cart.css" rel="stylesheet" />
 }
-
 
 <h5>My Shopping Cart</h5>
 <hr />
@@ -20,7 +18,6 @@
         <th></th>
     </tr>
 
-
     @foreach (var item in Model.ShoppingCartItems)
     {
         <tr>
@@ -30,12 +27,11 @@
             <td>@item.Rate</td>
             <td>@Html.ActionLink("X", "RemoveFromCart", "Shopping", new { id = item.ProductId }, htmlAttributes: new { @class = "glyphicon glyphicon-remove" })</td>
         </tr>
-
     }
 </table>
 <hr />
 
-@Html.ActionLink("Checkout", "Index", "Shopping", null, htmlAttributes: new { @class = "btn btn-default" })
+@Html.ActionLink("Checkout", "AddOrder", "Shopping", null, htmlAttributes: new { @class = "btn btn-default" })
 @Html.ActionLink("Continue Shopping", "Index", "Home", null, htmlAttributes: new { @class = "btn btn-default" })
 
 

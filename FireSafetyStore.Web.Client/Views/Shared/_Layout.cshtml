@@ -87,6 +87,21 @@
                             </div>
                         </li>
                     }
+
+                    @if (Request.IsAuthenticated && User.IsInRole("Employee"))
+                    {
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="administrationMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Website Administration
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="administrationMenu">
+                                @Html.ActionLink("Manage Customers", "Index", "Customer", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "dropdown-item" })
+                                @Html.ActionLink("Manage Categories", "Index", "Categories", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "dropdown-item" })
+                                @Html.ActionLink("Manage Brands", "Index", "Brands", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "dropdown-item" })
+                                @Html.ActionLink("Manage Products", "Index", "Products", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "dropdown-item" })
+                            </div>
+                        </li>
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -97,7 +112,10 @@
         <div class="container body-content">
             @RenderBody()
             <hr />
-            <footer>
+            <footer class="footer">
+                <div class="container">
+
+                </div>
                 <p>&copy; Copyright @DateTime.Now.Year - Firesafe Online Store, All Rights Reserved.</p>
             </footer>
         </div>

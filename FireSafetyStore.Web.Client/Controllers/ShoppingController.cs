@@ -23,6 +23,18 @@ namespace FireSafetyStore.Web.Client.Controllers
         }
 
         [Authorize]
+        public ActionResult Index()
+        {
+            var shoppingCart = new ShoppingCartViewModel { ShoppingCartItems = new List<ItemViewModel>() };
+            var currentCart = SessionManager<ShoppingCartViewModel>.GetValue(CartConstant);
+            if (currentCart != null || currentCart.ShoppingCartItems.Any())
+            {
+                shoppingCart = SessionManager<ShoppingCartViewModel>.GetValue(CartConstant);
+            }
+            return View(shoppingCart);
+        }
+
+        [Authorize]
         public ActionResult AddToCart(string id)
         {
             var shoppingCart = new ShoppingCartViewModel { ShoppingCartItems = new List<ItemViewModel>()};
@@ -56,7 +68,7 @@ namespace FireSafetyStore.Web.Client.Controllers
                 shoppingCart.ShoppingCartItems.AddRange(itemsInCart);
                 SessionManager<ShoppingCartViewModel>.SetValue(CartConstant, shoppingCart);
             }
-            return RedirectToAction("AddToCart", shoppingCart);
+            return RedirectToAction("Index", shoppingCart);
         }
 
         public ActionResult Details(string id)
