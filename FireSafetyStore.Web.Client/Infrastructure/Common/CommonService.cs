@@ -3,6 +3,8 @@ using FireSafetyStore.Web.Client.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using FireSafetyStore.Web.Client.Infrastructure.Security;
+using System;
 
 namespace FireSafetyStore.Web.Client.Infrastructure.Common
 {
@@ -46,9 +48,13 @@ namespace FireSafetyStore.Web.Client.Infrastructure.Common
 
         public static int GetCartCount()
         {
-            var currentCart = SessionManager<ShoppingCartViewModel>.GetValue(Constants.CartSessionKey);
-            return (currentCart != null && currentCart.ShoppingCartItems.Any()) ? currentCart.ShoppingCartItems.Count() : 0;
+            var currentCart = SessionManager<List<OrderDetail>>.GetValue(Constants.CartSessionKey);
+            return (currentCart != null && currentCart.Any()) ? currentCart.Count() : 0;
         }
 
+        public static string FormattedCustomerAddress(ApplicationUser user)
+        {
+            return string.Format("{0}, City: {1}, State: {2} PostalCode: {3}", user.Address, user.City, user.State, user.PostalCode);
+        }
     }
 }

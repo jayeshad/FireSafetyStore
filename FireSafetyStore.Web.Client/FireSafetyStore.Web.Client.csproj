@@ -229,6 +229,8 @@
     <Compile Include="Infrastructure\DbContext\AspNetUserLogin.cs" />
     <Compile Include="Infrastructure\DbContext\C__MigrationHistory.cs" />
     <Compile Include="Infrastructure\DbContext\FiresafeDbContext.cs" />
+    <Compile Include="Infrastructure\DbContext\OrderDetail.cs" />
+    <Compile Include="Infrastructure\DbContext\OrderMaster.cs" />
     <Compile Include="Infrastructure\Security\ApplicationSignInManager.cs" />
     <Compile Include="Infrastructure\Security\ApplicationRoleManager.cs" />
     <Compile Include="Infrastructure\Security\ApplicationUserManager.cs" />

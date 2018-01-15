@@ -19,6 +19,8 @@ namespace FireSafetyStore.Web.Client.Infrastructure.DbContext
         public virtual DbSet<Brand> Brands { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<OrderDetail> OrderDetails { get; set; }
+        public virtual DbSet<OrderMaster> OrderMasters { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<AspNetRole>()
@@ -44,6 +46,19 @@ namespace FireSafetyStore.Web.Client.Infrastructure.DbContext
             modelBuilder.Entity<Category>()
                 .HasMany(e => e.Products)
                 .WithRequired(e => e.Category)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<OrderDetail>()
+                .Property(e => e.Rate)
+                .HasPrecision(19, 4);
+
+            modelBuilder.Entity<OrderDetail>()
+                .Property(e => e.Total)
+                .HasPrecision(19, 4);
+
+            modelBuilder.Entity<OrderMaster>()
+                .HasMany(e => e.OrderDetails)
+                .WithRequired(e => e.OrderMaster)
                 .WillCascadeOnDelete(false);
 
         }

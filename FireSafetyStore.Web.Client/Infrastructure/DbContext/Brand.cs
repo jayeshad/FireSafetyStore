@@ -1,4 +1,4 @@
-namespace FireSafetyStore.Web.Client
+namespace FireSafetyStore.Web.Client.Infrastructure.DbContext
 {
     using System;
     using System.Collections.Generic;

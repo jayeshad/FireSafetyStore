@@ -47,11 +47,14 @@ namespace IdentitySample.Controllers
             var itemList = new List<ItemViewModel>();
             products.ForEach(x => itemList.Add(new ItemViewModel
             {
-                CategoryId = x.CategoryId,
                 ProductId = x.ItemId,
                 ProductName = x.ItemName,
                 Description = x.Description,
-                ImageUrl = x.ImagePath
+                CategoryId = x.CategoryId,
+                Rate = x.Rate,
+                Quantity = x.Quantity,
+                ImageUrl = x.ImagePath,
+                Total = x.Rate
             }));
             return itemList;
         }
