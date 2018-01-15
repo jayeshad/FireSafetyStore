@@ -44,10 +44,9 @@
                         <img src="@item.ImageUrl" alt="">
                         <div class="caption">
                             <h4>@item.ProductName</h4>
-                            <p>@item.Description</p>
+                            <p class="thumbnail-description">@item.Description</p>
                             <p>
-                                @Html.ActionLink("Details", "Details", "Shopping", new { id = item.ProductId }, htmlAttributes: new { @class = "btn btn-info btn-xs" })
-                                @Html.ActionLink("Add to Cart", "AddToCart", "Shopping", new { id = item.ProductId }, htmlAttributes: new { @class = "btn btn-info btn-xs" })
+                                @Html.ActionLink("Add to Cart", "AddToCart", "Shopping", new { id = item.ProductId }, htmlAttributes: new { @class = "btn btn-info btn-xs", @disable = item.Quantity <= 0 })
                         </div>
                     </div>
                 </div>

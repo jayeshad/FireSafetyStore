@@ -1,15 +1,12 @@
 ﻿@model FireSafetyStore.Web.Client.Infrastructure.DbContext.OrderMaster
 
 @{
-    ViewBag.Title = "OrderSummary";
+    ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h4>OrderSummary</h4>
 <hr />
-<div class="alert alert-success" role="alert">
-    You order has been placed, you can track keep track of your orders
-</div>
 <div>
     <dl class="dl-horizontal">
         <dt>
@@ -50,7 +47,11 @@
 
         <dd>
             @Html.DisplayFor(model => model.ContactEmail)
-        </dd>       
+        </dd>
 
     </dl>
 </div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OrderId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

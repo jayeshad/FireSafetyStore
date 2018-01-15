@@ -4,16 +4,29 @@ using FireSafetyStore.Web.Client.Models;
 using System.Web.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Data.Entity;
+using System.Threading.Tasks;
 
 namespace FireSafetyStore.Web.Client.Controllers
 {
     public class OrderController : Controller
     {
         private FiresafeDbContext db = new FiresafeDbContext();
-        // GET: Order
-        public ActionResult Index()
+        
+
+        [Authorize]
+        public async Task<ActionResult> Index()
         {
-            return View();
+            var orders = await db.OrderMasters.OrderByDescending(x=>x.OrderDate).ToListAsync();
+            return View(orders);
+        }
+
+        [Authorize]
+        public async Task<ActionResult> DispatchOrder()
+        {
+            var orders = await db.OrderMasters.Where(x => x.DeliveryDate == null).OrderBy(x => x.OrderDate).ToListAsync();
+            return View(orders);
         }
 
         public ActionResult PlaceOrder(CheckoutViewModel checkoutmodel)
@@ -22,6 +35,13 @@ namespace FireSafetyStore.Web.Client.Controllers
             var orderId = AddOrder(order, checkoutmodel);
             var result = db.OrderMasters.Find(orderId);
             return RedirectToAction("OrderSummary",new { id = orderId } );
+        }
+
+        public ActionResult ProcessOrder(string id)
+        {
+            var orderId = new Guid(id);
+            var order = db.OrderMasters.Find(orderId);
+            return View();
         }
 
         public ActionResult OrderSummary(string id)
@@ -47,6 +67,11 @@ namespace FireSafetyStore.Web.Client.Controllers
                 catch (Exception ex)
                 {
                     ModelState.AddModelError("",ex);
+                }
+                finally
+                {
+                    SessionManager<List<OrderDetail>>.SetValue(Constants.CartSessionKey, null);
+                    SessionManager<CheckoutViewModel>.SetValue(Constants.PaymentSessionKey, null);
                 }
     
             }

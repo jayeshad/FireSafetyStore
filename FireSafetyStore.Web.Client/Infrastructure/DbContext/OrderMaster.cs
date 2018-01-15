@@ -22,6 +22,7 @@ namespace FireSafetyStore.Web.Client.Infrastructure.DbContext
         [StringLength(50)]
         public string OrderCode { get; set; }
 
+        [DisplayFormat(DataFormatString = "{0:dd MMM yyyy}")]
         public DateTime OrderDate { get; set; }
 
         public Guid UserId { get; set; }
@@ -60,7 +61,7 @@ namespace FireSafetyStore.Web.Client.Infrastructure.DbContext
 
         [StringLength(500)]
         public string CancellationReason { get; set; }
-
+        [DisplayFormat(DataFormatString = "{0:dd MMM yyyy}")]
         public DateTime? DeliveryDate { get; set; }
 
         [StringLength(500)]

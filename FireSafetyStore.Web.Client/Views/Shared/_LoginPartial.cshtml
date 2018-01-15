@@ -2,6 +2,7 @@
 @using FireSafetyStore.Web.Client.Infrastructure.Common;
 @if (Request.IsAuthenticated)
 {
+
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
     {
         @Html.AntiForgeryToken()
@@ -13,12 +14,14 @@
             <li class="nav-item">
                 <a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()">Log Out</a>
             </li>
+        @if (Request.IsAuthenticated && User.IsInRole("Customer"))
+        {
             <li class="nav-item">
-                @Html.ActionLink("Checkout", "Index", "Shopping", null, htmlAttributes: new { @class = "btn btn-primary" })
-                <button id="btnShoppingCart" type="button" class="btn btn-primary">
+                <button id="btnShoppingCart1" type="button" class="btn btn-primary"  onclick="location.href='@Url.Action("Index", "Shopping")'">
                     Shopping Cart <span class="badge badge-light">@CommonService.GetCartCount()</span>
                 </button>
             </li>
+        }
         </ul>
     }
 }
@@ -32,4 +35,7 @@ else
             @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })
         </li>
     </ul>
+}
+@section scripts{
+    <script src="@Url.Content("~/Scripts/custom/cart_controller.js")"></script>
 }

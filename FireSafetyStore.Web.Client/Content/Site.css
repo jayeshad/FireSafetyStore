@@ -94,6 +94,11 @@ input[type="checkbox"].input-validation-error {
     margin-top: 10px;
 }
 
+.thumbnail-description {
+    height: 75px;
+    overflow: hidden;
+}
+
 .thumbnail {
     position: relative;
     padding: 0px;
