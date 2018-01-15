@@ -71,8 +71,8 @@ namespace FireSafetyStore.Web.Client.Controllers
         {
             var  viewmodel = new CheckoutViewModel();
             viewmodel.OrderMaster = new OrderMasterViewModel();
-            viewmodel.OrderDetails = new List<OrderDetailViewModel>();
-            viewmodel.OrderMaster.Total = 0;
+            viewmodel.OrderDetails = new List<OrderDetailViewModel>();            
+            
             var model = PopulateCustomerInfo();
             viewmodel.OrderMaster = MapOrderMasterToView(model);
             var currentCart = SessionManager<List<OrderDetail>>.GetValue(Infrastructure.Common.Constants.CartSessionKey);
@@ -80,7 +80,7 @@ namespace FireSafetyStore.Web.Client.Controllers
             {
                 currentCart.ForEach(x =>
                 {
-                    viewmodel.OrderMaster.Total += x.Total;
+                    viewmodel.OrderMaster.OrderAmount += x.Total;
                     viewmodel.OrderDetails.Add(new OrderDetailViewModel
                     {
                          ItemId = x.ItemId,
@@ -89,7 +89,9 @@ namespace FireSafetyStore.Web.Client.Controllers
                          Rate = x.Rate,
                          Total = x.Total
                     });
-                });                
+                });
+                viewmodel.OrderMaster.ShippingAmount = 10;
+                viewmodel.OrderMaster.TotalAmount  = viewmodel.OrderMaster.OrderAmount + viewmodel.OrderMaster.ShippingAmount;
                 SessionManager<CheckoutViewModel>.SetValue(Infrastructure.Common.Constants.PaymentSessionKey, viewmodel);
             }
             return View(viewmodel);
@@ -103,13 +105,13 @@ namespace FireSafetyStore.Web.Client.Controllers
                 OrderCode = model.OrderCode,
                 OrderDate = model.OrderDate,
                 UserId = model.UserId,
-                CustomerFullName = model.CustomerFullName,
-                CustomerAddress = model.CustomerAddress,
-                CustomerState = model.CustomerState,
-                CustomerCountry = model.CustomerCountry,
-                CustomerPostalCode = model.CustomerPostalCode,
-                CustomerContactNumber = model.CustomerContactNumber,
-                ContactEmail = model.ContactEmail,
+                CustomerFullName = model.CustomerFullName ?? "",
+                CustomerAddress = model.CustomerAddress ?? "",
+                CustomerState = model.CustomerState ?? "",
+                CustomerCountry = model.CustomerCountry ?? "",
+                CustomerPostalCode = model.CustomerPostalCode ?? "",
+                CustomerContactNumber = model.CustomerContactNumber ?? "",
+                ContactEmail = model.ContactEmail ?? "",
                 IsOrderConfirmed = true,
                 IsOrderCancelled = false
             };
@@ -254,7 +256,7 @@ namespace FireSafetyStore.Web.Client.Controllers
                     });
                 }
             }
-            if(newList.Any() && updatedcount == 1)
+            if(newList.Any())
             activeList.AddRange(newList);
             return activeList;
         }

@@ -172,7 +172,9 @@ namespace IdentitySample.Controllers
                     State = model.State,
                     PostalCode = model.PostalCode,
                     UserName = model.Email,
-                    Email = model.Email
+                    Email = model.Email,
+                    PhoneNumber = model.PhoneNumber,
+                    PhoneNumberConfirmed = true
                 };
                 var selectedRole = RoleManager.Roles.Where(x => x.Name == FireSafetyAppConstants.CustomerRoleName).Select(x => x.Name).ToArray();
                 var result = await UserManager.CreateAsync(user, model.Password);

@@ -58,6 +58,12 @@ namespace FireSafetyStore.Web.Client.Models
         [Display(Name = "PostalCode")]
         public string PostalCode { get; set; }
 
+        [Required]
+        [DataType(DataType.Text)]
+        [Display(Name = "PhoneNumber")]
+        public string PhoneNumber { get; set; }
+
+
         public IEnumerable<SelectListItem> RolesList { get; set; }
 
 

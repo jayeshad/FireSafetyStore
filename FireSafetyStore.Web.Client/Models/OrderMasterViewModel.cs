@@ -65,6 +65,13 @@ namespace FireSafetyStore.Web.Client.Models
         [StringLength(50)]
         public string DeliveryAgentContactNumber { get; set; }
 
-        public decimal Total { get; set; }
+        [StringLength(50)]
+        public string NameInPaymentCard { get; set; }
+        [StringLength(50)]
+        public string PaymentCardNumber { get; set; }
+        public decimal OrderAmount { get; set; }
+        public decimal ShippingAmount { get; set; }
+        public decimal TotalAmount { get; set; }
+
     }
 }

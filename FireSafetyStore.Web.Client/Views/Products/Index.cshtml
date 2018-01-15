@@ -1,12 +1,12 @@
-﻿@model IEnumerable<FireSafetyStore.Web.Client.Product>
+﻿@model IEnumerable<FireSafetyStore.Web.Client.Infrastructure.DbContext.Product>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
-
+<h2>Manage all Products</h2>
+<hr />
 <p>
     @Html.ActionLink("Add New Product", "Create")
 </p>

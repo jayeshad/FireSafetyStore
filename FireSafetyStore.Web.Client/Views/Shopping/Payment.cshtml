@@ -6,34 +6,98 @@
 @section Scripts {
     <link href="~/Content/Cart.css" rel="stylesheet" />
 }
-<h2>Enter your Credit/Debit Card Details</h2>
+<h4>Review your order and proceed to pay</h4>
 <hr />
 @if (Model.OrderDetails.Any())
 {
-    <table>
-        <tr>
-            <th style="text-align:left;padding:2px">Item Name</th>
-            <th style="text-align:left;padding:2px">Quantity</th>
-            <th style="text-align:left;padding:2px">Rate</th>
-            <th style="text-align:left;padding:2px">Total</th>
-        </tr>
-
-        @foreach (var item in Model.OrderDetails)
-        {
+    using (Html.BeginForm("PlaceOrder", "Order", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        <table>
             <tr>
-                <td style="text-align:left;padding:2px">@item.ItemName</td>
-                <td style="text-align:left;padding:2px">@item.Quantity</td>
-                <td style="text-align:left;padding:2px">@item.Rate</td>
-                <td style="text-align:left;padding:2px">@item.Total</td>
+                <th style="text-align:left;padding:2px">Item Name</th>
+                <th style="text-align:left;padding:2px">Quantity</th>
+                <th style="text-align:left;padding:2px">Rate</th>
+                <th style="text-align:left;padding:2px">Total</th>
             </tr>
-        }
-        <tr>
-            <th style="text-align:left;padding:2px"></th>
-            <th style="text-align:left;padding:2px"></th>
-            <th style="text-align:left;padding:2px"></th>
-            <th style="text-align:left;padding:2px">Total : @Model.OrderMaster.Total</th>
-        </tr>
-    </table>
-    <hr />
+
+            @foreach (var item in Model.OrderDetails)
+            {
+                <tr>
+                    <td style="text-align:left;padding:2px">
+                        @Html.DisplayFor(modelItem => item.ItemName)
+                    </td>
+                    <td style="text-align:left;padding:2px">
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    </td>
+                    <td style="text-align:left;padding:2px">
+                        @Html.DisplayFor(modelItem => item.Rate)
+                    </td>
+                    <td style="text-align:left;padding:2px">
+                        @Html.DisplayFor(modelItem => item.Total)
+                    </td>
+                </tr>
+            }
+            <tr>
+                <th style="text-align:left;padding:2px"></th>
+                <th style="text-align:left;padding:2px"></th>
+                <th style="text-align:left;padding:2px"></th>
+                <th style="text-align:left;padding:2px">Sub Total : @Model.OrderMaster.OrderAmount</th>
+            </tr>
+            <tr>
+                <th style="text-align:left;padding:2px"></th>
+                <th style="text-align:left;padding:2px"></th>
+                <th style="text-align:left;padding:2px"></th>
+                <th style="text-align:left;padding:2px">Shipping : @Model.OrderMaster.ShippingAmount</th>
+            </tr>
+            <tr>
+                <th style="text-align:left;padding:2px"></th>
+                <th style="text-align:left;padding:2px"></th>
+                <th style="text-align:left;padding:2px"></th>
+                <th style="text-align:left;padding:2px">Total : @Model.OrderMaster.TotalAmount</th>
+            </tr>
+        </table>
+        <hr />
+        <h4>Payment Details</h4>
+        <hr />
+        <table>
+            <tr>
+                <th style="text-align:left;padding:2px">Name as in Card</th>
+                <th style="text-align:left;padding:2px">
+                    @Html.TextBoxFor(m => m.OrderMaster.NameInPaymentCard, new { @class = "form-control", @style = "width:100%" })
+                </th>
+            </tr>
+            <tr>
+                <th style="text-align:left;padding:2px">Credit Card Number</th>
+                <th style="text-align:left;padding:2px">
+                    @Html.TextBoxFor(m => m.OrderMaster.PaymentCardNumber, new { @class = "form-control", @style = "width:100%" })
+                </th>
+            </tr>
+            <tr>
+                <th style="text-align:left;padding:2px">Card Type</th>
+                <th style="text-align:left;padding:2px">
+                    <select style="width:100%">
+                        <option value="VISA">VISA</option>
+                        <option value="AmericanExpress">American Express</option>
+                        <option value="Discover">Discover</option>
+                        <option value="MasterCard">MasterCard</option>
+                    </select>
+                </th>
+            </tr>
+            <tr>
+                <th style="text-align:left;padding:2px">Cvv Code</th>
+                <th style="text-align:left;padding:2px">
+                    <input type="password" name="name" value="" style="width:50px" placeholder="XXX"/>
+                </th>
+            </tr>
+        </table>
+        <hr />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-default" value="PayNow" />
+            </div>
+        </div>
+    }
 }
+
+
 

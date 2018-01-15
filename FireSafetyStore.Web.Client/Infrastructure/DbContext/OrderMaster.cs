@@ -71,6 +71,13 @@ namespace FireSafetyStore.Web.Client.Infrastructure.DbContext
 
         [StringLength(50)]
         public string DeliveryAgentContactNumber { get; set; }
+        [StringLength(50)]
+        public string NameInPaymentCard { get; set; }
+        [StringLength(50)]
+        public string PaymentCardNumber { get; set; }
+        public decimal OrderAmount { get; set; }
+        public decimal ShippingAmount { get; set; }
+        public decimal TotalAmount { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }

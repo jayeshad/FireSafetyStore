@@ -216,6 +216,7 @@
     <Compile Include="Controllers\BrandsController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\GridController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\ShoppingController.cs" />
     <Compile Include="Infrastructure\Common\CommonService.cs" />
@@ -2128,6 +2129,8 @@
     <Content Include="Views\Shopping\Index.cshtml" />
     <Content Include="Views\Shopping\Checkout.cshtml" />
     <Content Include="Views\Shopping\Payment.cshtml" />
+    <Content Include="Views\Order\OrderSummary.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
