@@ -12,7 +12,11 @@
 {
     using (Html.BeginForm("PlaceOrder", "Order", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
-        <table>
+        @Html.AntiForgeryToken()
+        <hr />
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+
+        <table style="width:100%">
             <tr>
                 <th style="text-align:left;padding:2px">Item Name</th>
                 <th style="text-align:left;padding:2px">Quantity</th>
@@ -75,6 +79,7 @@
             <tr>
                 <th style="text-align:left;padding:2px">Card Type</th>
                 <th style="text-align:left;padding:2px">
+                    @*@Html.DropDownList(m => m.OrderMaster.CardType, ViewData["CardType"] as IEnumerable<SelectListItem>)*@
                     <select style="width:100%">
                         <option value="VISA">VISA</option>
                         <option value="AmericanExpress">American Express</option>
@@ -86,7 +91,7 @@
             <tr>
                 <th style="text-align:left;padding:2px">Cvv Code</th>
                 <th style="text-align:left;padding:2px">
-                    <input type="password" name="name" value="" style="width:50px" placeholder="XXX"/>
+                    @Html.PasswordFor(m => m.OrderMaster.CvvCode, new { @class = "form-control", @style = "width:75px", placeholder = "XXX" })
                 </th>
             </tr>
         </table>

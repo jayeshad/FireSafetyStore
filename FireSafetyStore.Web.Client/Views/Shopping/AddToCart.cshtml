@@ -4,14 +4,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @section Scripts {
-    @*<script src="~/Scripts/custom/cart_controller.js"></script>*@
     <link href="~/Content/Cart.css" rel="stylesheet" />
 }
 
 
 <h5>My Shopping Cart</h5>
 <hr />
-<table>
+<table style="width:100%">
     <tr>
         <th style="text-align:left;padding:2px">Item Name</th>
         <th style="text-align:left;padding:2px">Description</th>
@@ -35,7 +34,7 @@
 </table>
 <hr />
 
-@Html.ActionLink("Checkout", "Index", "Shopping", null, htmlAttributes: new { @class = "btn btn-primary" })
+@Html.ActionLink("Checkout", "Checkout", "Shopping", null, htmlAttributes: new { @class = "btn btn-primary" })
 @Html.ActionLink("Continue Shopping", "Index", "Home", null, htmlAttributes: new { @class = "btn btn-primary" })
 
 

@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace FireSafetyStore.Web.Client.Models
 {
@@ -65,10 +62,17 @@ namespace FireSafetyStore.Web.Client.Models
         [StringLength(50)]
         public string DeliveryAgentContactNumber { get; set; }
 
+        [Required]
         [StringLength(50)]
         public string NameInPaymentCard { get; set; }
+        
+        [Required]
         [StringLength(50)]
         public string PaymentCardNumber { get; set; }
+
+        public string CardType { get; set; }
+        [Required]
+        public int CvvCode { get; set; }
         public decimal OrderAmount { get; set; }
         public decimal ShippingAmount { get; set; }
         public decimal TotalAmount { get; set; }

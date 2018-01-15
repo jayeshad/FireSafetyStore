@@ -20,8 +20,18 @@ namespace FireSafetyStore.Web.Client.Controllers
         private FiresafeDbContext db = new FiresafeDbContext();
         public ShoppingController()
         {
-            vm = new ShoppingCartViewModel { ShoppingCartItems = new List<ItemViewModel>() };
+            vm = new ShoppingCartViewModel { ShoppingCartItems = new List<ItemViewModel>(), CardType = PopulateCardTypes() };
+            ViewBag.CardTypes = vm.CardType;
+        }
 
+        private List<SelectListItem> PopulateCardTypes()
+        {
+            var list = new List<SelectListItem>();
+            list.Add(new SelectListItem {Text = "VISA", Value = "VISA" });
+            list.Add(new SelectListItem { Text = "American Express", Value = "AmericanExpress" });
+            list.Add(new SelectListItem { Text = "Discover", Value = "Discover" });
+            list.Add(new SelectListItem { Text = "MasterCard", Value = "MasterCard" });
+            return list;
         }
 
         public ShoppingController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
@@ -142,7 +152,7 @@ namespace FireSafetyStore.Web.Client.Controllers
                 }
                 else
                 {
-                    orders = AppendToShoppingCart(activeCart, product);
+                    orders = AppendToShoppingCart(product);
                     vm.ShoppingCartItems = MapToViewModel(orders);
                     SessionManager<List<OrderDetail>>.SetValue(Infrastructure.Common.Constants.CartSessionKey, orders);
                 }
@@ -233,31 +243,30 @@ namespace FireSafetyStore.Web.Client.Controllers
             return master;
         }
 
-        private List<OrderDetail> AppendToShoppingCart(List<OrderDetail> activeList, Product product)
+        private List<OrderDetail> AppendToShoppingCart(Product product)
         {
-            var newList = new List<OrderDetail>();
-            int updatedcount = 0;
-            foreach (OrderDetail item in activeList)
+            var activeList = SessionManager<List<OrderDetail>>.GetValue(Infrastructure.Common.Constants.CartSessionKey);
+            if(activeList.Any(x=>x.ItemId == product.ItemId))
             {
-                if (item.ItemId == product.ItemId)
+                var existing = activeList.First(x => x.ItemId == product.ItemId);
+                activeList.Where(x => x.ItemId == product.ItemId).Select(item =>
                 {
                     item.Quantity += 1;
                     item.Rate = product.Rate * item.Quantity;
-                }
-                else
-                {
-                    updatedcount += 1;
-                    newList.Add(new OrderDetail
-                    {
-                        ItemId = product.ItemId,
-                        Quantity = 1,
-                        Rate = product.Rate,
-                        Total = product.Rate
-                    });
-                }
+                    return item;
+                }).ToList();
             }
-            if(newList.Any())
-            activeList.AddRange(newList);
+            else
+            {
+                activeList.Add(new OrderDetail
+                {
+                    ItemId = product.ItemId,
+                    Quantity = 1,
+                    Rate = product.Rate,
+                    Total = product.Rate
+                });
+
+            }            
             return activeList;
         }
 
