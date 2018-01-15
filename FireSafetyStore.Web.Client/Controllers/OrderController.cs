@@ -44,6 +44,13 @@ namespace FireSafetyStore.Web.Client.Controllers
             return View();
         }
 
+        public ActionResult Edit(string id)
+        {
+            var orderId = new Guid(id);
+            var order = db.OrderMasters.Find(orderId);
+            return View();
+        }
+
         public ActionResult OrderSummary(string id)
         {
             var orderId = new Guid(id);
@@ -90,10 +97,7 @@ namespace FireSafetyStore.Web.Client.Controllers
                     product.Quantity = availableQty;
                     db.Entry(product).Property(x => x.Quantity).IsModified = true;
                 }
-
             }
-
-            throw new NotImplementedException();
         }
 
         private IEnumerable<OrderDetail> MapOrderDetails(Guid orderId, List<OrderDetailViewModel> orderDetails)

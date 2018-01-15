@@ -20,8 +20,7 @@ namespace FireSafetyStore.Web.Client.Controllers
         private FiresafeDbContext db = new FiresafeDbContext();
         public ShoppingController()
         {
-            vm = new ShoppingCartViewModel { ShoppingCartItems = new List<ItemViewModel>(), CardType = PopulateCardTypes() };
-            ViewBag.CardTypes = vm.CardType;
+            vm = new ShoppingCartViewModel { ShoppingCartItems = new List<ItemViewModel>()};
         }
 
         private List<SelectListItem> PopulateCardTypes()
@@ -81,8 +80,8 @@ namespace FireSafetyStore.Web.Client.Controllers
         {
             var  viewmodel = new CheckoutViewModel();
             viewmodel.OrderMaster = new OrderMasterViewModel();
-            viewmodel.OrderDetails = new List<OrderDetailViewModel>();            
-            
+            viewmodel.OrderDetails = new List<OrderDetailViewModel>();
+            viewmodel.OrderMaster.CardTypes = PopulateCardTypes();
             var model = PopulateCustomerInfo();
             viewmodel.OrderMaster = MapOrderMasterToView(model);
             var currentCart = SessionManager<List<OrderDetail>>.GetValue(Infrastructure.Common.Constants.CartSessionKey);
@@ -279,7 +278,7 @@ namespace FireSafetyStore.Web.Client.Controllers
         private string GenerateOrderCode()
         {
             var date = DateTime.Now;
-            return string.Format("#FS-{0}{1}{2}{3}{4}{5}", date.Day, date.Month, date.Year, date.Minute, date.Second, date.Millisecond);
+            return string.Format("{0}{1}{2}{3}{4}{5}", date.Day, date.Month, date.Year, date.Minute, date.Second, date.Millisecond);
         }
 
         protected override void Dispose(bool disposing)

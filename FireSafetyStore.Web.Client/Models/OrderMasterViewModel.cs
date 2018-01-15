@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace FireSafetyStore.Web.Client.Models
 {
@@ -70,7 +72,10 @@ namespace FireSafetyStore.Web.Client.Models
         [StringLength(50)]
         public string PaymentCardNumber { get; set; }
 
-        public string CardType { get; set; }
+        [Required]
+        public string SelectedCardType { get; set; }
+        public IEnumerable<SelectListItem> CardTypes { get; set; }
+
         [Required]
         public int CvvCode { get; set; }
         public decimal OrderAmount { get; set; }

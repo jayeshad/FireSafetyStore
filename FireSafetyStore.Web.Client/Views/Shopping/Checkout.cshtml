@@ -25,7 +25,8 @@
         {
             <tr>
                 <td style="text-align:left">@Html.DisplayFor(modelItem=> item.ProductName)</td>
-                <td style="text-align:left">@Html.TextBoxFor(modelItem => item.Quantity, new { htmlAttributes = new { @class = "qty-tbx" } }) </td>
+                <td style="text-align:left">
+                @Html.TextBoxFor(modelItem => item.Quantity, new { htmlAttributes = new { @class = "qty-tbx" } }) </td>
                 <td style="text-align:left">@Html.DisplayFor(modelItem => item.Rate)</td>
                 <td style="text-align:left">@Html.DisplayFor(modelItem => item.Total)</td>
                 <td style="text-align:left">@Html.ActionLink("X", "RemoveFromCart", "Shopping", new { id = item.ProductId }, htmlAttributes: new { @class = "glyphicon glyphicon-remove" })</td>
