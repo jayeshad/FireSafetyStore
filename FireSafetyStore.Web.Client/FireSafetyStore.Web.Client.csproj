@@ -214,6 +214,7 @@
     <Compile Include="Controllers\GridController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\ShoppingController.cs" />
+    <Compile Include="Infrastructure\Common\CommonService.cs" />
     <Compile Include="Infrastructure\Common\Constants.cs" />
     <Compile Include="Infrastructure\Common\FileManager.cs" />
     <Compile Include="Infrastructure\Common\SessionManager.cs" />

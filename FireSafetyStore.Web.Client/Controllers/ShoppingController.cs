@@ -2,20 +2,15 @@
 using FireSafetyStore.Web.Client.Infrastructure.DbContext;
 using FireSafetyStore.Web.Client.Models;
 using Kendo.Mvc.Extensions;
-using Kendo.Mvc.UI;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 
 namespace FireSafetyStore.Web.Client.Controllers
 {
     public class ShoppingController : Controller
     {
-        private const string CartConstant = "ShoppingCart";
         private FiresafeDbContext db = new FiresafeDbContext();
         public ShoppingController()
         {
@@ -26,10 +21,22 @@ namespace FireSafetyStore.Web.Client.Controllers
         public ActionResult Index()
         {
             var shoppingCart = new ShoppingCartViewModel { ShoppingCartItems = new List<ItemViewModel>() };
-            var currentCart = SessionManager<ShoppingCartViewModel>.GetValue(CartConstant);
+            var currentCart = SessionManager<ShoppingCartViewModel>.GetValue(Constants.CartSessionKey);
+            if (currentCart != null)
+            {
+                shoppingCart = SessionManager<ShoppingCartViewModel>.GetValue(Constants.CartSessionKey);
+            }
+            return View(shoppingCart);
+        }
+
+        [HttpPost]
+        public ActionResult GoToCart()
+        {
+            var shoppingCart = new ShoppingCartViewModel { ShoppingCartItems = new List<ItemViewModel>() };
+            var currentCart = SessionManager<ShoppingCartViewModel>.GetValue(Constants.CartSessionKey);
             if (currentCart != null || currentCart.ShoppingCartItems.Any())
             {
-                shoppingCart = SessionManager<ShoppingCartViewModel>.GetValue(CartConstant);
+                shoppingCart = SessionManager<ShoppingCartViewModel>.GetValue(Constants.CartSessionKey);
             }
             return View(shoppingCart);
         }
@@ -41,17 +48,17 @@ namespace FireSafetyStore.Web.Client.Controllers
             var productId = new Guid(id);
             var entity = db.Products.FirstOrDefault(x => x.ItemId == productId);
             var model = MapToViewModel(entity);
-            var currentCart = SessionManager<ShoppingCartViewModel>.GetValue(CartConstant);
+            var currentCart = SessionManager<ShoppingCartViewModel>.GetValue(Constants.CartSessionKey);
             if(currentCart == null || !currentCart.ShoppingCartItems.Any())
             {
                 shoppingCart.ShoppingCartItems.Add(model);
-                SessionManager<ShoppingCartViewModel>.SetValue(CartConstant, shoppingCart);
+                SessionManager<ShoppingCartViewModel>.SetValue(Constants.CartSessionKey, shoppingCart);
             }
             else
             {
                 shoppingCart = currentCart;
                 shoppingCart.ShoppingCartItems.Add(model);
-                SessionManager<ShoppingCartViewModel>.SetValue(CartConstant, shoppingCart);
+                SessionManager<ShoppingCartViewModel>.SetValue(Constants.CartSessionKey, shoppingCart);
             }
             return View(shoppingCart);
         }
@@ -61,12 +68,12 @@ namespace FireSafetyStore.Web.Client.Controllers
         {
             var shoppingCart = new ShoppingCartViewModel { ShoppingCartItems = new List<ItemViewModel>() };
             var productId = new Guid(id);
-            var currentCart = SessionManager<ShoppingCartViewModel>.GetValue(CartConstant);
+            var currentCart = SessionManager<ShoppingCartViewModel>.GetValue(Constants.CartSessionKey);
             if (currentCart != null && currentCart.ShoppingCartItems.Any())
             {
                 var itemsInCart = currentCart.ShoppingCartItems.Where(x => x.ProductId != productId).ToList();
                 shoppingCart.ShoppingCartItems.AddRange(itemsInCart);
-                SessionManager<ShoppingCartViewModel>.SetValue(CartConstant, shoppingCart);
+                SessionManager<ShoppingCartViewModel>.SetValue(Constants.CartSessionKey, shoppingCart);
             }
             return RedirectToAction("Index", shoppingCart);
         }

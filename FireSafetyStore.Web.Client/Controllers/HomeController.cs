@@ -17,24 +17,28 @@ namespace IdentitySample.Controllers
         {
             
         }
-        public ActionResult Index(string category = "")
+        public ActionResult Index(string category = "",string brand = "")
         {
             vm = new HomeViewModel
             {
-                BrandList = PopulateBrands(),
-                ProductList = PopulateProducts(category),
+                ProductList = PopulateProductsByFilter(category, brand),
             };
             return View(vm);
         }
 
-        private List<ItemViewModel> PopulateProducts(string category)
+        private List<ItemViewModel> PopulateProductsByFilter(string category, string brand)
         {            
             var products = db.Products.AsNoTracking().AsQueryable();
             if (!string.IsNullOrEmpty(category))
             {
                 var categoryId = new Guid(category);
-                products.Where(x => x.CategoryId == categoryId);
-            }            
+                products = products.Where(x => x.CategoryId == categoryId);
+            }
+            if (!string.IsNullOrEmpty(brand))
+            {
+                var brandId = new Guid(brand);
+                products = products.Where(x => x.BrandId == brandId);
+            }
             return MapToViewModel(products.ToList());
         }
 
@@ -50,18 +54,6 @@ namespace IdentitySample.Controllers
                 ImageUrl = x.ImagePath
             }));
             return itemList;
-        }
-
-        private List<SelectListItem> PopulateBrands()
-        {
-            var brands = db.Brands.AsNoTracking().ToList();
-            var brandsList = new List<SelectListItem>();
-            brands.ForEach(x => brandsList.Add(new SelectListItem
-            {
-                Text = x.Description,
-                Value = x.BrandId.ToString()
-            }));
-            return brandsList;
         }
 
         [Authorize]

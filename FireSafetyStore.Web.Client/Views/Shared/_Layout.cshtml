@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using FireSafetyStore.Web.Client.Infrastructure.Common;
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -7,19 +8,21 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
-	<!--This bundle was moved by the Telerik VS Extensions for compatibility reasons-->
-	@Scripts.Render("~/bundles/jquery")
-	<link href="@Url.Content("~/Content/kendo/2016.2.504/kendo.common-bootstrap.min.css")" rel="stylesheet" type="text/css" />
-	<link href="@Url.Content("~/Content/kendo/2016.2.504/kendo.mobile.all.min.css")" rel="stylesheet" type="text/css" />
-	<link href="@Url.Content("~/Content/kendo/2016.2.504/kendo.bootstrap.min.css")" rel="stylesheet" type="text/css" />
-	<script src="@Url.Content("~/Scripts/kendo/2016.2.504/jquery.min.js")"></script>
-	<script src="@Url.Content("~/Scripts/kendo/2016.2.504/jszip.min.js")"></script>
-	<script src="@Url.Content("~/Scripts/kendo/2016.2.504/kendo.all.min.js")"></script>
-	<script src="@Url.Content("~/Scripts/kendo/2016.2.504/kendo.aspnetmvc.min.js")"></script>
-	<script src="@Url.Content("~/Scripts/kendo.modernizr.custom.js")"></script>
+    <!--This bundle was moved by the Telerik VS Extensions for compatibility reasons-->
+    @Scripts.Render("~/bundles/jquery")
+    <link href="@Url.Content("~/Content/kendo/2016.2.504/kendo.common-bootstrap.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2016.2.504/kendo.mobile.all.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2016.2.504/kendo.bootstrap.min.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/kendo/2016.2.504/jquery.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2016.2.504/jszip.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2016.2.504/kendo.all.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2016.2.504/kendo.aspnetmvc.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo.modernizr.custom.js")"></script>
+    @*<script src="@Url.Content("~/Scripts/custom/home_controller.js")"></script>
+        <script src="@Url.Content("~/Scripts/custom/cart_controller.js")"></script>*@
 </head>
 <body>
-    
+
     <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             @Html.ActionLink("FireSAFE", "Index", "Home", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "navbar-brand" })
@@ -32,44 +35,43 @@
                     {
                         <li class="nav-item active">@Html.ActionLink("Home", "Index", "Home", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
                         <li class="nav-item">@Html.ActionLink("About", "About", "Home", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
-                        <li class="nav-item">@Html.ActionLink("Contact", "Contact", "Home", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>                        
+                        <li class="nav-item">@Html.ActionLink("Contact", "Contact", "Home", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
                     }
                     @if (Request.IsAuthenticated && User.IsInRole("Customer"))
                     {
                         <li class="nav-item active">@Html.ActionLink("Home", "Index", "Home", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="menuProductFilter" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Shop by category
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="menuProductFilter">
+                                @{
+                                    var categories = CommonService.PopulateCategories();
+                                    foreach (var item in categories)
+                                    {
+                                        @Html.ActionLink(item.Text, "Index", "Home", new { category = item.Value, brand = "" }, htmlAttributes: new { @class = "dropdown-item" });
+                                    }
+                                }
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="menuBrandFilter" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Shop by brands
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="menuBrandFilter">
+                                @{
+                                    var brands = CommonService.PopulateBrands();
+                                    foreach (var item in brands)
+                                    {
+                                        @Html.ActionLink(item.Text, "Index", "Home", new { category = "", brand = item.Value }, htmlAttributes: new { @class = "dropdown-item" });
+                                    }
+                                }
+                            </div>
+                        </li>
+
                         <li class="nav-item">@Html.ActionLink("About", "About", "Home", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
                         <li class="nav-item">@Html.ActionLink("Contact", "Contact", "Home", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
-
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <div class="dropdown show">
-                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Shop by category
-                                </a>
-
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Extinguishers & Equipment</a>
-                                    <a class="dropdown-item" href="#">Smoke, Fire & Gas Detection</a>
-                                    <a class="dropdown-item" href="#">Fire Doors & Accessories</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <div class="dropdown show">
-                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Shop by brand
-                                </a>
-
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Fire Angel</a>
-                                    <a class="dropdown-item" href="#">First Alert</a>
-                                    <a class="dropdown-item" href="#">Geo Fire</a>
-                                </div>
-                            </div>
-                        </li>
-                    }
+                     }
 
                     @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                     {
@@ -120,7 +122,7 @@
             </footer>
         </div>
     </main>
-    
+
     @Scripts.Render("~/bundles/popper")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

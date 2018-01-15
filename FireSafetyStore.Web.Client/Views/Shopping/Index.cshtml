@@ -9,30 +9,40 @@
 
 <h5>My Shopping Cart</h5>
 <hr />
-<table>
-    <tr>
-        <th>Item Name</th>
-        <th>Description</th>
-        <th>Quantity</th>
-        <th>Rate</th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model.ShoppingCartItems)
-    {
+@if (Model.ShoppingCartItems.Any())
+{
+    <table>
         <tr>
-            <td>@item.ProductName</td>
-            <td>@item.Description</td>
-            <td>@item.Quantity</td>
-            <td>@item.Rate</td>
-            <td>@Html.ActionLink("X", "RemoveFromCart", "Shopping", new { id = item.ProductId }, htmlAttributes: new { @class = "glyphicon glyphicon-remove" })</td>
+            <th>Item Name</th>
+            <th>Description</th>
+            <th>Quantity</th>
+            <th>Rate</th>
+            <th></th>
         </tr>
-    }
-</table>
-<hr />
 
-@Html.ActionLink("Checkout", "AddOrder", "Shopping", null, htmlAttributes: new { @class = "btn btn-default" })
-@Html.ActionLink("Continue Shopping", "Index", "Home", null, htmlAttributes: new { @class = "btn btn-default" })
+        @foreach (var item in Model.ShoppingCartItems)
+        {
+            <tr>
+                <td>@item.ProductName</td>
+                <td>@item.Description</td>
+                <td>@item.Quantity</td>
+                <td>@item.Rate</td>
+                <td>@Html.ActionLink("X", "RemoveFromCart", "Shopping", new { id = item.ProductId }, htmlAttributes: new { @class = "glyphicon glyphicon-remove" })</td>
+            </tr>
+        }
+    </table>
+    <hr />
+
+    @Html.ActionLink("Checkout", "AddOrder", "Shopping", null, htmlAttributes: new { @class = "btn btn-default" })
+    @Html.ActionLink("Continue Shopping", "Index", "Home", null, htmlAttributes: new { @class = "btn btn-default" })
+}
+else
+{
+    <div class="alert alert-info" role="alert">
+        Your shopping cart is empty
+    </div>
+}
+
 
 
 
