@@ -99,8 +99,9 @@ namespace FireSafetyStore.Web.Client.Controllers
                          Total = x.Total
                     });
                 });
+                viewmodel.OrderMaster.Gst = (viewmodel.OrderMaster.OrderAmount * 14) / (100);
                 viewmodel.OrderMaster.ShippingAmount = 10;
-                viewmodel.OrderMaster.TotalAmount  = viewmodel.OrderMaster.OrderAmount + viewmodel.OrderMaster.ShippingAmount;
+                viewmodel.OrderMaster.TotalAmount  = viewmodel.OrderMaster.OrderAmount + viewmodel.OrderMaster.Gst + viewmodel.OrderMaster.ShippingAmount;
                 SessionManager<CheckoutViewModel>.SetValue(Infrastructure.Common.Constants.PaymentSessionKey, viewmodel);
             }
             return View(viewmodel);

@@ -80,6 +80,7 @@ namespace FireSafetyStore.Web.Client.Models
         public int CvvCode { get; set; }
         public decimal OrderAmount { get; set; }
         public decimal ShippingAmount { get; set; }
+        public decimal Gst { get; set; }
         public decimal TotalAmount { get; set; }
 
     }
