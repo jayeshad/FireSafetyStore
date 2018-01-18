@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[OrderMaster] (
+    [OrderId]                    UNIQUEIDENTIFIER NOT NULL,
+    [OrderCode]                  NVARCHAR (50)    NOT NULL,
+    [OrderDate]                  DATETIME         NOT NULL,
+    [UserId]                     UNIQUEIDENTIFIER NOT NULL,
+    [CustomerFullName]           NVARCHAR (50)    NOT NULL,
+    [CustomerAddress]            NVARCHAR (500)   NOT NULL,
+    [CustomerState]              NVARCHAR (50)    NOT NULL,
+    [CustomerCountry]            NVARCHAR (50)    NOT NULL,
+    [CustomerPostalCode]         NVARCHAR (50)    NOT NULL,
+    [CustomerContactNumber]      NVARCHAR (50)    NOT NULL,
+    [ContactEmail]               NVARCHAR (50)    NOT NULL,
+    [OrderStatus]                INT              NOT NULL,
+    [IsOrderCancelled]           BIT              NULL,
+    [CancellationReason]         NVARCHAR (500)   NULL,
+    [DeliveryDate]               DATETIME         NULL,
+    [DeliveryAgencyName]         NVARCHAR (500)   NULL,
+    [DeliveryAgentBoyName]       NVARCHAR (50)    NULL,
+    [DeliveryAgentContactNumber] NVARCHAR (50)    NULL,
+    [NameInPaymentCard]          NVARCHAR (50)    NULL,
+    [PaymentCardNumber]          NVARCHAR (50)    NULL,
+    [OrderAmount]                MONEY            NOT NULL,
+    [ShippingAmount]             MONEY            NOT NULL,
+    [TotalAmount]                MONEY            NOT NULL,
+    CONSTRAINT [PK_OrderMaster] PRIMARY KEY CLUSTERED ([OrderId] ASC)
+);
+
