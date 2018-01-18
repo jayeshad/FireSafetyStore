@@ -55,7 +55,7 @@ namespace FireSafetyStore.Web.Client.Infrastructure.DbContext
         [StringLength(50)]
         public string ContactEmail { get; set; }
 
-        public bool IsOrderConfirmed { get; set; }
+        public int OrderStatus { get; set; }
 
         public bool? IsOrderCancelled { get; set; }
 

@@ -121,7 +121,7 @@ namespace FireSafetyStore.Web.Client.Controllers
                 CustomerPostalCode = model.CustomerPostalCode ?? "",
                 CustomerContactNumber = model.CustomerContactNumber ?? "",
                 ContactEmail = model.ContactEmail ?? "",
-                IsOrderConfirmed = true,
+                OrderStatus = 0,
                 IsOrderCancelled = false
             };
         }
@@ -236,7 +236,7 @@ namespace FireSafetyStore.Web.Client.Controllers
                 CustomerPostalCode = user.PostalCode,
                 CustomerContactNumber = user.PhoneNumber,
                 ContactEmail = user.Email,
-                IsOrderConfirmed = true,
+                OrderStatus = 0,
                 IsOrderCancelled = false
             };
             return master;

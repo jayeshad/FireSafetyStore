@@ -23,11 +23,50 @@ namespace FireSafetyStore.Web.Client.Controllers
         }
 
         [Authorize]
-        public async Task<ActionResult> DispatchOrder()
+        public async Task<ActionResult> DispatchOrderList()
         {
-            var orders = await db.OrderMasters.Where(x => x.DeliveryDate == null).OrderBy(x => x.OrderDate).ToListAsync();
+            var status = Constants.OrderStatuses.NotYetDispatched;
+            var orders = await db.OrderMasters.Where(x => x.OrderStatus == status).OrderBy(x => x.OrderDate).ToListAsync();
             return View(orders);
         }
+
+        [Authorize]
+        public async Task<ActionResult> DispatchOrder(string id)
+        {
+            var orderId = new Guid(id);
+            var order = await db.OrderMasters.FindAsync(orderId);
+            return View(order);
+        }
+
+        [Authorize]
+        [HttpPost]
+        public async Task<ActionResult> DispatchOrder(OrderMaster order)
+        {
+
+            var entity = db.OrderMasters.Find(order.OrderId);
+            if (entity != null)
+            {
+                entity.OrderStatus = Constants.OrderStatuses.Dispatched;
+                db.OrderMasters.Attach(entity);
+                db.Entry(entity).Property(x => x.DeliveryAgencyName).IsModified = true;
+                db.Entry(entity).Property(x => x.DeliveryAgentBoyName).IsModified = true;
+                db.Entry(entity).Property(x => x.DeliveryAgentContactNumber).IsModified = true;
+                db.Entry(entity).Property(x => x.DeliveryDate).IsModified = true;
+                db.Entry(entity).Property(x => x.OrderStatus).IsModified = true;
+                await db.SaveChangesAsync();
+            }
+            return View(entity);
+        }
+
+        //[Authorize]
+        //public async Task<ActionResult> TrackOrder(string id)
+        //{
+        //    var status = Constants.OrderStatuses.;
+        //    var orders = db.OrderMasters.Where(x => x.OrderStatus == status).OrderBy(x => x.OrderDate);
+        //    if (string.IsNullOrEmpty(id))
+        //    var orderId = await orders.ToListAsync();
+        //    return View(order);
+        //}
 
         public ActionResult PlaceOrder(CheckoutViewModel checkoutmodel)
         {
@@ -41,14 +80,14 @@ namespace FireSafetyStore.Web.Client.Controllers
         {
             var orderId = new Guid(id);
             var order = db.OrderMasters.Find(orderId);
-            return View();
+            return View(order);
         }
 
         public ActionResult Edit(string id)
         {
             var orderId = new Guid(id);
             var order = db.OrderMasters.Find(orderId);
-            return View();
+            return View(order);
         }
 
         public ActionResult OrderSummary(string id)
@@ -133,7 +172,7 @@ namespace FireSafetyStore.Web.Client.Controllers
                 CustomerPostalCode = order.OrderMaster.CustomerPostalCode,
                 CustomerContactNumber = order.OrderMaster.CustomerContactNumber,
                 ContactEmail = order.OrderMaster.ContactEmail,
-                IsOrderConfirmed = order.OrderMaster.IsOrderConfirmed,
+                OrderStatus = order.OrderMaster.OrderStatus,
                 IsOrderCancelled = order.OrderMaster.IsOrderCancelled,
                 OrderAmount = CalculateOrderAmount(order, Constants.AmountType.ProductCost),
                 ShippingAmount = CalculateOrderAmount(order, Constants.AmountType.ShippingCost),

@@ -670,7 +670,10 @@
     <Content Include="FileStore\D.jpg" />
     <Content Include="FileStore\E.jpg" />
     <Content Include="FileStore\F.jpg" />
-    <Content Include="FileStore\Firensafety.jpg" />
+    <Content Include="FileStore\AA.jpg" />
+    <Content Include="FileStore\BB.png" />
+    <Content Include="FileStore\CC.jpg" />
+    <Content Include="FileStore\DD.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="ApplicationInsights.config">
@@ -2135,6 +2138,7 @@
     <Content Include="Views\Order\Details.cshtml" />
     <Content Include="Views\Order\Edit.cshtml" />
     <Content Include="Views\Order\DispatchOrder.cshtml" />
+    <Content Include="Views\Order\DispatchOrderList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

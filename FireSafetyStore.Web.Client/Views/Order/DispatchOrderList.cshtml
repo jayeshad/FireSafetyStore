@@ -1,0 +1,53 @@
+﻿@model IEnumerable<FireSafetyStore.Web.Client.Infrastructure.DbContext.OrderMaster>
+
+@{
+    ViewBag.Title = "DispatchOrderList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Dispatch Pending Orders</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerFullName)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.OrderStatus)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.DeliveryDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerFullName)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.OrderStatus)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.DeliveryDate)
+        </td>     
+        <td>
+            @Html.ActionLink("Dispatch Order", "DispatchOrder", new { id=item.OrderId }) 
+        </td>
+    </tr>
+}
+
+</table>

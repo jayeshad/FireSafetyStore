@@ -10,7 +10,15 @@
             ProductCost = 0,
             ShippingCost = 1,
             TotalCost = 2
-
         }
+
+        public class OrderStatuses
+        {
+            public const int NotYetDispatched = 0;
+            public const int Dispatched = 1;
+            public const int OutForDelivery = 4;
+            public const int Delivered = 5;
+        }
+
     }
 }
