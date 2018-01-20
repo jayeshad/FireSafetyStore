@@ -82,11 +82,14 @@
                                 @Html.ActionLink("Manage Roles", "Index", "RolesAdmin", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "dropdown-item" })
                                 @Html.ActionLink("Manage Employees", "Index", "Employee", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "dropdown-item" })
                                 @Html.ActionLink("Manage Customers", "Index", "Customer", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "dropdown-item" })
+                                @Html.ActionLink("Manage Suppliers", "Index", "Suppliers", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "dropdown-item" })
                                 @Html.ActionLink("Manage Categories", "Index", "Categories", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "dropdown-item" })
                                 @Html.ActionLink("Manage Brands", "Index", "Brands", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "dropdown-item" })
+                                @Html.ActionLink("Purchase Orders", "Index", "PurchaseOrder", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "dropdown-item" })
                                 @Html.ActionLink("Manage Products", "Index", "Products", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "dropdown-item" })
-                                @Html.ActionLink("Manage Orders", "Index", "Order", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "dropdown-item" })
-                                @Html.ActionLink("Manage Orders", "DispatchOrderList", "Order", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "dropdown-item" })
+                                @Html.ActionLink("Manage All Orders", "Index", "Order", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "dropdown-item" })
+                                @Html.ActionLink("Manage Pending Orders", "DispatchOrderList", "Order", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "dropdown-item" })
+                                
                             </div>
                         </li>
                     }

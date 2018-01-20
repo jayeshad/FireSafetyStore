@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,29 +9,21 @@ using System.Web;
 using System.Web.Mvc;
 using FireSafetyStore.Web.Client.Infrastructure.DbContext;
 using System.IO;
-using Kendo.Mvc.Extensions;
 
 namespace FireSafetyStore.Web.Client.Controllers
 {
-    public class ProductsController : Controller
+    public class PurchaseOrderController : Controller
     {
         private FiresafeDbContext db = new FiresafeDbContext();
 
-        // GET: Products
+        // GET: PurchaseOrder
         public async Task<ActionResult> Index()
         {
-            var products = db.Products.Include(p => p.Brand).Include(p => p.Category);
+            var products = db.Products.Include(p => p.Brand).Include(p => p.Category).Include(p => p.Supplier);
             return View(await products.ToListAsync());
         }
 
-
-        private int GetCurrentStock(Guid itemId)
-        {
-            return db.Products.Count(x => x.ItemId == itemId);
-        }
-
-
-        // GET: Products/Details/5
+        // GET: PurchaseOrder/Details/5
         public async Task<ActionResult> Details(Guid? id)
         {
             if (id == null)
@@ -44,15 +38,16 @@ namespace FireSafetyStore.Web.Client.Controllers
             return View(product);
         }
 
-        // GET: Products/Create
+        // GET: PurchaseOrder/Create
         public ActionResult Create()
         {
             ViewBag.BrandId = new SelectList(db.Brands, "BrandId", "Description");
             ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Description");
+            ViewBag.SupplierId = new SelectList(db.Suppliers, "SupplierId", "Name");
             return View();
         }
 
-        // POST: Products/Create
+        // POST: PurchaseOrder/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -60,7 +55,7 @@ namespace FireSafetyStore.Web.Client.Controllers
         public async Task<ActionResult> Create(Product product, HttpPostedFileBase file)
         {
             if (ModelState.IsValid && file != null && file.ContentLength > 0)
-            {                
+            {
                 product.ItemId = Guid.NewGuid();
                 product.UpdatedAt = DateTime.UtcNow;
                 product.Image = new byte[file.ContentLength];
@@ -68,7 +63,7 @@ namespace FireSafetyStore.Web.Client.Controllers
                 string ImageName = Path.GetFileName(file.FileName);
                 string extension = Path.GetExtension(file.FileName);
                 product.OriginalFileName = ImageName;
-                string generatedname = string.Format("{0}{1}",Guid.NewGuid().ToString("N"), extension);
+                string generatedname = string.Format("{0}{1}", Guid.NewGuid().ToString("N"), extension);
                 string physicalPath = Server.MapPath("~/FileStore/Products/" + generatedname);
                 file.SaveAs(physicalPath);
                 product.ImagePath = "/FileStore/Products/" + generatedname;
@@ -80,10 +75,11 @@ namespace FireSafetyStore.Web.Client.Controllers
 
             ViewBag.BrandId = new SelectList(db.Brands, "BrandId", "Description", product.BrandId);
             ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Description", product.CategoryId);
+            ViewBag.SupplierId = new SelectList(db.Suppliers, "SupplierId", "Name", product.SupplierId);
             return View(product);
         }
 
-        // GET: Products/Edit/5
+        // GET: PurchaseOrder/Edit/5
         public async Task<ActionResult> Edit(Guid? id)
         {
             if (id == null)
@@ -97,15 +93,16 @@ namespace FireSafetyStore.Web.Client.Controllers
             }
             ViewBag.BrandId = new SelectList(db.Brands, "BrandId", "Description", product.BrandId);
             ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Description", product.CategoryId);
+            ViewBag.SupplierId = new SelectList(db.Suppliers, "SupplierId", "Name", product.SupplierId);
             return View(product);
         }
 
-        // POST: Products/Edit/5
+        // POST: PurchaseOrder/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "ItemId,ItemName,Description,BrandId,CategoryId,UnitId,Rate,Image,ImagePath,OriginalFileName,Stock,UpdatedAt,IsActive")] Product product,HttpPostedFileBase file)
+        public async Task<ActionResult> Edit([Bind(Include = "ItemId,ItemName,Description,SupplierId,BrandId,CategoryId,Quantity,Rate,Discount,OfferExpiryDate,Image,ImagePath,OriginalFileName,UpdatedAt,IsActive")] Product product, HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
@@ -136,12 +133,14 @@ namespace FireSafetyStore.Web.Client.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
+
             ViewBag.BrandId = new SelectList(db.Brands, "BrandId", "Description", product.BrandId);
             ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Description", product.CategoryId);
+            ViewBag.SupplierId = new SelectList(db.Suppliers, "SupplierId", "Name", product.SupplierId);
             return View(product);
         }
 
-        // GET: Products/Delete/5
+        // GET: PurchaseOrder/Delete/5
         public async Task<ActionResult> Delete(Guid? id)
         {
             if (id == null)
@@ -156,7 +155,7 @@ namespace FireSafetyStore.Web.Client.Controllers
             return View(product);
         }
 
-        // POST: Products/Delete/5
+        // POST: PurchaseOrder/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(Guid id)
@@ -165,22 +164,6 @@ namespace FireSafetyStore.Web.Client.Controllers
             db.Products.Remove(product);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
-        }
-
-        public byte[] GetByteArray(HttpPostedFileBase file)
-        {
-            byte[] data;
-            using (Stream inputStream = file.InputStream)
-            {
-                MemoryStream memoryStream = inputStream as MemoryStream;
-                if (memoryStream == null)
-                {
-                    memoryStream = new MemoryStream();
-                    inputStream.CopyTo(memoryStream);
-                }
-                data = memoryStream.ToArray();
-            }
-            return data;
         }
 
         protected override void Dispose(bool disposing)

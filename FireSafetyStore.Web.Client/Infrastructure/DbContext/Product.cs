@@ -1,39 +1,51 @@
 namespace FireSafetyStore.Web.Client.Infrastructure.DbContext
 {
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     public partial class Product
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Product()
+        {
+            OrderDetails = new HashSet<OrderDetail>();
+        }
+
         [Key]
         public Guid ItemId { get; set; }
 
         [Required]
         [StringLength(50)]
-        [Display(Name = "Product Name")]
         public string ItemName { get; set; }
 
         [Required]
         [StringLength(250)]
-        [Display(Name = "Product Description")]
         public string Description { get; set; }
 
-        [Display(Name = "Name of Brand")]    
+        public Guid SupplierId { get; set; }
+
         public Guid BrandId { get; set; }
 
-        [Display(Name = "Product Category")]
         public Guid CategoryId { get; set; }
 
         public int Quantity { get; set; }
 
-        [Display(Name = "Unit Price")]
         public decimal Rate { get; set; }
 
+        public decimal? Discount { get; set; }
+
+        public DateTime? OfferExpiryDate { get; set; }
+
+        [Required]
         public byte[] Image { get; set; }
 
+        [Required]
+        [StringLength(2500)]
         public string ImagePath { get; set; }
 
-        [Display(Name = "File Name")]
+        [Required]
+        [StringLength(1000)]
         public string OriginalFileName { get; set; }
 
         public DateTime UpdatedAt { get; set; }
@@ -43,5 +55,10 @@ namespace FireSafetyStore.Web.Client.Infrastructure.DbContext
         public virtual Brand Brand { get; set; }
 
         public virtual Category Category { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+
+        public virtual Supplier Supplier { get; set; }
     }
 }

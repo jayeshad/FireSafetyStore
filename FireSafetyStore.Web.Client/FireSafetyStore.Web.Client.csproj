@@ -218,11 +218,14 @@
     <Compile Include="Controllers\GridController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\PurchaseOrderController.cs" />
     <Compile Include="Controllers\ShoppingController.cs" />
+    <Compile Include="Controllers\SuppliersController.cs" />
     <Compile Include="Infrastructure\Common\CommonService.cs" />
     <Compile Include="Infrastructure\Common\Constants.cs" />
     <Compile Include="Infrastructure\Common\FileManager.cs" />
     <Compile Include="Infrastructure\Common\SessionManager.cs" />
+    <Compile Include="Infrastructure\DbContext\Supplier.cs" />
     <Compile Include="Infrastructure\DbContext\Brand.cs" />
     <Compile Include="Infrastructure\DbContext\Category.cs" />
     <Compile Include="Infrastructure\Common\FireSafetyAppConstants.cs" />
@@ -2139,10 +2142,21 @@
     <Content Include="Views\Order\Edit.cshtml" />
     <Content Include="Views\Order\DispatchOrder.cshtml" />
     <Content Include="Views\Order\DispatchOrderList.cshtml" />
+    <Content Include="Views\PurchaseOrder\Create.cshtml" />
+    <Content Include="Views\PurchaseOrder\Delete.cshtml" />
+    <Content Include="Views\PurchaseOrder\Details.cshtml" />
+    <Content Include="Views\PurchaseOrder\Edit.cshtml" />
+    <Content Include="Views\PurchaseOrder\Index.cshtml" />
+    <Content Include="Views\Suppliers\Create.cshtml" />
+    <Content Include="Views\Suppliers\Delete.cshtml" />
+    <Content Include="Views\Suppliers\Details.cshtml" />
+    <Content Include="Views\Suppliers\Edit.cshtml" />
+    <Content Include="Views\Suppliers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="FileStore\Products\" />
+    <Folder Include="Views\Purchase\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

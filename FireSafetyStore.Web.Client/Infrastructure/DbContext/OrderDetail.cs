@@ -22,5 +22,7 @@ namespace FireSafetyStore.Web.Client.Infrastructure.DbContext
         public decimal Total { get; set; }
 
         public virtual OrderMaster OrderMaster { get; set; }
+
+        public virtual Product Product { get; set; }
     }
 }
