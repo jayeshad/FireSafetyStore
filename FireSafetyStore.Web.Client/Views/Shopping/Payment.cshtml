@@ -58,7 +58,7 @@
                 <th style="text-align:left;padding:2px"></th>
                 <th style="text-align:left;padding:2px"></th>
                 <th style="text-align:left;padding:2px"></th>
-                <th style="text-align:left;padding:2px">GST(14%) : @Model.OrderMaster.Gst</th>
+                <th style="text-align:left;padding:2px">GST(18%) : @Model.OrderMaster.Gst</th>
             </tr>
             <tr>
                 <th style="text-align:left;padding:2px"></th>
@@ -98,7 +98,7 @@
             <tr>
                 <th style="text-align:left;padding:2px">Cvv Code</th>
                 <th style="text-align:left;padding:2px">
-                    @Html.PasswordFor(m => m.OrderMaster.CvvCode, new { @class = "form-control", @style = "width:75px", placeholder = "XXX", @id = "txtcvvcode", @onchange = "onpaymentinfochanged();" })
+                    @Html.PasswordFor(m => m.OrderMaster.CvvCode, new { @class = "form-control", @type = "number", maxlength = 3, minlength = 3, @style = "width:75px", placeholder = "XXX", @id = "txtcvvcode", @onchange = "onpaymentinfochanged();" })
                 </th>
             </tr>
         </table>

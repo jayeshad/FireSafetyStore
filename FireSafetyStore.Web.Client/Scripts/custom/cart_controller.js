@@ -5,6 +5,7 @@ function onpaymentinfochanged() {
     var cvv = $('#txtcvvcode').val();
     if (number && name && cvv) {
         document.getElementById("btnpayment").disabled = false;
+
         
     }
     else {
