@@ -11,6 +11,7 @@ using FireSafetyStore.Web.Client.Infrastructure.DbContext;
 
 namespace FireSafetyStore.Web.Client.Controllers
 {
+    [Authorize]
     public class SuppliersController : Controller
     {
         private FiresafeDbContext db = new FiresafeDbContext();

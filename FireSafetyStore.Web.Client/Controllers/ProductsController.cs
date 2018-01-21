@@ -11,6 +11,7 @@ using Kendo.Mvc.Extensions;
 
 namespace FireSafetyStore.Web.Client.Controllers
 {
+    [Authorize]
     public class ProductsController : Controller
     {
         private FiresafeDbContext db = new FiresafeDbContext();

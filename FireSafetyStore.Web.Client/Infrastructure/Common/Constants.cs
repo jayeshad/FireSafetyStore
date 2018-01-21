@@ -16,8 +16,8 @@
         {
             public const int NotYetDispatched = 0;
             public const int Dispatched = 1;
-            public const int OutForDelivery = 4;
-            public const int Delivered = 5;
+            public const int OutForDelivery = 2;
+            public const int Delivered = 3;
         }
 
     }

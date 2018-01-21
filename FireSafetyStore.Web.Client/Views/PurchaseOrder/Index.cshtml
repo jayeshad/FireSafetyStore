@@ -8,24 +8,15 @@
 <h2> Purchase Management</h2>
 
 <p>
-    @Html.ActionLink("Track New Purchase", "Create")
+    @Html.ActionLink("Create New", "Create")
 </p>
 
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Brand.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Category.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Supplier.Name)
-        </th>
-        <th>
+        <th style="width:25%">
             @Html.DisplayNameFor(model => model.ItemName)
         </th>
-        <th>
+        <th style="width:45%">
             @Html.DisplayNameFor(model => model.Description)
         </th>
         <th>
@@ -39,20 +30,12 @@
     </tr>
 
 @foreach (var item in Model) {
+
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Brand.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Category.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Supplier.Name)
-        </td>
-        <td>
+        <td style="width:25%">
             @Html.DisplayFor(modelItem => item.ItemName)
         </td>
-        <td>
+        <td style="width:45%">
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
@@ -64,7 +47,6 @@
        
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ItemId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ItemId }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.ItemId })
         </td>
     </tr>

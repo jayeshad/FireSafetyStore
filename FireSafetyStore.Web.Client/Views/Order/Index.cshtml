@@ -5,8 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
-<hr />
+<h2>Manage All Orders</h2>
 <table class="table">
     <tr>
         <th>
@@ -45,7 +44,7 @@
             @Html.DisplayFor(modelItem => item.ContactEmail)
         </td>
         <td>
-            @Html.ActionLink("Dispatch Order", "ProcessOrder", new { id=item.OrderId }) 
+            @Html.ActionLink("Modify", "ProcessOrder", new { id=item.OrderId }) 
         </td>
     </tr>
 }

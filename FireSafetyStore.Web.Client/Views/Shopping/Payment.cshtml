@@ -5,6 +5,7 @@
 }
 @section Scripts {
     <link href="~/Content/Cart.css" rel="stylesheet" />
+    <script src="~/Scripts/custom/cart_controller.js"></script>
 }
 <h4>Review your order and proceed to pay</h4>
 <hr />
@@ -73,18 +74,19 @@
             <tr>
                 <th style="text-align:left;padding:2px">Name as in Card</th>
                 <th style="text-align:left;padding:2px">
-                    @Html.TextBoxFor(m => m.OrderMaster.NameInPaymentCard, new { @class = "form-control", @style = "width:100%" })
+                    @Html.TextBoxFor(m => m.OrderMaster.NameInPaymentCard, new { @class = "form-control", @id = "txtnameincard", @onchange = "onpaymentinfochanged();" })
                 </th>
             </tr>
             <tr>
                 <th style="text-align:left;padding:2px">Credit Card Number</th>
                 <th style="text-align:left;padding:2px">
-                    @Html.TextBoxFor(m => m.OrderMaster.PaymentCardNumber, new { @class = "form-control", @style = "width:100%" })
+                    @Html.TextBoxFor(m => m.OrderMaster.PaymentCardNumber, new { @id = "txtcardnumber", @onchange = "onpaymentinfochanged();", @class = "form-control", @style = "width:100%" })
                 </th>
             </tr>
             <tr>
                 <th style="text-align:left;padding:2px">Card Type</th>
                 <th style="text-align:left;padding:2px">
+                    
                     <select style="width:100%">
                         <option value="VISA">VISA</option>
                         <option value="AmericanExpress">American Express</option>
@@ -96,14 +98,14 @@
             <tr>
                 <th style="text-align:left;padding:2px">Cvv Code</th>
                 <th style="text-align:left;padding:2px">
-                    @Html.PasswordFor(m => m.OrderMaster.CvvCode, new { @class = "form-control", @style = "width:75px", placeholder = "XXX" })
+                    @Html.PasswordFor(m => m.OrderMaster.CvvCode, new { @class = "form-control", @style = "width:75px", placeholder = "XXX", @id = "txtcvvcode", @onchange = "onpaymentinfochanged();" })
                 </th>
             </tr>
         </table>
         <hr />
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" class="btn btn-primary" value="PayNow" />
+                <input id="btnpayment" type="submit" class="btn btn-primary" value="PayNow" disabled="disabled" />
             </div>
         </div>
     }

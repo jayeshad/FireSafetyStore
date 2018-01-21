@@ -18,21 +18,24 @@ namespace FireSafetyStore.Web.Client.Infrastructure.DbContext
 
         [Required]
         [StringLength(50)]
+        [Display(Name = "Supplier")]
         public string Name { get; set; }
 
         [Required]
         [StringLength(150)]
+        [Display(Name = "Address")]
         public string Address { get; set; }
 
         [Required]
         [StringLength(50)]
+        [Display(Name = "Email ID")]
         public string Email { get; set; }
 
         [Required]
         [StringLength(50)]
+        [Display(Name = "Phone Number")]
         public string Phone { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product> Products { get; set; }
     }
 }

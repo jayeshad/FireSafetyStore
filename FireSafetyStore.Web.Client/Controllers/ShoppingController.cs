@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using FireSafetyStore.Web.Client.Infrastructure.Common;
+﻿using FireSafetyStore.Web.Client.Infrastructure.Common;
 using FireSafetyStore.Web.Client.Infrastructure.DbContext;
 using FireSafetyStore.Web.Client.Infrastructure.Security;
 using FireSafetyStore.Web.Client.Models;
@@ -14,6 +13,7 @@ using System.Web.Mvc;
 
 namespace FireSafetyStore.Web.Client.Controllers
 {
+    [Authorize]
     public class ShoppingController : Controller
     {
         private ShoppingCartViewModel vm;
@@ -79,9 +79,9 @@ namespace FireSafetyStore.Web.Client.Controllers
         public ActionResult Payment()
         {
             var  viewmodel = new CheckoutViewModel();
+            viewmodel.IsPaymentMode = true;
             viewmodel.OrderMaster = new OrderMasterViewModel();
             viewmodel.OrderDetails = new List<OrderDetailViewModel>();
-            viewmodel.OrderMaster.CardTypes = PopulateCardTypes();
             var model = PopulateCustomerInfo();
             viewmodel.OrderMaster = MapOrderMasterToView(model);
             var currentCart = SessionManager<List<OrderDetail>>.GetValue(Infrastructure.Common.Constants.CartSessionKey);
@@ -99,7 +99,7 @@ namespace FireSafetyStore.Web.Client.Controllers
                          Total = x.Total
                     });
                 });
-                viewmodel.OrderMaster.Gst = (viewmodel.OrderMaster.OrderAmount * 14) / (100);
+                viewmodel.OrderMaster.Gst = (viewmodel.OrderMaster.OrderAmount * 18) / (100);
                 viewmodel.OrderMaster.ShippingAmount = 10;
                 viewmodel.OrderMaster.TotalAmount  = viewmodel.OrderMaster.OrderAmount + viewmodel.OrderMaster.Gst + viewmodel.OrderMaster.ShippingAmount;
                 SessionManager<CheckoutViewModel>.SetValue(Infrastructure.Common.Constants.PaymentSessionKey, viewmodel);

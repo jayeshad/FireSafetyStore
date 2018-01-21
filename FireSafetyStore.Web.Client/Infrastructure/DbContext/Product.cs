@@ -17,35 +17,43 @@ namespace FireSafetyStore.Web.Client.Infrastructure.DbContext
 
         [Required]
         [StringLength(50)]
+        [Display(Name = "Product Name")]
         public string ItemName { get; set; }
 
         [Required]
         [StringLength(250)]
+        [Display(Name = "Product Description")]
         public string Description { get; set; }
 
+        [Required]
+        [Display(Name = "Supplier Name")]
         public Guid SupplierId { get; set; }
 
+        [Required]
+        [Display(Name = "Brand Name")]
         public Guid BrandId { get; set; }
 
+        [Required]
+        [Display(Name = "Category")]
         public Guid CategoryId { get; set; }
 
+        [Required]
         public int Quantity { get; set; }
 
+        [Required]
+        public decimal DealerPrice { get; set; }
+
+        [Required]
         public decimal Rate { get; set; }
 
         public decimal? Discount { get; set; }
 
         public DateTime? OfferExpiryDate { get; set; }
 
-        [Required]
         public byte[] Image { get; set; }
 
-        [Required]
-        [StringLength(2500)]
         public string ImagePath { get; set; }
 
-        [Required]
-        [StringLength(1000)]
         public string OriginalFileName { get; set; }
 
         public DateTime UpdatedAt { get; set; }
@@ -56,7 +64,6 @@ namespace FireSafetyStore.Web.Client.Infrastructure.DbContext
 
         public virtual Category Category { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
 
         public virtual Supplier Supplier { get; set; }

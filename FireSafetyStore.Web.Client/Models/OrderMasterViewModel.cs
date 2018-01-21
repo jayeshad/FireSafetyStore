@@ -74,7 +74,7 @@ namespace FireSafetyStore.Web.Client.Models
 
         [Required]
         public string SelectedCardType { get; set; }
-        public IEnumerable<SelectListItem> CardTypes { get; set; }
+        public string CardTypes { get; set; }
 
         [Required]
         public int CvvCode { get; set; }

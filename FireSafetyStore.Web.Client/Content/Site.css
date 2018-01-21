@@ -52,6 +52,9 @@ body {
     background-image: url('../Content/images/logo.gif') !important;
 }
 
+.home-bg{
+    background-image: url('../Content/images/home_bg.jpg') !important;
+}
 .bg-white {
     background-color: azure;
 }

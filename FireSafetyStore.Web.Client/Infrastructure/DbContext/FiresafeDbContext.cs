@@ -22,6 +22,7 @@ namespace FireSafetyStore.Web.Client.Infrastructure.DbContext
         public virtual DbSet<OrderMaster> OrderMasters { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
+        public virtual DbSet<Payment> Payments { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<AspNetRole>()

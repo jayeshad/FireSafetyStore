@@ -54,3 +54,11 @@
         </div>
     </div>
 }
+
+@if (Request.IsAuthenticated && User.IsInRole("Admin") || Request.IsAuthenticated && User.IsInRole("Employer"))
+{
+    <div>
+        <img src="~/Content/images/main_bg.jpg" alt="" />
+    </div>
+
+}

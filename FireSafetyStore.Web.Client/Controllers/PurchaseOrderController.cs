@@ -12,6 +12,7 @@ using System.IO;
 
 namespace FireSafetyStore.Web.Client.Controllers
 {
+    [Authorize]
     public class PurchaseOrderController : Controller
     {
         private FiresafeDbContext db = new FiresafeDbContext();
@@ -54,23 +55,30 @@ namespace FireSafetyStore.Web.Client.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(Product product, HttpPostedFileBase file)
         {
-            if (ModelState.IsValid && file != null && file.ContentLength > 0)
+            if (ModelState.IsValid)
             {
-                product.ItemId = Guid.NewGuid();
-                product.UpdatedAt = DateTime.UtcNow;
-                product.Image = new byte[file.ContentLength];
-                file.InputStream.Read(product.Image, 0, file.ContentLength);
-                string ImageName = Path.GetFileName(file.FileName);
-                string extension = Path.GetExtension(file.FileName);
-                product.OriginalFileName = ImageName;
-                string generatedname = string.Format("{0}{1}", Guid.NewGuid().ToString("N"), extension);
-                string physicalPath = Server.MapPath("~/FileStore/Products/" + generatedname);
-                file.SaveAs(physicalPath);
-                product.ImagePath = "/FileStore/Products/" + generatedname;
-                product.IsActive = true;
-                db.Products.Add(product);
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                if (file == null || file.ContentLength <= 0)
+                {
+                    ModelState.AddModelError("FILEUPLOADERROR", "Product Image is Mandatory !");
+                }
+                else
+                {
+                    product.ItemId = Guid.NewGuid();
+                    product.UpdatedAt = DateTime.UtcNow;
+                    product.Image = new byte[file.ContentLength];
+                    file.InputStream.Read(product.Image, 0, file.ContentLength);
+                    string ImageName = Path.GetFileName(file.FileName);
+                    string extension = Path.GetExtension(file.FileName);
+                    product.OriginalFileName = ImageName;
+                    string generatedname = string.Format("{0}{1}", Guid.NewGuid().ToString("N"), extension);
+                    string physicalPath = Server.MapPath("~/FileStore/Products/" + generatedname);
+                    file.SaveAs(physicalPath);
+                    product.ImagePath = "/FileStore/Products/" + generatedname;
+                    product.IsActive = true;
+                    db.Products.Add(product);
+                    await db.SaveChangesAsync();
+                    return RedirectToAction("Index");
+                }
             }
 
             ViewBag.BrandId = new SelectList(db.Brands, "BrandId", "Description", product.BrandId);
