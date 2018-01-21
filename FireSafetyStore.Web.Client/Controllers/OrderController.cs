@@ -51,6 +51,7 @@ namespace FireSafetyStore.Web.Client.Controllers
         {
             var orderId = new Guid(id);
             var order = await db.OrderMasters.FindAsync(orderId);
+            order.SelectedStatus = order.OrderStatus.ToString();
             return View(order);
         }
 
@@ -74,7 +75,7 @@ namespace FireSafetyStore.Web.Client.Controllers
                 }                    
                 await db.SaveChangesAsync();
             }
-            return View(order);
+            return RedirectToAction("DispatchOrderList");
         }
 
         [Authorize]
@@ -128,7 +129,29 @@ namespace FireSafetyStore.Web.Client.Controllers
         {
             var orderId = new Guid(id);
             var order = db.OrderMasters.Find(orderId);
+            order.SelectedStatus = order.OrderStatus.ToString();
             return View(order);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> ProcessOrder(OrderMaster order)
+        {
+            if (order != null)
+            {
+                order.OrderStatus = Infrastructure.Common.Constants.OrderStatuses.Dispatched;
+                db.OrderMasters.Attach(order);
+                db.Entry(order).Property(x => x.DeliveryAgencyName).IsModified = true;
+                db.Entry(order).Property(x => x.DeliveryAgentBoyName).IsModified = true;
+                db.Entry(order).Property(x => x.DeliveryAgentContactNumber).IsModified = true;
+                db.Entry(order).Property(x => x.DeliveryDate).IsModified = true;
+                if (new[] { "0", "1", "2", "3" }.Contains(order.SelectedStatus))
+                {
+                    order.OrderStatus = Convert.ToInt32(order.SelectedStatus);
+                    db.Entry(order).Property(x => x.OrderStatus).IsModified = true;
+                }
+                await db.SaveChangesAsync();
+            }
+            return RedirectToAction("Index");
         }
 
         public ActionResult Edit(string id)
