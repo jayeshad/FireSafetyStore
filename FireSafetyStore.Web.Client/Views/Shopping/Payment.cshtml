@@ -80,7 +80,66 @@
             <tr>
                 <th style="text-align:left;padding:2px">Credit Card Number</th>
                 <th style="text-align:left;padding:2px">
-                    @Html.TextBoxFor(m => m.OrderMaster.PaymentCardNumber, new { @id = "txtcardnumber", @onchange = "onpaymentinfochanged();", @class = "form-control", @style = "width:100%" })
+                    @Html.TextBoxFor(m => m.OrderMaster.PaymentCardNumber, new { @id = "txtcardnumber", placeholder = "XXXX-XXXX-XXXX-XXXX", @onchange = "onpaymentinfochanged();", @class = "form-control", @style = "width:220px" })
+                </th>
+            </tr>
+            <tr>
+                <th style="text-align:left;padding:2px">Expiry</th>
+                <th style="text-align:left;padding:2px">
+                    <select style="width:75px">
+                        <option value="01">01</option>
+                        <option value="01">02</option>
+                        <option value="01">03</option>
+                        <option value="01">04</option>
+                        <option value="01">05</option>
+                        <option value="01">06</option>
+                        <option value="01">07</option>
+                        <option value="01">08</option>
+                        <option value="01">09</option>
+                        <option value="01">10</option>
+                        <option value="01">11</option>
+                        <option value="01">12</option>
+                        <option value="01">13</option>
+                        <option value="01">14</option>
+                        <option value="01">15</option>
+                        <option value="01">16</option>
+                        <option value="01">17</option>
+                        <option value="01">18</option>
+                        <option value="01">19</option>
+                        <option value="01">20</option>
+                        <option value="01">21</option>
+                        <option value="01">22</option>
+                        <option value="01">23</option>
+                        <option value="01">24</option>
+                        <option value="01">24</option>
+                        <option value="01">25</option>
+                        <option value="01">26</option>
+                        <option value="01">27</option>
+                        <option value="01">28</option>
+                        <option value="01">29</option>
+                        <option value="01">30</option>
+                        <option value="01">31</option>
+                    </select>
+                    <select style="width:75px">
+                        <option value="01">JAN</option>
+                        <option value="01">FEB</option>
+                        <option value="01">MAR</option>
+                        <option value="01">APR</option>
+                        <option value="01">MAY</option>
+                        <option value="01">JUN</option>
+                        <option value="01">JUL</option>
+                        <option value="01">AUG</option>
+                        <option value="01">SEP</option>
+                        <option value="01">OCT</option>
+                        <option value="01">NOV</option>
+                        <option value="01">DEC</option>
+                    </select>
+                    <select style="width:75px">
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                    </select>
                 </th>
             </tr>
             <tr>
@@ -98,7 +157,7 @@
             <tr>
                 <th style="text-align:left;padding:2px">Cvv Code</th>
                 <th style="text-align:left;padding:2px">
-                    @Html.PasswordFor(m => m.OrderMaster.CvvCode, new { @class = "form-control", @type = "number", maxlength = 3, minlength = 3, @style = "width:75px", placeholder = "XXX", @id = "txtcvvcode", @onchange = "onpaymentinfochanged();" })
+                    @Html.PasswordFor(m => m.OrderMaster.CvvCode, new { @class = "form-control",  @maxlength = 3, @minlength = 3, @style = "width:75px", placeholder = "XXX", @id = "txtcvvcode", @onchange = "onpaymentinfochanged();" })
                 </th>
             </tr>
         </table>

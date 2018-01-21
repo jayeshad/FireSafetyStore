@@ -16,13 +16,13 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="~/FileStore/A.jpg" alt="First slide">
+                <img class="d-block w-100" src="~/Content/images/A.jpg" alt="First slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="~/FileStore/B.jpg" alt="Second slide">
+                <img class="d-block w-100" src="~/Content/images/B.png" alt="Second slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="~/FileStore/D.jpg" alt="Third slide">
+                <img class="d-block w-100" src="~/Content/images/C.jpg" alt="Third slide">
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -43,10 +43,18 @@
                     <div class="thumbnail">
                         <img src="@item.ImageUrl" alt="">
                         <div class="caption">
-                            <h4>@item.ProductName</h4>
+                            <b>@item.ProductName</b>
                             <p class="thumbnail-description">@item.Description</p>
                             <p>
-                                @Html.ActionLink("Add to Cart", "AddToCart", "Shopping", new { id = item.ProductId }, htmlAttributes: new { @class = "btn btn-info btn-xs", @disable = item.Quantity <= 0 })
+                                @if (item.Quantity > 0)
+                                {
+                                    @Html.ActionLink("Add to Cart", "AddToCart", "Shopping", new { id = item.ProductId }, htmlAttributes: new { @class = "btn btn-info btn-xs" })
+                                }
+                                else
+                                {
+                                    <button type="button" class="btn btn-secondary btn-xs" disabled="disabled">Out of Stock</button>
+                                }
+
                         </div>
                     </div>
                 </div>
@@ -55,7 +63,7 @@
     </div>
 }
 
-@if (Request.IsAuthenticated && User.IsInRole("Admin") || Request.IsAuthenticated && User.IsInRole("Employer"))
+@if (Request.IsAuthenticated && User.IsInRole("Admin") || Request.IsAuthenticated && User.IsInRole("Employer") || false == Request.IsAuthenticated)
 {
     <div>
         <img src="~/Content/images/main_bg.jpg" alt="" />

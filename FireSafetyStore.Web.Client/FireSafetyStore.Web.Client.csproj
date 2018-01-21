@@ -311,6 +311,9 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Cart.css" />
+    <Content Include="Content\images\A.jpg" />
+    <Content Include="Content\images\B.png" />
+    <Content Include="Content\images\C.jpg" />
     <Content Include="Content\images\home_bg.jpg" />
     <Content Include="Content\images\logo.gif" />
     <Content Include="Content\images\main_bg.jpg" />
@@ -672,14 +675,8 @@
     <Content Include="ExternalReferences\KENDOUIMVC\2016.2.504.545\zh-CN\Kendo.Mvc.resources.dll" />
     <Content Include="favicon.ico" />
     <Content Include="FileStore\A.jpg" />
-    <Content Include="FileStore\B.jpg" />
-    <Content Include="FileStore\D.jpg" />
-    <Content Include="FileStore\E.jpg" />
-    <Content Include="FileStore\F.jpg" />
-    <Content Include="FileStore\AA.jpg" />
-    <Content Include="FileStore\BB.png" />
-    <Content Include="FileStore\CC.jpg" />
-    <Content Include="FileStore\DD.jpg" />
+    <Content Include="FileStore\B.png" />
+    <Content Include="FileStore\C.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="ApplicationInsights.config">

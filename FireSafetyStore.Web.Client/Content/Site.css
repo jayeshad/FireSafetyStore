@@ -101,6 +101,11 @@ input[type="checkbox"].input-validation-error {
     margin-top: 10px;
 }
 
+.thumbnail-title {
+    height: 75px;
+    overflow: hidden;
+}
+
 .thumbnail-description {
     height: 75px;
     overflow: hidden;
@@ -112,10 +117,10 @@ input[type="checkbox"].input-validation-error {
     margin-bottom: 20px;
 }
 
-    .thumbnail img {
-        width: 256px;
-        height: 150px;
-    }
+.thumbnail img {
+    width: 256px;
+    height: 150px;
+}
 
 .dropdown-header {
     border-width: 0 0 1px 0;

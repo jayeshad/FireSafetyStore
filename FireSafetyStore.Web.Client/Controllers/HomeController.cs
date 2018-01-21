@@ -59,17 +59,17 @@ namespace IdentitySample.Controllers
             return itemList;
         }
 
-        [Authorize]
+        
         public ActionResult About()
         {
-            ViewBag.Message = "Your app description page.";
+            ViewBag.Message = "Know Firesafe.com";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Contact our Team.";
 
             return View();
         }
