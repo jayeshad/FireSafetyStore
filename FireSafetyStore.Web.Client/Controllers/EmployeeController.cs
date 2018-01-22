@@ -139,7 +139,9 @@ namespace IdentitySample.Controllers
                 State =vm.State,
                 PostalCode = vm.PostalCode,
                 UserName = vm.Email,
-                Email = vm.Email };
+                Email = vm.Email,
+                PhoneNumber = vm.PhoneNumber
+            };
         }
 
         private RegisterViewModel PopulateEmployeeRole()
@@ -181,6 +183,7 @@ namespace IdentitySample.Controllers
                 City = user.City,
                 State = user.State,
                 PostalCode = user.PostalCode,
+                PhoneNumber = user.PhoneNumber,
                 RolesList = RoleManager.Roles.Where(x=>x.Name == FireSafetyAppConstants.EmployeeRoleName).ToList().Select(x => new SelectListItem()
                 {
                     Selected = true,
@@ -212,7 +215,7 @@ namespace IdentitySample.Controllers
                 user.City = editUser.City;
                 user.State = editUser.State;
                 user.PostalCode = editUser.PostalCode;
-
+                user.PhoneNumber = editUser.PhoneNumber;
                 var userRoles = await UserManager.GetRolesAsync(user.Id);
                 var selectedRole = userRoles.ToArray();
                 var result = await UserManager.AddToRolesAsync(user.Id, selectedRole.Except(userRoles).ToArray<string>());

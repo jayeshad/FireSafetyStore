@@ -2158,6 +2158,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="FileStore\Products\" />
+    <Folder Include="Reports\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

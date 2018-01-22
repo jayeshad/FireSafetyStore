@@ -50,6 +50,11 @@ namespace FireSafetyStore.Web.Client.Models
         [EmailAddress]
         public string Email { get; set; }
 
+        [Required]
+        [DataType(DataType.Text)]
+        [Display(Name = "PhoneNumber")]
+        public string PhoneNumber { get; set; }
+
         public IEnumerable<SelectListItem> RolesList { get; set; }
     }
 }
