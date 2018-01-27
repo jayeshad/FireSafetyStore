@@ -1,0 +1,11 @@
+﻿@model FireSafetyStore.Web.Client.Models.ReportInfo
+@{
+    ViewBag.Title = "ReportTemplate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>
+    @Model.ReportDescription
+</h1>
+
+<iframe id="frmReport" src="@Model.ReportURL" frameborder="0" style="@String.Format("width:{0}%; height: {1}px;", Model.Width, Model.Height)" scrolling="no"></iframe> 
