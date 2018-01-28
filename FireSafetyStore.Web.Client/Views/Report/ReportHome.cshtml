@@ -4,9 +4,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Reports Home</h2>
+<h2>Reports </h2>
 
-<a id="ReportUrl_Performance" href="@Url.Action("ReportTemplate", "Report", new { ReportName = "StockReport", ReportDescription = "Stock Burning Report", Width = 100, Height = 650 })">
-    Performance Report
-</a> 
+<div class="list-group">
+    <a href="@Url.Action("ReportTemplate", "Report", new { ReportName = "StockReport", ReportDescription = "Stock Report", Width = 100, Height = 650 })" class="list-group-item list-group-item-action">Stock Report</a>
+    <a href="@Url.Action("ReportTemplate", "Report", new { ReportName = "SalesReport", ReportDescription = "Sales Report", Width = 100, Height = 650 })" class="list-group-item list-group-item-action">Sales Report</a>
+</div>
 

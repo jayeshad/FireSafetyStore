@@ -13,6 +13,10 @@
       <Name>StockReport.rdl</Name>
       <FullPath>StockReport.rdl</FullPath>
     </ProjectItem>
+    <ProjectItem>
+      <Name>SalesReport.rdl</Name>
+      <FullPath>SalesReport.rdl</FullPath>
+    </ProjectItem>
   </Reports>
   <Configurations>
     <Configuration>
