@@ -13,13 +13,11 @@ namespace FireSafetyStore.Web.Client.Reports
                 try
                 {
                     String reportFolder = System.Configuration.ConfigurationManager.AppSettings["SSRSReportsFolder"].ToString();
-                    
+                    var serverURL = System.Configuration.ConfigurationManager.AppSettings["SSRSServerURL"].ToString();
                     rvSiteMapping.Height = Unit.Pixel(Convert.ToInt32(Request["Height"]) - 58);
                     rvSiteMapping.ProcessingMode = Microsoft.Reporting.WebForms.ProcessingMode.Remote;
-
-                    rvSiteMapping.ServerReport.ReportServerUrl = new Uri("SSRS URL"); // Add the Reporting Server URL 
+                    rvSiteMapping.ServerReport.ReportServerUrl = new Uri(serverURL); // Add the Reporting Server URL 
                     rvSiteMapping.ServerReport.ReportPath = String.Format("/{0}/{1}", reportFolder, Request["ReportName"].ToString());
-
                     rvSiteMapping.ServerReport.Refresh();
                 }
                 catch (Exception ex)
