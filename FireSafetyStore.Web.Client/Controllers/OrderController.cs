@@ -84,14 +84,14 @@ namespace FireSafetyStore.Web.Client.Controllers
             var user = UserManager.FindById(User.Identity.GetUserId());
             var userId = new Guid(user.Id);
             var orders = db.OrderMasters.Where(x=>x.UserId == userId).OrderByDescending(x => x.OrderDate);
-            var vm = MapToViewModel(orders);
+            var vm = MapToViewModel(orders.ToList());
             return View(vm);
         }
 
-        private List<TrackOrderViewModel> MapToViewModel(IOrderedQueryable<OrderMaster> orders)
+        private List<TrackOrderViewModel> MapToViewModel(List<OrderMaster> orders)
         {
             var list = new List<TrackOrderViewModel>();
-            orders.ForEachAsync(x => {
+            orders.ForEach(x => {
                 list.Add(new TrackOrderViewModel
                 {
                     OrderId = x.OrderId,
