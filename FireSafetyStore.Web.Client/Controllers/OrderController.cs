@@ -91,7 +91,8 @@ namespace FireSafetyStore.Web.Client.Controllers
         private List<TrackOrderViewModel> MapToViewModel(List<OrderMaster> orders)
         {
             var list = new List<TrackOrderViewModel>();
-            orders.ForEach(x => {
+            orders.ForEach(x => 
+            {
                 list.Add(new TrackOrderViewModel
                 {
                     OrderId = x.OrderId,

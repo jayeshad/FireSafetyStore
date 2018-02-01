@@ -240,6 +240,7 @@
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\ShoppingController.cs" />
     <Compile Include="Controllers\SuppliersController.cs" />
+    <Compile Include="Models\TrackOrderViewModel.cs" />
     <Compile Include="Infrastructure\Common\CommonService.cs" />
     <Compile Include="Infrastructure\Common\Constants.cs" />
     <Compile Include="Infrastructure\Common\FileManager.cs" />
@@ -309,25 +310,10 @@
     <Compile Include="Models\SendCodeViewModel.cs" />
     <Compile Include="Models\SetPasswordViewModel.cs" />
     <Compile Include="Models\ShoppingCartViewModel.cs" />
-    <Compile Include="Models\TrackOrderViewModel.cs" />
     <Compile Include="Models\VerifyCodeViewModel.cs" />
     <Compile Include="Models\VerifyPhoneNumberViewModel.cs" />
     <Compile Include="Infrastructure\DbContext\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reports\ReportTemplate.aspx.cs">
-      <DependentUpon>ReportTemplate.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Reports\ReportTemplate.aspx.designer.cs">
-      <DependentUpon>ReportTemplate.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ReportViewerWebForm.aspx.cs">
-      <DependentUpon>ReportViewerWebForm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ReportViewerWebForm.aspx.designer.cs">
-      <DependentUpon>ReportViewerWebForm.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -709,8 +695,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Reports\ReportTemplate.aspx" />
-    <Content Include="ReportViewerWebForm.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -2189,6 +2173,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="FileStore\Products\" />
+    <Folder Include="Reports\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -2199,7 +2184,6 @@
     <EmbeddedResource Include="Migrations\201711221640285_FirstName.resx">
       <DependentUpon>201711221640285_FirstName.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
