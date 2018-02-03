@@ -6,24 +6,28 @@ namespace FireSafetyStore.Web.Client.Infrastructure.DbContext
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Payment
+    [Table("PaymentInformation")]
+    public partial class PaymentInformation
     {
+        [Key]
         public Guid PaymentId { get; set; }
 
+        public Guid OrderId { get; set; }
+
         [Required]
-        [StringLength(50)]
+        [StringLength(25)]
         public string CustomerName { get; set; }
 
         [Required]
-        [StringLength(50)]
-        public string CardNumber { get; set; }
+        [StringLength(30)]
+        public string CreditCardNo { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string CardType { get; set; }
+        public int ExpiryDay { get; set; }
+
+        public int ExpiryYear { get; set; }
 
         public int CvvCode { get; set; }
 
-        public virtual CardType CardTypes { get; set; }
+        public virtual OrderMaster OrderMaster { get; set; }
     }
 }

@@ -242,8 +242,10 @@
     <Compile Include="Controllers\SuppliersController.cs" />
     <Compile Include="Infrastructure\Common\CommonService.cs" />
     <Compile Include="Infrastructure\Common\Constants.cs" />
+    <Compile Include="Infrastructure\Common\CustomHtmlHelpers.cs" />
     <Compile Include="Infrastructure\Common\FileManager.cs" />
     <Compile Include="Infrastructure\Common\SessionManager.cs" />
+    <Compile Include="Infrastructure\DbContext\CardType.cs" />
     <Compile Include="Infrastructure\DbContext\Supplier.cs" />
     <Compile Include="Infrastructure\DbContext\Brand.cs" />
     <Compile Include="Infrastructure\DbContext\Category.cs" />
@@ -259,6 +261,8 @@
     <Compile Include="Infrastructure\DbContext\OrderDetail.cs" />
     <Compile Include="Infrastructure\DbContext\OrderMaster.cs" />
     <Compile Include="Infrastructure\DbContext\Payment.cs" />
+    <Compile Include="Infrastructure\DbContext\PaymentInformation.cs" />
+    <Compile Include="Infrastructure\DbContext\sysdiagram.cs" />
     <Compile Include="Infrastructure\Security\ApplicationSignInManager.cs" />
     <Compile Include="Infrastructure\Security\ApplicationRoleManager.cs" />
     <Compile Include="Infrastructure\Security\ApplicationUserManager.cs" />
@@ -344,6 +348,9 @@
     <Content Include="Content\images\home_bg.jpg" />
     <Content Include="Content\images\logo.gif" />
     <Content Include="Content\images\main_bg.jpg" />
+    <Content Include="Content\images\minus.png" />
+    <Content Include="Content\images\plus.png" />
+    <Content Include="Content\images\bin.png" />
     <Content Include="Content\kendo\2016.2.504\Black\editor.png" />
     <Content Include="Content\kendo\2016.2.504\Black\imagebrowser.png" />
     <Content Include="Content\kendo\2016.2.504\Black\indeterminate.gif" />
@@ -718,6 +725,7 @@
     <Content Include="Scripts\Chart.js" />
     <Content Include="Scripts\custom\cart_controller.js" />
     <Content Include="Scripts\custom\home_controller.js" />
+    <Content Include="Scripts\custom\jquery.creditCardValidator.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
@@ -2185,6 +2193,7 @@
     <Content Include="Views\Order\TrackOrder.cshtml" />
     <Content Include="Views\Report\ReportHome.cshtml" />
     <Content Include="Views\Report\ReportTemplate.cshtml" />
+    <Content Include="Views\Shopping\_ProcessPayment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -5,7 +5,6 @@ namespace FireSafetyStore.Web.Client.Infrastructure.DbContext
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
-    using System.Web.Mvc;
 
     [Table("OrderMaster")]
     public partial class OrderMaster
@@ -14,6 +13,7 @@ namespace FireSafetyStore.Web.Client.Infrastructure.DbContext
         public OrderMaster()
         {
             OrderDetails = new HashSet<OrderDetail>();
+            PaymentInformations = new HashSet<PaymentInformation>();
         }
 
         [Key]
@@ -64,10 +64,8 @@ namespace FireSafetyStore.Web.Client.Infrastructure.DbContext
         [StringLength(50)]
         [Display(Name = "Email")]
         public string ContactEmail { get; set; }
-
         [NotMapped]
         public string SelectedStatus { get; set; }
-
         [Display(Name = "Status of Order")]
         public int OrderStatus { get; set; }
 
@@ -98,10 +96,19 @@ namespace FireSafetyStore.Web.Client.Infrastructure.DbContext
         [StringLength(50)]
         public string PaymentCardNumber { get; set; }
 
+        [Column(TypeName = "money")]
         public decimal OrderAmount { get; set; }
+
+        [Column(TypeName = "money")]
         public decimal ShippingAmount { get; set; }
+
+        [Column(TypeName = "money")]
         public decimal TotalAmount { get; set; }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PaymentInformation> PaymentInformations { get; set; }
     }
 }

@@ -1,41 +1,44 @@
 ﻿@model FireSafetyStore.Web.Client.Models.ShoppingCartViewModel
+@using FireSafetyStore.Web.Client.Infrastructure.Common;
 @{
     ViewBag.Title = "AddToCart";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @section Scripts {
-    <link href="~/Content/Cart.css" rel="stylesheet" />
+
 }
 
 
 <h5>My Shopping Cart</h5>
-<hr />
-<table style="width:100%">
-    <tr>
-        <th style="text-align:left;padding:2px">Item Name</th>
-        <th style="text-align:left;padding:2px">Description</th>
-        <th style="text-align:left;padding:2px">Quantity</th>
-        <th style="text-align:left;padding:2px">Rate</th>
-        <th style="text-align:left;padding:2px"></th>
-    </tr>
 
-
-    @foreach (var item in Model.ShoppingCartItems)
-    {
+<table class="table table-striped">
+    <thead>
         <tr>
-            <td style="text-align:left;padding:2px">@item.ProductName</td>
-            <td style="text-align:left;padding:2px">@item.Description</td>
-            <td style="text-align:left;padding:2px">@item.Quantity</td>
-            <td style="text-align:left;padding:2px">@item.Rate</td>
-            <td style="text-align:left;padding:2px">@Html.ActionLink("X", "RemoveFromCart", "Shopping", new { id = item.ProductId }, htmlAttributes: new { @class = "glyphicon glyphicon-remove" })</td>
+            <th scope="col">Item Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Rate</th>
+            <th scope="col"></th>
         </tr>
+    </thead>
 
-    }
+        @foreach (var item in Model.ShoppingCartItems)
+        {
+            <tbody>
+                <tr>
+                    <td scope="row">@item.ProductName</td>
+                    <td>@item.Description</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.Rate</td>
+                    <td>@Html.ImageActionLink("Bin", "RemoveFromCart", "Shopping", new { id = item.ProductId }, null, imageSrc: "~/Content/images/bin.png")</td>
+</tr>
+            </tbody>
+        }
 </table>
-<hr />
+    <hr />
 
-@Html.ActionLink("Checkout", "Checkout", "Shopping", null, htmlAttributes: new { @class = "btn btn-primary" })
-@Html.ActionLink("Continue Shopping", "Index", "Home", null, htmlAttributes: new { @class = "btn btn-primary" })
+    @Html.ActionLink("Checkout", "Checkout", "Shopping", null, htmlAttributes: new { @class = "btn btn-primary" })
+    @Html.ActionLink("Continue Shopping", "Index", "Home", null, htmlAttributes: new { @class = "btn btn-primary" })
 
 
 

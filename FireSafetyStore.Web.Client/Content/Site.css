@@ -105,7 +105,13 @@ input[type="checkbox"].input-validation-error {
     height: 75px;
     overflow: hidden;
 }
-
+.card-description {
+    height: 75px;
+    overflow: hidden;
+}
+.container-topmargin {
+    margin-top:5px;
+}
 .thumbnail-description {
     height: 75px;
     overflow: hidden;

@@ -1,10 +1,11 @@
 ﻿@model FireSafetyStore.Web.Client.Models.ShoppingCartViewModel
+@using FireSafetyStore.Web.Client.Infrastructure.Common;
 @{
     ViewBag.Title = "Checkout";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @section Scripts {
-    <link href="~/Content/Cart.css" rel="stylesheet" />
+    @*<link href="~/Content/Cart.css" rel="stylesheet" />*@
 }
 
 
@@ -12,25 +13,37 @@
 <hr />
 @if (Model.ShoppingCartItems.Any())
 {
-    <table style="width:100%">
-        <tr>
-            <th style="text-align:left">Item Name</th>
-            <th style="text-align:left">Quantity</th>
-            <th style="text-align:left">Rate</th>
-            <th style="text-align:left">Total</th>
-            <th style="text-align:left"></th>
-        </tr>
+
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Item Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Rate</th>
+                <th scope="col">Total</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
 
         @foreach (var item in Model.ShoppingCartItems)
         {
-            <tr>
-                <td style="text-align:left">@Html.DisplayFor(modelItem=> item.ProductName)</td>
-                <td style="text-align:left">
-                @Html.TextBoxFor(modelItem => item.Quantity, new { htmlAttributes = new { @class = "qty-tbx" } }) </td>
-                <td style="text-align:left">@Html.DisplayFor(modelItem => item.Rate)</td>
-                <td style="text-align:left">@Html.DisplayFor(modelItem => item.Total)</td>
-                <td style="text-align:left">@Html.ActionLink("X", "RemoveFromCart", "Shopping", new { id = item.ProductId }, htmlAttributes: new { @class = "glyphicon glyphicon-remove" })</td>
-            </tr>
+            <tbody>
+                <tr>
+                    <td scope="row">@Html.DisplayFor(modelItem => item.ProductName)</td>
+                    <td>
+                        @Html.ImageActionLink("Rem", "ModifyQuantity", "Shopping", new { id = item.ProductId, mode = "-" }, null, imageSrc: "~/Content/images/minus.png")
+                        @Html.TextBoxFor(modelItem => item.Quantity, new { style = "width:35px;text-align:center", @readonly = "readonly" })
+                        @Html.ImageActionLink("Add", "ModifyQuantity", "Shopping", new { id = item.ProductId, mode = "+" }, null, imageSrc: "~/Content/images/plus.png")
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => item.Rate)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Total)</td>
+                    <td>
+                        @Html.ImageActionLink("Bin", "RemoveFromCart", "Shopping", new { id = item.ProductId }, null, imageSrc: "~/Content/images/bin.png")
+                    </td>
+                </tr>
+
+            </tbody>
         }
     </table>
     <hr />

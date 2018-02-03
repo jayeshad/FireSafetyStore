@@ -35,29 +35,33 @@
         </a>
     </div>
 
-    <div class="product-container">
+    <div class="container container-topmargin">
+
         <div class="row">
             @foreach (var item in Model.ProductList)
             {
-                <div class="col-xs-18 col-sm-6 col-md-3">
-                    <div class="thumbnail">
-                        <img src="@item.ImageUrl" alt="">
-                        <div class="caption">
-                            <b>@item.ProductName</b>
-                            <p class="thumbnail-description">@item.Description</p>
-                            <p>
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="@item.ImageUrl" data-holder-rendered="true">
+                        <div class="card-body">
+                            <p class="card-header">@item.ProductName</p>
+                        <p class="card-text card-description">@item.Description</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
                                 @if (item.Quantity > 0)
                                 {
-                                    @Html.ActionLink("Add to Cart", "AddToCart", "Shopping", new { id = item.ProductId }, htmlAttributes: new { @class = "btn btn-info btn-xs" })
+                                    @Html.ActionLink("Add to Cart", "AddToCart", "Shopping", new { id = item.ProductId }, htmlAttributes: new { @class = "btn btn-sm btn-outline-secondary" })
                                 }
                                 else
                                 {
-                                    <button type="button" class="btn btn-secondary btn-xs" disabled="disabled">Out of Stock</button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary" disabled="disabled">Out of Stock</button>
                                 }
-
+                            </div>
+                            <small class="text-muted">@item.Quantity Left</small>
                         </div>
                     </div>
                 </div>
+            </div>
             }
         </div>
     </div>

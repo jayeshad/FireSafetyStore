@@ -6,6 +6,7 @@
 @section Scripts {
     <link href="~/Content/Cart.css" rel="stylesheet" />
     <script src="~/Scripts/custom/cart_controller.js"></script>
+    <script src="~/Scripts/custom/jquery.creditCardValidator.js"></script>
 }
 <h4>Review your order and proceed to pay</h4>
 <hr />
@@ -70,17 +71,18 @@
         <hr />
         <h4>Payment Details</h4>
         <hr />
+        <p id="logerror"></p>
         <table>
             <tr>
                 <th style="text-align:left;padding:2px">Name as in Card</th>
                 <th style="text-align:left;padding:2px">
-                    @Html.TextBoxFor(m => m.OrderMaster.NameInPaymentCard, new { @class = "form-control", @id = "txtnameincard", @onchange = "onpaymentinfochanged();" })
+                    @Html.TextBoxFor(m => m.OrderMaster.NameInPaymentCard, new { @class = "form-control", @id = "txtnameincard", required = "", @onchange = "onpaymentinfochanged();" })
                 </th>
             </tr>
             <tr>
                 <th style="text-align:left;padding:2px">Credit Card Number</th>
                 <th style="text-align:left;padding:2px">
-                    @Html.TextBoxFor(m => m.OrderMaster.PaymentCardNumber, new { @id = "txtcardnumber", placeholder = "XXXX-XXXX-XXXX-XXXX", @onchange = "onpaymentinfochanged();", @class = "form-control", @style = "width:220px" })
+                    @Html.TextBoxFor(m => m.OrderMaster.PaymentCardNumber, new { @id = "txtcardnumber", placeholder = "XXXX-XXXX-XXXX-XXXX", required = "", @onchange = "onpaymentinfochanged();", @class = "form-control", @style = "width:220px" })
                 </th>
             </tr>
             <tr>
@@ -157,14 +159,14 @@
             <tr>
                 <th style="text-align:left;padding:2px">Cvv Code</th>
                 <th style="text-align:left;padding:2px">
-                    @Html.PasswordFor(m => m.OrderMaster.CvvCode, new { @class = "form-control",  @maxlength = 3, @minlength = 3, @style = "width:75px", placeholder = "XXX", @id = "txtcvvcode", @onchange = "onpaymentinfochanged();" })
+                    @Html.PasswordFor(m => m.OrderMaster.CvvCode, new { @class = "form-control",  @maxlength = 3, @minlength = 3, @style = "width:75px", placeholder = "XXX", @id = "txtcvvcode", required = "", @onchange = "onpaymentinfochanged();" })
                 </th>
             </tr>
         </table>
         <hr />
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input id="btnpayment" type="submit" class="btn btn-primary" value="PayNow" disabled="disabled" />
+                <input id="btnpayment" type="submit" class="btn btn-primary" value="PayNow" disabled="disabled" onclick="validatePaymentInfo();" />
             </div>
         </div>
     }

@@ -68,11 +68,48 @@ namespace FireSafetyStore.Web.Client.Controllers
         public ActionResult Checkout()
         {
             var currentCart = SessionManager<List<OrderDetail>>.GetValue(Infrastructure.Common.Constants.CartSessionKey);
-            if (currentCart != null || currentCart.Any())
+            if (currentCart != null && currentCart.Any())
             {                
                 vm.ShoppingCartItems = MapToViewModel(currentCart);
             }
             return View(vm);
+        }
+
+        public ActionResult ModifyQuantity(string id, string mode)
+        {
+            var currentCart = SessionManager<List<OrderDetail>>.GetValue(Infrastructure.Common.Constants.CartSessionKey);
+            if (currentCart != null && currentCart.Any())
+            {
+                currentCart.ForEach(x =>
+                {
+                    if(x.ItemId == new Guid(id))
+                    {
+                        x.Quantity = mode == "+" ? x.Quantity += 1 : x.Quantity -= 1;
+                        x.Total = x.Rate * x.Quantity;
+                    }                    
+                });
+                currentCart = ValidateZeroQuantity(currentCart);
+                SessionManager<List<OrderDetail>>.SetValue(Infrastructure.Common.Constants.CartSessionKey, currentCart);
+                vm.ShoppingCartItems = MapToViewModel(currentCart);
+            }
+            return RedirectToAction("Checkout", vm);
+        }
+
+        private List<OrderDetail> ValidateZeroQuantity(List<OrderDetail> currentCart)
+        {
+            List<Guid> toRemove = new List<Guid>();
+            currentCart.ForEach(x =>
+            {
+                if (x.Quantity <= 0)
+                {
+                    toRemove.Add(x.ItemId);
+                }
+            });
+            toRemove.ForEach(item =>
+            {
+                currentCart = currentCart.Where(x => x.ItemId != item).ToList();
+            });
+            return currentCart;
         }
 
         [Authorize]

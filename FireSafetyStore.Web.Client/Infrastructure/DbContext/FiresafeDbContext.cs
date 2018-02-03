@@ -1,9 +1,6 @@
 namespace FireSafetyStore.Web.Client.Infrastructure.DbContext
 {
-    using System;
     using System.Data.Entity;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Linq;
 
     public partial class FiresafeDbContext : DbContext
     {
@@ -17,12 +14,16 @@ namespace FireSafetyStore.Web.Client.Infrastructure.DbContext
         public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<Brand> Brands { get; set; }
+        public virtual DbSet<CardType> CardTypes { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<OrderDetail> OrderDetails { get; set; }
         public virtual DbSet<OrderMaster> OrderMasters { get; set; }
+        public virtual DbSet<PaymentInformation> PaymentInformations { get; set; }
+        public virtual DbSet<Payment> Payments { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
-        public virtual DbSet<Payment> Payments { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<AspNetRole>()
@@ -43,6 +44,12 @@ namespace FireSafetyStore.Web.Client.Infrastructure.DbContext
             modelBuilder.Entity<Brand>()
                 .HasMany(e => e.Products)
                 .WithRequired(e => e.Brand)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<CardType>()
+                .HasMany(e => e.Payments)
+                .WithRequired(e => e.CardTypes)
+                .HasForeignKey(e => e.CardType)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Category>()
@@ -75,6 +82,11 @@ namespace FireSafetyStore.Web.Client.Infrastructure.DbContext
                 .WithRequired(e => e.OrderMaster)
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<OrderMaster>()
+                .HasMany(e => e.PaymentInformations)
+                .WithRequired(e => e.OrderMaster)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<Product>()
                 .HasMany(e => e.OrderDetails)
                 .WithRequired(e => e.Product)
@@ -84,7 +96,6 @@ namespace FireSafetyStore.Web.Client.Infrastructure.DbContext
                 .HasMany(e => e.Products)
                 .WithRequired(e => e.Supplier)
                 .WillCascadeOnDelete(false);
-
         }
     }
 }
