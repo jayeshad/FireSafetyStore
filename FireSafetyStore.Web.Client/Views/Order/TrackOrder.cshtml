@@ -7,51 +7,54 @@
 
 <h4>Track your Orders</h4>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.OrderCode)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OrderDate)
-        </th>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderDate)
+            </th>
 
-        <th>
-            @Html.DisplayNameFor(model => model.OrderStatus)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DeliveryDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DeliveryAgencyName)
-        </th>
-        
-        <th></th>
-    </tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeliveryDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeliveryAgencyName)
+            </th>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.OrderCode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OrderDate)
-        </td>
-        
-        <td>
-            @Html.DisplayFor(modelItem => item.OrderStatus)
-        </td>
-        
-        <td>
-            @Html.DisplayFor(modelItem => item.DeliveryDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DeliveryAgencyName)
-        </td>
-                
-        <td>
-        </td>
-    </tr>
-}
+            <th></th>
+        </tr>
+    <thead>
+        @foreach (var item in Model)
+        {
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderDate)
+                </td>
 
-</table>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderStatus)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.DeliveryDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DeliveryAgencyName)
+                </td>
+
+                <td></td>
+            </tr>
+        </tbody>
+        }
+
+    </table>

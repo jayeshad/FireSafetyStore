@@ -4,171 +4,134 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @section Scripts {
-    <link href="~/Content/Cart.css" rel="stylesheet" />
     <script src="~/Scripts/custom/cart_controller.js"></script>
     <script src="~/Scripts/custom/jquery.creditCardValidator.js"></script>
 }
 <h4>Review your order and proceed to pay</h4>
-<hr />
 @if (Model.OrderDetails.Any())
 {
     using (Html.BeginForm("PlaceOrder", "Order", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
         @Html.AntiForgeryToken()
-        <hr />
         @Html.ValidationSummary("", new { @class = "text-danger" })
 
-        <table style="width:100%">
-            <tr>
-                <th style="text-align:left;padding:2px">Item Name</th>
-                <th style="text-align:left;padding:2px">Quantity</th>
-                <th style="text-align:left;padding:2px">Rate</th>
-                <th style="text-align:left;padding:2px">Total</th>
-            </tr>
-
-            @foreach (var item in Model.OrderDetails)
-            {
+        <table class="table table-bordered">
+            <thead>
                 <tr>
-                    <td style="text-align:left;padding:2px">
-                        @Html.DisplayFor(modelItem => item.ItemName)
-                    </td>
-                    <td style="text-align:left;padding:2px">
-                        @Html.DisplayFor(modelItem => item.Quantity)
-                    </td>
-                    <td style="text-align:left;padding:2px">
-                        @Html.DisplayFor(modelItem => item.Rate)
-                    </td>
-                    <td style="text-align:left;padding:2px">
-                        @Html.DisplayFor(modelItem => item.Total)
-                    </td>
+                    <th style="text-align:left;padding:2px">Item Name</th>
+                    <th style="text-align:left;padding:2px">Quantity</th>
+                    <th style="text-align:left;padding:2px">Rate</th>
+                    <th style="text-align:left;padding:2px">Total</th>
                 </tr>
-            }
-            <tr>
-                <th style="text-align:left;padding:2px"></th>
-                <th style="text-align:left;padding:2px"></th>
-                <th style="text-align:left;padding:2px"></th>
-                <th style="text-align:left;padding:2px">Sub Total : @Model.OrderMaster.OrderAmount</th>
-            </tr>
-            <tr>
-                <th style="text-align:left;padding:2px"></th>
-                <th style="text-align:left;padding:2px"></th>
-                <th style="text-align:left;padding:2px"></th>
-                <th style="text-align:left;padding:2px">Shipping : @Model.OrderMaster.ShippingAmount</th>
-            </tr>
-            <tr>
-                <th style="text-align:left;padding:2px"></th>
-                <th style="text-align:left;padding:2px"></th>
-                <th style="text-align:left;padding:2px"></th>
-                <th style="text-align:left;padding:2px">GST(18%) : @Model.OrderMaster.Gst</th>
-            </tr>
-            <tr>
-                <th style="text-align:left;padding:2px"></th>
-                <th style="text-align:left;padding:2px"></th>
-                <th style="text-align:left;padding:2px"></th>
-                <th style="text-align:left;padding:2px">Total : @Model.OrderMaster.TotalAmount</th>
-            </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model.OrderDetails)
+                {
+
+                    <tr>
+                        <td style="text-align:left;padding:2px">
+                            @Html.DisplayFor(modelItem => item.ItemName)
+                        </td>
+                        <td style="text-align:left;padding:2px">
+                            @Html.DisplayFor(modelItem => item.Quantity)
+                        </td>
+                        <td style="text-align:left;padding:2px">
+                            @Html.DisplayFor(modelItem => item.Rate)
+                        </td>
+                        <td style="text-align:left;padding:2px">
+                            @Html.DisplayFor(modelItem => item.Total)
+                        </td>
+                    </tr>
+
+
+                }
+                <tr>
+                    <th style="text-align:left;padding:2px"></th>
+                    <th style="text-align:left;padding:2px"></th>
+                    <th style="text-align:left;padding:2px"></th>
+                    <th style="text-align:left;padding:2px">Sub Total : @Model.OrderMaster.OrderAmount</th>
+                </tr>
+                <tr>
+                    <th style="text-align:left;padding:2px"></th>
+                    <th style="text-align:left;padding:2px"></th>
+                    <th style="text-align:left;padding:2px"></th>
+                    <th style="text-align:left;padding:2px">Shipping : @Model.OrderMaster.ShippingAmount</th>
+                </tr>
+                <tr>
+                    <th style="text-align:left;padding:2px"></th>
+                    <th style="text-align:left;padding:2px"></th>
+                    <th style="text-align:left;padding:2px"></th>
+                    <th style="text-align:left;padding:2px">GST(18%) : @Model.OrderMaster.Gst</th>
+                </tr>
+                <tr>
+                    <th style="text-align:left;padding:2px"></th>
+                    <th style="text-align:left;padding:2px"></th>
+                    <th style="text-align:left;padding:2px"></th>
+                    <th style="text-align:left;padding:2px">Total : @Model.OrderMaster.TotalAmount</th>
+                </tr>
+            </tbody>
         </table>
         <hr />
-        <h4>Payment Details</h4>
-        <hr />
-        <p id="logerror"></p>
-        <table>
-            <tr>
-                <th style="text-align:left;padding:2px">Name as in Card</th>
-                <th style="text-align:left;padding:2px">
-                    @Html.TextBoxFor(m => m.OrderMaster.NameInPaymentCard, new { @class = "form-control", @id = "txtnameincard", required = "", @onchange = "onpaymentinfochanged();" })
-                </th>
-            </tr>
-            <tr>
-                <th style="text-align:left;padding:2px">Credit Card Number</th>
-                <th style="text-align:left;padding:2px">
-                    @Html.TextBoxFor(m => m.OrderMaster.PaymentCardNumber, new { @id = "txtcardnumber", placeholder = "XXXX-XXXX-XXXX-XXXX", required = "", @onchange = "onpaymentinfochanged();", @class = "form-control", @style = "width:220px" })
-                </th>
-            </tr>
-            <tr>
-                <th style="text-align:left;padding:2px">Expiry</th>
-                <th style="text-align:left;padding:2px">
-                    <select style="width:75px">
-                        <option value="01">01</option>
-                        <option value="01">02</option>
-                        <option value="01">03</option>
-                        <option value="01">04</option>
-                        <option value="01">05</option>
-                        <option value="01">06</option>
-                        <option value="01">07</option>
-                        <option value="01">08</option>
-                        <option value="01">09</option>
-                        <option value="01">10</option>
-                        <option value="01">11</option>
-                        <option value="01">12</option>
-                        <option value="01">13</option>
-                        <option value="01">14</option>
-                        <option value="01">15</option>
-                        <option value="01">16</option>
-                        <option value="01">17</option>
-                        <option value="01">18</option>
-                        <option value="01">19</option>
-                        <option value="01">20</option>
-                        <option value="01">21</option>
-                        <option value="01">22</option>
-                        <option value="01">23</option>
-                        <option value="01">24</option>
-                        <option value="01">24</option>
-                        <option value="01">25</option>
-                        <option value="01">26</option>
-                        <option value="01">27</option>
-                        <option value="01">28</option>
-                        <option value="01">29</option>
-                        <option value="01">30</option>
-                        <option value="01">31</option>
-                    </select>
-                    <select style="width:75px">
-                        <option value="01">JAN</option>
-                        <option value="01">FEB</option>
-                        <option value="01">MAR</option>
-                        <option value="01">APR</option>
-                        <option value="01">MAY</option>
-                        <option value="01">JUN</option>
-                        <option value="01">JUL</option>
-                        <option value="01">AUG</option>
-                        <option value="01">SEP</option>
-                        <option value="01">OCT</option>
-                        <option value="01">NOV</option>
-                        <option value="01">DEC</option>
-                    </select>
-                    <select style="width:75px">
-                        <option value="2019">2019</option>
-                        <option value="2020">2020</option>
-                        <option value="2021">2021</option>
-                        <option value="2022">2022</option>
-                    </select>
-                </th>
-            </tr>
-            <tr>
-                <th style="text-align:left;padding:2px">Card Type</th>
-                <th style="text-align:left;padding:2px">
-                    
-                    <select style="width:100%">
-                        <option value="VISA">VISA</option>
-                        <option value="AmericanExpress">American Express</option>
-                        <option value="Discover">Discover</option>
-                        <option value="MasterCard">MasterCard</option>
-                    </select>
-                </th>
-            </tr>
-            <tr>
-                <th style="text-align:left;padding:2px">Cvv Code</th>
-                <th style="text-align:left;padding:2px">
-                    @Html.PasswordFor(m => m.OrderMaster.CvvCode, new { @class = "form-control",  @maxlength = 3, @minlength = 3, @style = "width:75px", placeholder = "XXX", @id = "txtcvvcode", required = "", @onchange = "onpaymentinfochanged();" })
-                </th>
-            </tr>
-        </table>
-        <hr />
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input id="btnpayment" type="submit" class="btn btn-primary" value="PayNow" disabled="disabled" onclick="validatePaymentInfo();" />
+        <form class="needs-validation" novalidate>
+            <h4 class="mb-3">Payment</h4>
+            <div class="d-block my-3">
+                <div class="custom-control custom-radio">
+                    <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+                    <label class="custom-control-label" for="credit">Credit card</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
+                    <label class="custom-control-label" for="debit">Debit card</label>
+                </div>
             </div>
-        </div>
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <label for="cc-name">Name on card</label>
+                    <input type="text" class="form-control" id="cc-name" onblur="onccnamechanged();" placeholder="" required>
+                    <small class="text-muted">Full name as displayed on card</small>
+                    <div class="invalid-feedback">
+                        Name on card is required
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="cc-number">Card Number</label>
+                    <input type="text" class="form-control" id="cc-number" onblur="onccnumberchanged();" placeholder="16 Digit Number" required>
+                    <div class="invalid-feedback">
+                        Card Number is required
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 mb-2">
+                    <label for="cc-expiration">Expiration</label>
+                    <div class="row">
+                        <div class="col-md-6 mb-6">
+                            <input type="text" class="form-control" id="cc-expiration-mm"  onblur="on_expiry_month_changed();" placeholder="MM" required>
+                        </div>
+                        <div class="col-md-6 mb-6">
+                            <input type="text" class="form-control" id="cc-expiration-yyyy" onblur="on_expiry_year_changed();" placeholder="YYYY" required>
+                        </div>
+                    </div>
+                    <div class="invalid-feedback">
+                        Expiration date required
+                    </div>
+                </div>              
+            </div>
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <label for="cc-cvv">CVV</label>
+                    <input type="text" class="form-control" id="cc-cvv" onblur="oncvvchanged();" placeholder="XXX" required>
+                    <div class="invalid-feedback">
+                        Security code required
+                    </div>
+                </div>
+            </div>
+
+            <hr class="mb-4">
+            @*onclick="validatesubmit"*@
+            <button id="btn-proccedpay" class="btn btn-primary btn-lg btn-block" type="submit" >Continue to checkout</button>
+        </form>        
     }
 }
 
