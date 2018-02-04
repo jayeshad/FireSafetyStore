@@ -88,7 +88,7 @@
             <div class="row">
                 <div class="col-md-3 mb-3">
                     <label for="cc-name">Name on card</label>
-                    <input type="text" class="form-control" id="cc-name" onblur="onccnamechanged();" placeholder="" required>
+                    <input type="text" class="form-control" id="cc-name" onblur="validatecreditcard();" placeholder="" required>
                     <small class="text-muted">Full name as displayed on card</small>
                     <div class="invalid-feedback">
                         Name on card is required
@@ -96,7 +96,7 @@
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="cc-number">Card Number</label>
-                    <input type="text" class="form-control" id="cc-number" onblur="onccnumberchanged();" placeholder="16 Digit Number" required>
+                    <input type="text" class="form-control" id="cc-number" onblur="validatecreditcard();" placeholder="16 Digit Number" required>
                     <div class="invalid-feedback">
                         Card Number is required
                     </div>
@@ -107,10 +107,10 @@
                     <label for="cc-expiration">Expiration</label>
                     <div class="row">
                         <div class="col-md-6 mb-6">
-                            <input type="text" class="form-control" id="cc-expiration-mm"  onblur="on_expiry_month_changed();" placeholder="MM" required>
+                            <input type="text" class="form-control" id="cc-expiration-mm"  onblur="validatecreditcard();" placeholder="MM" required>
                         </div>
                         <div class="col-md-6 mb-6">
-                            <input type="text" class="form-control" id="cc-expiration-yyyy" onblur="on_expiry_year_changed();" placeholder="YYYY" required>
+                            <input type="text" class="form-control" id="cc-expiration-yyyy" onblur="validatecreditcard();" placeholder="YYYY" required>
                         </div>
                     </div>
                     <div class="invalid-feedback">
@@ -121,7 +121,7 @@
             <div class="row">
                 <div class="col-md-3 mb-3">
                     <label for="cc-cvv">CVV</label>
-                    <input type="text" class="form-control" id="cc-cvv" onblur="oncvvchanged();" placeholder="XXX" required>
+                    <input type="text" class="form-control" id="cc-cvv" onblur="validatecreditcard();" placeholder="XXX" required>
                     <div class="invalid-feedback">
                         Security code required
                     </div>
@@ -130,7 +130,7 @@
 
             <hr class="mb-4">
             @*onclick="validatesubmit"*@
-            <button id="btn-proccedpay" class="btn btn-primary btn-lg btn-block" type="submit" >Continue to checkout</button>
+            <button id="btn-proccedpay" class="btn btn-primary btn-lg btn-block" type="submit" disabled="disabled">Continue to checkout</button>
         </form>        
     }
 }
