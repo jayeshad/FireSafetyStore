@@ -104,6 +104,6 @@ function onccnumberchanged() {
     var re16digit = /^\d{16}$/;
     if (!re16digit.test(cvv)) {
         event.preventDefault();
-        alert('enter your 16 digit debit/cedit card number');
+        alert('enter your 16 digit debit/credit card number');
     }
 }
