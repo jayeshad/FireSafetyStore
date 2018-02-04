@@ -10,46 +10,48 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table" style="width:100%">
-    <tr>
-        <th style="width:25%">
-            @Html.DisplayNameFor(model => model.ItemName)
-        </th>
-        <th style="width:45%">
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Quantity)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Rate)
-        </th>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th style="width:25%">
+                @Html.DisplayNameFor(model => model.ItemName)
+            </th>
+            <th style="width:45%">
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rate)
+            </th>
 
-        <th></th>
-    </tr>
-
+            <th></th>
+        </tr>
+    </thead>
     @foreach (var item in Model)
     {
+        <tbody>
+            <tr>
+                <td style="width:25%">
+                    @Html.DisplayFor(modelItem => item.ItemName)
+                </td>
+                <td style="width:45%">
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rate)
+                </td>
 
-        <tr>
-            <td style="width:25%">
-                @Html.DisplayFor(modelItem => item.ItemName)
-            </td>
-            <td style="width:45%">
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quantity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rate)
-            </td>
-
-            <td>
-                @Html.ActionLink("Modify", "Edit", new { id = item.ItemId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ItemId })
-            </td>
-        </tr>
+                <td>
+                    @Html.ActionLink("Modify", "Edit", new { id = item.ItemId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ItemId })
+                </td>
+            </tr>
+        </tbody>
     }
 
 </table>

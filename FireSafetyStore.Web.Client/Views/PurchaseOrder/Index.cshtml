@@ -11,7 +11,8 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 
-<table class="table">
+<table class="table table-striped">
+    <thead>
     <tr>
         <th style="width:25%">
             @Html.DisplayNameFor(model => model.ItemName)
@@ -25,31 +26,33 @@
         <th>
             @Html.DisplayNameFor(model => model.Rate)
         </th>
-       
+
         <th></th>
     </tr>
+        </thead>
+    @foreach (var item in Model)
+    {
+        <tbody>
+            <tr>
+                <td style="width:25%">
+                    @Html.DisplayFor(modelItem => item.ItemName)
+                </td>
+                <td style="width:45%">
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rate)
+                </td>
 
-@foreach (var item in Model) {
-
-    <tr>
-        <td style="width:25%">
-            @Html.DisplayFor(modelItem => item.ItemName)
-        </td>
-        <td style="width:45%">
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Quantity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Rate)
-        </td>
-       
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ItemId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ItemId })
-        </td>
-    </tr>
-}
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ItemId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ItemId })
+                </td>
+            </tr>
+        </tbody>
+    }
 
 </table>

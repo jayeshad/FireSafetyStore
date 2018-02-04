@@ -50,6 +50,7 @@ namespace FireSafetyStore.Web.Client.Controllers
         {
             ViewBag.BrandId = new SelectList(db.Brands, "BrandId", "Description");
             ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Description");
+            ViewBag.SupplierId = new SelectList(db.Suppliers, "SupplierId", "Name");
             return View();
         }
 
@@ -81,6 +82,7 @@ namespace FireSafetyStore.Web.Client.Controllers
 
             ViewBag.BrandId = new SelectList(db.Brands, "BrandId", "Description", product.BrandId);
             ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Description", product.CategoryId);
+            ViewBag.SupplierId = new SelectList(db.Suppliers, "SupplierId", "Name", product.SupplierId);
             return View(product);
         }
 

@@ -9,7 +9,10 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table table-striped">
+    <thead>
+
+    
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)
@@ -18,9 +21,10 @@
 
         </th>
     </tr>
-
+        </thead>
     @foreach (var item in Model)
     {
+        <tbody>
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
@@ -30,6 +34,7 @@
                 @Html.ActionLink("Delete", "Delete", new { id = item.Id })
             </td>
         </tr>
+            </tbody>
     }
 
 </table>
