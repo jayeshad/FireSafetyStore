@@ -24,6 +24,9 @@ namespace FireSafetyStore.Web.Client.Infrastructure.DbContext
         public virtual DbSet<Supplier> Suppliers { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
 
+        public virtual DbSet<SalesReport> SalesReports { get; set; }
+        public virtual DbSet<StockReport> StockReports { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<AspNetRole>()
@@ -96,6 +99,23 @@ namespace FireSafetyStore.Web.Client.Infrastructure.DbContext
                 .HasMany(e => e.Products)
                 .WithRequired(e => e.Supplier)
                 .WillCascadeOnDelete(false);
+
+
+            modelBuilder.Entity<SalesReport>()
+                .Property(e => e.OrderDate)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<SalesReport>()
+                .Property(e => e.TotalAmount)
+                .HasPrecision(19, 4);
+
+            modelBuilder.Entity<SalesReport>()
+                .Property(e => e.ProfitEarned)
+                .HasPrecision(19, 2);
+
+            modelBuilder.Entity<StockReport>()
+                .Property(e => e.StockStatus)
+                .IsUnicode(false);
         }
     }
 }

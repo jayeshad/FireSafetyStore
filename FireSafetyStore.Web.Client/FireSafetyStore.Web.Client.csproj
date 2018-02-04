@@ -56,6 +56,9 @@
       <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -246,6 +249,8 @@
     <Compile Include="Infrastructure\Common\FileManager.cs" />
     <Compile Include="Infrastructure\Common\SessionManager.cs" />
     <Compile Include="Infrastructure\DbContext\CardType.cs" />
+    <Compile Include="Infrastructure\DbContext\SalesReport.cs" />
+    <Compile Include="Infrastructure\DbContext\StockReport.cs" />
     <Compile Include="Infrastructure\DbContext\Supplier.cs" />
     <Compile Include="Infrastructure\DbContext\Brand.cs" />
     <Compile Include="Infrastructure\DbContext\Category.cs" />
@@ -318,19 +323,11 @@
     <Compile Include="Models\VerifyPhoneNumberViewModel.cs" />
     <Compile Include="Infrastructure\DbContext\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reports\ReportTemplate.aspx.cs">
-      <DependentUpon>ReportTemplate.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Reports\ReportTemplate.aspx.designer.cs">
-      <DependentUpon>ReportTemplate.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ReportViewerWebForm.aspx.cs">
-      <DependentUpon>ReportViewerWebForm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ReportViewerWebForm.aspx.designer.cs">
-      <DependentUpon>ReportViewerWebForm.aspx</DependentUpon>
+    <Compile Include="Reports\StockReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StockReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -716,8 +713,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Reports\ReportTemplate.aspx" />
-    <Content Include="ReportViewerWebForm.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -2191,8 +2186,6 @@
     <Content Include="Views\Suppliers\Index.cshtml" />
     <Content Include="Views\Shopping\_CardDetails.cshtml" />
     <Content Include="Views\Order\TrackOrder.cshtml" />
-    <Content Include="Views\Report\ReportHome.cshtml" />
-    <Content Include="Views\Report\ReportTemplate.cshtml" />
     <Content Include="Views\Shopping\_ProcessPayment.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -2209,10 +2202,16 @@
       <DependentUpon>201711221640285_FirstName.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Reports\StockReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>StockReport.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />

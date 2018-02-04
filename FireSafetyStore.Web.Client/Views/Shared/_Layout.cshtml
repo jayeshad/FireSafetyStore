@@ -107,6 +107,17 @@
 
                             </div>
                         </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="managereports" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Reports
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="managereports">
+                                @Html.ActionLink("Sales Report", "Index", "Report", routeValues: new { name = "sales" }, htmlAttributes: new { @class = "dropdown-item" })
+                                @Html.ActionLink("Stock Report", "Index", "Report", routeValues: new { name = "stock" }, htmlAttributes: new { @class = "dropdown-item" })
+
+                            </div>
+                        </li>
                     }
 
                     @if (Request.IsAuthenticated && User.IsInRole("Employee"))
