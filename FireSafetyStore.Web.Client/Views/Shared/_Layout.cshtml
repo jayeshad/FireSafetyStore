@@ -97,7 +97,7 @@
                             </div>
                         </li>
 
-                        <li class="nav-item dropdown">
+                        @*<li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="managereports" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Reports
                             </a>
@@ -106,7 +106,7 @@
                                 @Html.ActionLink("Stock Report", "Index", "Report", routeValues: new { type = "stock", id = "" }, htmlAttributes: new { @class = "dropdown-item" })
 
                             </div>
-                        </li>
+                        </li>*@
                     }
 
                     @if (Request.IsAuthenticated && User.IsInRole("Employee"))

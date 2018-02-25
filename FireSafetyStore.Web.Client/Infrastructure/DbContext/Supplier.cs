@@ -26,6 +26,7 @@ namespace FireSafetyStore.Web.Client.Infrastructure.DbContext
         [Display(Name = "Address")]
         public string Address { get; set; }
 
+
         [Required]
         [StringLength(50)]
         [Display(Name = "Email ID")]
@@ -35,6 +36,16 @@ namespace FireSafetyStore.Web.Client.Infrastructure.DbContext
         [StringLength(50)]
         [Display(Name = "Phone Number")]
         public string Phone { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        [Display(Name = "Street")]
+        public string Street { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        [Display(Name = "City")]
+        public string City { get; set; }
 
         public virtual ICollection<Product> Products { get; set; }
     }
