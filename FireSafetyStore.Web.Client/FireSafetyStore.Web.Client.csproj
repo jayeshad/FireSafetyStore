@@ -2208,7 +2208,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Datasources\" />
     <Folder Include="FileStore\Products\" />
     <Folder Include="Temp\" />
   </ItemGroup>

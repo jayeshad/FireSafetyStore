@@ -9,9 +9,21 @@
 <hr />
 <div class="alert alert-success" role="alert">
     You order has been placed, you can track keep track of your orders here.. <span>@Html.ActionLink("Orders", "TrackOrder", "Order")</span>     
+    
 </div>
+<br />
 <div>
+    Also you can download your Invoice Here : <span>@Html.ActionLink("Invoice", "Index", "Report", routeValues: new { type = "invoice", id = Model.OrderId }, htmlAttributes: new { id = "loginLink" }) </span>  
+
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderCode)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.OrderCode)
         </dt>
