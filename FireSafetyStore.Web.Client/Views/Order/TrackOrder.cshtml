@@ -52,7 +52,11 @@
                     @Html.DisplayFor(modelItem => item.DeliveryAgencyName)
                 </td>
 
-                <td></td>
+                <td>
+
+                    <button type="button" class="fa fa-file" onclick="location.href='@Url.Action("Index", "Report", routeValues: new { type = "invoice", id = item.OrderId })'"></button>
+                </td>
+                
             </tr>
         </tbody>
         }

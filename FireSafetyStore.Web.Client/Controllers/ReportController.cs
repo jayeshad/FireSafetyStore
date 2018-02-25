@@ -5,28 +5,59 @@ using FireSafetyStore.Web.Client.Models;
 using CrystalDecisions.CrystalReports.Engine;
 using System.IO;
 using System.Linq;
+using FireSafetyStore.Web.Client.Infrastructure.Common;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Collections.Generic;
+using System.Data;
+using CrystalDecisions.Web;
 
 namespace FireSafetyStore.Web.Client.Controllers
 {
     public class ReportController : Controller
     {
+        private readonly ADOHelper adoHelper;
         private FiresafeDbContext db = new FiresafeDbContext();
-
-        public ActionResult Index(string name)
+        public ReportController()
+        {
+            adoHelper = new ADOHelper(ConfigurationManager.ConnectionStrings["FiresafeDbContext"].ConnectionString);
+        }
+        public ActionResult Index(string type, string id)
         {
             ReportClass report = new ReportClass();
-            if(name == "stock")
+            if(type == "stock")
             {
                 report.FileName = Server.MapPath("~/Reports/StockReport.rpt");
                 report.Load();
                 report.SetDataSource(db.StockReports.ToList());
             }
 
-            if (name == "sales")
+            if (type == "sales")
             {
                 report.FileName = Server.MapPath("~/Reports/StockReport.rpt");
                 report.Load();
                 report.SetDataSource(db.StockReports.ToList());
+            }
+
+            if(type == "invoice")
+            {
+                ReportDocument reportDoc = new ReportDocument();
+                reportDoc.Load(Server.MapPath("~/Reports/Invoice.rpt"));
+                var param1 = new List<SqlParameter>();
+                param1.Add(new SqlParameter("@OrderId", new Guid(id)));
+                var header = adoHelper.ExecuteDataTable("InvoiceReportHeader", param1);
+                reportDoc.Database.Tables["InvoiceReportHeader"].SetDataSource(header);
+
+                var param2 = new List<SqlParameter>();
+                param2.Add(new SqlParameter("@OrderId", new Guid(id)));
+                var body = adoHelper.ExecuteDataTable("InvoiceReportBody", param2);
+                reportDoc.Database.Tables["InvoiceReportBody"].SetDataSource(body);
+                Response.Buffer = false;
+                Response.ClearContent();
+                Response.ClearHeaders();
+                Stream fs = reportDoc.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+                fs.Seek(0, SeekOrigin.Begin);
+                return File(fs, "application/pdf");
             }
             Response.Buffer = false;
             Response.ClearContent();

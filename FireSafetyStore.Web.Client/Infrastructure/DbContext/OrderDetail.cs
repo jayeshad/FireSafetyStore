@@ -1,9 +1,9 @@
-namespace FireSafetyStore.Web.Client.Infrastructure.DbContext
-{
+
     using System;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-
+namespace FireSafetyStore.Web.Client.Infrastructure.DbContext
+{
     public partial class OrderDetail
     {
         [Key]

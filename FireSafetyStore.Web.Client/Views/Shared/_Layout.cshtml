@@ -10,15 +10,6 @@
 
     <!--This bundle was moved by the Telerik VS Extensions for compatibility reasons-->
     @Scripts.Render("~/bundles/jquery")
-    <link href="@Url.Content("~/Content/kendo/2016.2.504/kendo.common-bootstrap.min.css")" rel="stylesheet" type="text/css" />
-    <link href="@Url.Content("~/Content/kendo/2016.2.504/kendo.mobile.all.min.css")" rel="stylesheet" type="text/css" />
-    <link href="@Url.Content("~/Content/kendo/2016.2.504/kendo.bootstrap.min.css")" rel="stylesheet" type="text/css" />
-    <script src="@Url.Content("~/Scripts/kendo/2016.2.504/jquery.min.js")"></script>
-    <script src="@Url.Content("~/Scripts/kendo/2016.2.504/jszip.min.js")"></script>
-    <script src="@Url.Content("~/Scripts/kendo/2016.2.504/kendo.all.min.js")"></script>
-    <script src="@Url.Content("~/Scripts/kendo/2016.2.504/kendo.aspnetmvc.min.js")"></script>
-    <script src="@Url.Content("~/Scripts/kendo.modernizr.custom.js")"></script>
-
 </head>
 <body>
 
@@ -111,8 +102,8 @@
                                 Reports
                             </a>
                             <div class="dropdown-menu" aria-labelledby="managereports">
-                                @Html.ActionLink("Sales Report", "Index", "Report", routeValues: new { name = "sales" }, htmlAttributes: new { @class = "dropdown-item" })
-                                @Html.ActionLink("Stock Report", "Index", "Report", routeValues: new { name = "stock" }, htmlAttributes: new { @class = "dropdown-item" })
+                                @Html.ActionLink("Sales Report", "Index", "Report", routeValues: new { type = "sales", id = ""}, htmlAttributes: new { @class = "dropdown-item" })
+                                @Html.ActionLink("Stock Report", "Index", "Report", routeValues: new { type = "stock", id = "" }, htmlAttributes: new { @class = "dropdown-item" })
 
                             </div>
                         </li>
