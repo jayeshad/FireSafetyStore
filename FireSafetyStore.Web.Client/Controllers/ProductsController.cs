@@ -98,6 +98,7 @@ namespace FireSafetyStore.Web.Client.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.SupplierId = new SelectList(db.Suppliers, "SupplierId", "Name", product.SupplierId);
             ViewBag.BrandId = new SelectList(db.Brands, "BrandId", "Description", product.BrandId);
             ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Description", product.CategoryId);
             return View(product);
@@ -108,7 +109,7 @@ namespace FireSafetyStore.Web.Client.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "ItemId,ItemName,Description,BrandId,CategoryId,UnitId,Rate,Image,ImagePath,OriginalFileName,Stock,UpdatedAt,IsActive")] Product product,HttpPostedFileBase file)
+        public async Task<ActionResult> Edit([Bind(Include = "ItemId,ItemName,Description,BrandId,SupplierId,CategoryId,UnitId,Rate,Image,ImagePath,OriginalFileName,Stock,UpdatedAt,IsActive")] Product product,HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
@@ -116,6 +117,7 @@ namespace FireSafetyStore.Web.Client.Controllers
                 db.Entry(product).Property(x => x.ItemName).IsModified = true;
                 db.Entry(product).Property(x => x.Description).IsModified = true;
                 db.Entry(product).Property(x => x.BrandId).IsModified = true;
+                db.Entry(product).Property(x => x.SupplierId).IsModified = true;
                 db.Entry(product).Property(x => x.CategoryId).IsModified = true;
                 db.Entry(product).Property(x => x.Rate).IsModified = true;
                 db.Entry(product).Property(x => x.Quantity).IsModified = true;
