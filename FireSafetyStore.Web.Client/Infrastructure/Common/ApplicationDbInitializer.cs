@@ -13,9 +13,9 @@ namespace FireSafetyStore.Web.Client.Infrastructure.Common
     // This is useful if you do not want to tear down the database each time you run the application.
     // public class ApplicationDbInitializer : DropCreateDatabaseAlways<ApplicationDbContext>
     // This example shows you how to create a new database if the Model changes
-    public class ApplicationDbInitializer : DropCreateDatabaseIfModelChanges<ApplicationDbContext> 
+    public class ApplicationDbInitializer : DropCreateDatabaseIfModelChanges<FiresafeDbContext> 
     {
-        protected override void Seed(ApplicationDbContext context)
+        protected override void Seed(FiresafeDbContext context)
         {
             InitializeIdentityForEF(context);
             base.Seed(context);
@@ -23,7 +23,7 @@ namespace FireSafetyStore.Web.Client.Infrastructure.Common
         }
 
         //Create User=Admin@Admin.com with password=Admin@123456 in the Admin role        
-        public static void InitializeIdentityForEF(ApplicationDbContext db)
+        public static void InitializeIdentityForEF(FiresafeDbContext db)
         {
             var userManager = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var roleManager = HttpContext.Current.GetOwinContext().Get<ApplicationRoleManager>();

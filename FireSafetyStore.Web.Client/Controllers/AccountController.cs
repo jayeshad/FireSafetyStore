@@ -11,6 +11,7 @@ using System.Web;
 using System.Web.Mvc;
 using FireSafetyStore.Web.Client.Infrastructure.Security;
 using FireSafetyStore.Web.Client.Infrastructure.Common;
+using System.Collections.Generic;
 
 namespace IdentitySample.Controllers
 {
@@ -151,7 +152,8 @@ namespace IdentitySample.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+            var vm = new RegisterViewModel();
+            return View(vm);
         }
 
         //
@@ -167,6 +169,8 @@ namespace IdentitySample.Controllers
                 {
                     FirstName = model.FirstName,
                     LastName = model.LastName,
+                    Gender = model.Gender,
+                    DateOfBirth = model.DateOfBirth,
                     Address = model.Address,
                     City = model.City,
                     State = model.State,
@@ -488,6 +492,13 @@ namespace IdentitySample.Controllers
                 }
                 context.HttpContext.GetOwinContext().Authentication.Challenge(properties, LoginProvider);
             }
+        }
+        private IEnumerable<SelectListItem> PopulateGenderItems()
+        {
+            var list = new List<SelectListItem>();
+            list.Add(new SelectListItem { Value = "Male", Text = "Male", Selected = true });
+            list.Add(new SelectListItem { Value = "Female", Text = "Female" });
+            return list;
         }
         #endregion
     }

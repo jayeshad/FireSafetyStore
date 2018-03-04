@@ -1,11 +1,9 @@
 namespace FireSafetyStore.Web.Client.Migrations
 {
-    using System;
-    using System.Data.Entity;
+    using Infrastructure.DbContext;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
-    public class Configuration : DbMigrationsConfiguration<Infrastructure.DbContext.ApplicationDbContext>
+    public class Configuration : DbMigrationsConfiguration<FiresafeDbContext>
     {
         public Configuration()
         {
@@ -13,7 +11,7 @@ namespace FireSafetyStore.Web.Client.Migrations
             AutomaticMigrationDataLossAllowed = true;
         }
 
-        protected override void Seed(Infrastructure.DbContext.ApplicationDbContext context)
+        protected override void Seed(FiresafeDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

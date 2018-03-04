@@ -7,8 +7,6 @@ namespace FireSafetyStore.Web.Client.Infrastructure.DbContext
         public FiresafeDbContext() : base("name=FiresafeDbContext")
         {
         }
-
-        public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
         public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
         public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
         public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
@@ -22,7 +20,6 @@ namespace FireSafetyStore.Web.Client.Infrastructure.DbContext
         public virtual DbSet<Payment> Payments { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
 
         public virtual DbSet<SalesReport> SalesReports { get; set; }
         public virtual DbSet<StockReport> StockReports { get; set; }

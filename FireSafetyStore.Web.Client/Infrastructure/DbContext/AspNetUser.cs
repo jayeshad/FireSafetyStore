@@ -24,6 +24,11 @@ namespace FireSafetyStore.Web.Client.Infrastructure.DbContext
         [StringLength(15)]
         public string LastName { get; set; }
 
+        [StringLength(10)]
+        public string Gender { get; set; }
+
+        public DateTime? DateOfBirth { get; set; }
+
         [StringLength(150)]
         public string Address { get; set; }
 

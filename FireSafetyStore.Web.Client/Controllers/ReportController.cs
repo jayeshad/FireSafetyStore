@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using System.Collections.Generic;
 using System.Data;
 using CrystalDecisions.Web;
+using CrystalDecisions.Shared;
 
 namespace FireSafetyStore.Web.Client.Controllers
 {
@@ -27,31 +28,35 @@ namespace FireSafetyStore.Web.Client.Controllers
             ReportClass report = new ReportClass();
             if(type == "stock")
             {
-                report.FileName = Server.MapPath("~/Reports/StockReport.rpt");
-                report.Load();
-                report.SetDataSource(db.StockReports.ToList());
-            }
-
-            if (type == "sales")
-            {
-                report.FileName = Server.MapPath("~/Reports/StockReport.rpt");
-                report.Load();
-                report.SetDataSource(db.StockReports.ToList());
+                ReportDocument stockReportDoc = new ReportDocument();
+                stockReportDoc.Load(Server.MapPath("~/Reports/StockReport.rpt"));
+                var stockReport = GetStockInfo("ALL");
+                stockReportDoc.Database.Tables[0].SetDataSource(stockReport);
+                Response.Buffer = false;
+                Response.ClearContent();
+                Response.ClearHeaders();
+                Stream fs = stockReportDoc.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+                fs.Seek(0, SeekOrigin.Begin);
+                return File(fs, "application/pdf");
             }
 
             if(type == "invoice")
             {
                 ReportDocument reportDoc = new ReportDocument();
-                reportDoc.Load(Server.MapPath("~/Reports/Invoice.rpt"));
+                reportDoc.Load(Server.MapPath("~/Reports/InvoiceReport.rpt"));                
                 var param1 = new List<SqlParameter>();
                 param1.Add(new SqlParameter("@OrderId", new Guid(id)));
-                var header = adoHelper.ExecuteDataTable("InvoiceReportHeader", param1);
-                reportDoc.Database.Tables["InvoiceReportHeader"].SetDataSource(header);
+                var header = adoHelper.ExecuteDataTable("InvoiceReport", param1);
+                reportDoc.Database.Tables[0].SetDataSource(header);
 
+                //reportDoc.ParameterFields.Clear();
                 var param2 = new List<SqlParameter>();
                 param2.Add(new SqlParameter("@OrderId", new Guid(id)));
                 var body = adoHelper.ExecuteDataTable("InvoiceReportBody", param2);
-                reportDoc.Database.Tables["InvoiceReportBody"].SetDataSource(body);
+                reportDoc.Database.Tables[1].SetDataSource(body);
+
+                
+
                 Response.Buffer = false;
                 Response.ClearContent();
                 Response.ClearHeaders();
@@ -67,23 +72,21 @@ namespace FireSafetyStore.Web.Client.Controllers
             return File(stream, "application/pdf");
     }
 
+        private DataTable GetStockInfo(string type)
+        {
+            var result = new DataTable();
+            if(type.Equals("ALL",StringComparison.InvariantCultureIgnoreCase))
+            {
+                var param1 = new List<SqlParameter>();
+                param1.Add(new SqlParameter("@Mode", "ALL"));
+                result = adoHelper.ExecuteDataTable("StockSummary", param1);
+            }
+            return result;
+        }
+
         public ActionResult ReportHome()
         {
             return View();
-        }
-
-        public ActionResult ReportTemplate(string ReportName, string ReportDescription, int Width, int Height)
-        {
-            var rptInfo = new ReportInfo
-            {
-                ReportName = ReportName,
-                ReportDescription = ReportDescription,
-                ReportURL = String.Format("../../Reports/ReportTemplate.aspx?ReportName={0}&Height={1}", ReportName, Height),
-                Width = Width,
-                Height = Height
-            };
-
-            return View(rptInfo);
         }
 
         protected override void Dispose(bool disposing)

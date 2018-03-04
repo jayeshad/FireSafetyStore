@@ -23,7 +23,7 @@ namespace FireSafetyStore.Web.Client.Models
         public string LastName { get; set; }
 
         [Required]
-        [StringLength(7, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 4)]
+        //[StringLength(10, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 2)]
         [DataType(DataType.Text)]
         [Display(Name = "Gender")]
         public string Gender { get; set; }
@@ -67,8 +67,6 @@ namespace FireSafetyStore.Web.Client.Models
         [DataType(DataType.Text)]
         [Display(Name = "PhoneNumber")]
         public string PhoneNumber { get; set; }
-
-        public IEnumerable<SelectListItem> GenderItems { get; set; }
         public IEnumerable<SelectListItem> RolesList { get; set; }
     }
 }

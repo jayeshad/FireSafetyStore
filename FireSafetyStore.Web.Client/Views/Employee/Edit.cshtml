@@ -29,7 +29,12 @@
         <div class="form-group">
             @Html.LabelFor(m => m.Gender, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
-                @Html.DropDownListFor(m => m.Gender, Model.GenderItems, new { @class = "form-control" })
+                @Html.DropDownListFor(m => m.Gender, new List<SelectListItem>
+                {
+                    new SelectListItem{Text="Male", Value="M"},
+                    new SelectListItem{Text="Female", Value="F"}
+                }, "Please select", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })   
             </div>
         </div>
     <div class="form-group">
