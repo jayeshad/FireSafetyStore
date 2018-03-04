@@ -5,6 +5,7 @@
 }
 
 <h2>Manage All Customers</h2>
+@Html.ActionLink("Customer Report", "Index", "Report", routeValues: new { type = "customer", id = "" }, htmlAttributes: new { id = "loginLink" })
 @if (Model.Any())
 {
     <table class="table table-striped">

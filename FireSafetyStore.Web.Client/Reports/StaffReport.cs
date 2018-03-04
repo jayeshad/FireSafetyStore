@@ -16,14 +16,14 @@ namespace FireSafetyStore.Web.Client.Reports {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class Invoice : ReportClass {
+    public class StaffReport : ReportClass {
         
-        public Invoice() {
+        public StaffReport() {
         }
         
         public override string ResourceName {
             get {
-                return "Invoice.rpt";
+                return "StaffReport.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace FireSafetyStore.Web.Client.Reports {
         
         public override string FullResourceName {
             get {
-                return "FireSafetyStore.Web.Client.Reports.Invoice.rpt";
+                return "FireSafetyStore.Web.Client.Reports.StaffReport.rpt";
             }
             set {
                 // Do nothing
@@ -90,7 +90,7 @@ namespace FireSafetyStore.Web.Client.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_OrderId {
+        public CrystalDecisions.Shared.IParameterField Parameter_UserType {
             get {
                 return this.DataDefinition.ParameterFields[0];
             }
@@ -98,9 +98,9 @@ namespace FireSafetyStore.Web.Client.Reports {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedInvoice : Component, ICachedReport {
+    public class CachedStaffReport : Component, ICachedReport {
         
-        public CachedInvoice() {
+        public CachedStaffReport() {
         }
         
         [Browsable(false)]
@@ -137,7 +137,7 @@ namespace FireSafetyStore.Web.Client.Reports {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            Invoice rpt = new Invoice();
+            StaffReport rpt = new StaffReport();
             rpt.Site = this.Site;
             return rpt;
         }

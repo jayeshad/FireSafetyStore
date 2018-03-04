@@ -40,7 +40,39 @@ namespace FireSafetyStore.Web.Client.Controllers
                 return File(fs, "application/pdf");
             }
 
-            if(type == "invoice")
+            if (type == "staff")
+            {
+                ReportDocument staffReportDoc = new ReportDocument();
+                staffReportDoc.Load(Server.MapPath("~/Reports/StaffReport.rpt"));
+                var param1 = new List<SqlParameter>();
+                param1.Add(new SqlParameter("@UserType", "Employee"));
+                var staff = adoHelper.ExecuteDataTable("StaffReport", param1);
+                staffReportDoc.Database.Tables[0].SetDataSource(staff);
+                Response.Buffer = false;
+                Response.ClearContent();
+                Response.ClearHeaders();
+                Stream fs = staffReportDoc.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+                fs.Seek(0, SeekOrigin.Begin);
+                return File(fs, "application/pdf");
+            }
+
+            if (type == "customer")
+            {
+                ReportDocument staffReportDoc = new ReportDocument();
+                staffReportDoc.Load(Server.MapPath("~/Reports/StaffReport.rpt"));
+                var param1 = new List<SqlParameter>();
+                param1.Add(new SqlParameter("@UserType", "Customer"));
+                var staff = adoHelper.ExecuteDataTable("StaffReport", param1);
+                staffReportDoc.Database.Tables[0].SetDataSource(staff);
+                Response.Buffer = false;
+                Response.ClearContent();
+                Response.ClearHeaders();
+                Stream fs = staffReportDoc.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+                fs.Seek(0, SeekOrigin.Begin);
+                return File(fs, "application/pdf");
+            }
+
+            if (type == "invoice")
             {
                 ReportDocument reportDoc = new ReportDocument();
                 reportDoc.Load(Server.MapPath("~/Reports/InvoiceReport.rpt"));                
@@ -49,14 +81,11 @@ namespace FireSafetyStore.Web.Client.Controllers
                 var header = adoHelper.ExecuteDataTable("InvoiceReport", param1);
                 reportDoc.Database.Tables[0].SetDataSource(header);
 
-                //reportDoc.ParameterFields.Clear();
                 var param2 = new List<SqlParameter>();
                 param2.Add(new SqlParameter("@OrderId", new Guid(id)));
                 var body = adoHelper.ExecuteDataTable("InvoiceReportBody", param2);
                 reportDoc.Database.Tables[1].SetDataSource(body);
-
-                
-
+               
                 Response.Buffer = false;
                 Response.ClearContent();
                 Response.ClearHeaders();
@@ -64,6 +93,7 @@ namespace FireSafetyStore.Web.Client.Controllers
                 fs.Seek(0, SeekOrigin.Begin);
                 return File(fs, "application/pdf");
             }
+
             Response.Buffer = false;
             Response.ClearContent();
             Response.ClearHeaders();
