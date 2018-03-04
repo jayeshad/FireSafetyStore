@@ -4,7 +4,6 @@ using System.Web.Mvc;
 using System.Collections.Generic;
 using FireSafetyStore.Web.Client.Infrastructure.DbContext;
 using System.Linq;
-using FireSafetyStore.Web.Client;
 
 namespace IdentitySample.Controllers
 {

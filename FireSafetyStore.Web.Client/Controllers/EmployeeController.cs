@@ -153,8 +153,17 @@ namespace IdentitySample.Controllers
                     Selected = true,
                     Text = x.Name,
                     Value = x.Name
-                })
+                }),
+                GenderItems = PopulateGenderItems()
             };
+        }
+
+        private IEnumerable<SelectListItem> PopulateGenderItems()
+        {
+            var list = new List<SelectListItem>();
+            list.Add(new SelectListItem { Value = "Male", Text = "Male", Selected = true });
+            list.Add(new SelectListItem { Value = "Female", Text = "Female" });
+            return list;
         }
 
         //
@@ -179,6 +188,8 @@ namespace IdentitySample.Controllers
                 Email = user.Email,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
+                Gender = user.Gender,
+                DateOfBirth = user.DateOfBirth,
                 Address = user.Address,
                 City = user.City,
                 State = user.State,
@@ -211,6 +222,8 @@ namespace IdentitySample.Controllers
                 user.Email = editUser.Email;
                 user.FirstName = editUser.FirstName;
                 user.LastName = editUser.LastName;
+                user.Gender = editUser.Gender;
+                user.DateOfBirth = editUser.DateOfBirth;
                 user.Address = editUser.Address;
                 user.City = editUser.City;
                 user.State = editUser.State;
