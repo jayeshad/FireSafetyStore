@@ -1,0 +1,1071 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="_UpgradeWizard_Files\UpgradeWizardLog.xslt"?>
+<log>
+  <event action="Analyze" type="Success" name="Assembly References" path="F:\Repository\FireSafetyStore.Web.Client\FireSafetyStore.Web.Client.csproj" />
+  <event action="Analyze" type="Success" name="Assembly References" path="F:\Repository\FireSafetyStore.Web.Client\ApplicationInsights.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="F:\Repository\FireSafetyStore.Web.Client\ApplicationInsights.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="F:\Repository\FireSafetyStore.Web.Client\ApplicationInsights.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="F:\Repository\FireSafetyStore.Web.Client\ApplicationInsights.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="F:\Repository\FireSafetyStore.Web.Client\ApplicationInsights.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="F:\Repository\FireSafetyStore.Web.Client\ApplicationInsights.config" />
+  <event action="Analyze" type="Success" name="ApplicationInsights.config" path="F:\Repository\FireSafetyStore.Web.Client\ApplicationInsights.config" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" name="201711221640285_FirstName.resx" path="F:\Repository\FireSafetyStore.Web.Client\Migrations\201711221640285_FirstName.resx" />
+  <event action="Analyze" type="Success" name="Assembly References" path="F:\Repository\FireSafetyStore.Web.Client\packages.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="F:\Repository\FireSafetyStore.Web.Client\packages.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="F:\Repository\FireSafetyStore.Web.Client\packages.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="F:\Repository\FireSafetyStore.Web.Client\packages.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="F:\Repository\FireSafetyStore.Web.Client\packages.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="F:\Repository\FireSafetyStore.Web.Client\packages.config" />
+  <event action="Analyze" type="Success" name="packages.config" path="F:\Repository\FireSafetyStore.Web.Client\packages.config" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\_ViewStart.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\_ViewStart.cshtml" />
+  <event action="Analyze" type="Success" name="_ViewStart.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\_ViewStart.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Account\_ExternalLoginsListPartial.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Account\_ExternalLoginsListPartial.cshtml" />
+  <event action="Analyze" type="Success" name="_ExternalLoginsListPartial.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Account\_ExternalLoginsListPartial.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Account\ConfirmEmail.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Account\ConfirmEmail.cshtml" />
+  <event action="Analyze" type="Success" name="ConfirmEmail.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Account\ConfirmEmail.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Account\DisplayEmail.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Account\DisplayEmail.cshtml" />
+  <event action="Analyze" type="Success" name="DisplayEmail.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Account\DisplayEmail.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Account\ExternalLoginConfirmation.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Account\ExternalLoginConfirmation.cshtml" />
+  <event action="Analyze" type="Success" name="ExternalLoginConfirmation.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Account\ExternalLoginConfirmation.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Account\ExternalLoginFailure.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Account\ExternalLoginFailure.cshtml" />
+  <event action="Analyze" type="Success" name="ExternalLoginFailure.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Account\ExternalLoginFailure.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Account\ForgotPassword.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Account\ForgotPassword.cshtml" />
+  <event action="Analyze" type="Success" name="ForgotPassword.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Account\ForgotPassword.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Account\ForgotPasswordConfirmation.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Account\ForgotPasswordConfirmation.cshtml" />
+  <event action="Analyze" type="Success" name="ForgotPasswordConfirmation.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Account\ForgotPasswordConfirmation.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Account\Login.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Account\Login.cshtml" />
+  <event action="Analyze" type="Success" name="Login.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Account\Login.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Account\Register.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Account\Register.cshtml" />
+  <event action="Analyze" type="Success" name="Register.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Account\Register.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Account\ResetPassword.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Account\ResetPassword.cshtml" />
+  <event action="Analyze" type="Success" name="ResetPassword.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Account\ResetPassword.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Account\ResetPasswordConfirmation.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Account\ResetPasswordConfirmation.cshtml" />
+  <event action="Analyze" type="Success" name="ResetPasswordConfirmation.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Account\ResetPasswordConfirmation.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Account\SendCode.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Account\SendCode.cshtml" />
+  <event action="Analyze" type="Success" name="SendCode.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Account\SendCode.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Account\VerifyCode.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Account\VerifyCode.cshtml" />
+  <event action="Analyze" type="Success" name="VerifyCode.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Account\VerifyCode.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Brands\Create.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Brands\Create.cshtml" />
+  <event action="Analyze" type="Success" name="Create.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Brands\Create.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Brands\Delete.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Brands\Delete.cshtml" />
+  <event action="Analyze" type="Success" name="Delete.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Brands\Delete.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Brands\Details.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Brands\Details.cshtml" />
+  <event action="Analyze" type="Success" name="Details.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Brands\Details.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Brands\Edit.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Brands\Edit.cshtml" />
+  <event action="Analyze" type="Success" name="Edit.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Brands\Edit.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Brands\Index.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Brands\Index.cshtml" />
+  <event action="Analyze" type="Success" name="Index.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Brands\Index.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Categories\Create.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Categories\Create.cshtml" />
+  <event action="Analyze" type="Success" name="Create.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Categories\Create.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Categories\Delete.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Categories\Delete.cshtml" />
+  <event action="Analyze" type="Success" name="Delete.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Categories\Delete.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Categories\Details.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Categories\Details.cshtml" />
+  <event action="Analyze" type="Success" name="Details.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Categories\Details.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Categories\Edit.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Categories\Edit.cshtml" />
+  <event action="Analyze" type="Success" name="Edit.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Categories\Edit.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Categories\Index.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Categories\Index.cshtml" />
+  <event action="Analyze" type="Success" name="Index.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Categories\Index.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Customer\Create.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Customer\Create.cshtml" />
+  <event action="Analyze" type="Success" name="Create.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Customer\Create.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Customer\Delete.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Customer\Delete.cshtml" />
+  <event action="Analyze" type="Success" name="Delete.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Customer\Delete.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Customer\Details.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Customer\Details.cshtml" />
+  <event action="Analyze" type="Success" name="Details.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Customer\Details.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Customer\Edit.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Customer\Edit.cshtml" />
+  <event action="Analyze" type="Success" name="Edit.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Customer\Edit.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Customer\Index.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Customer\Index.cshtml" />
+  <event action="Analyze" type="Success" name="Index.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Customer\Index.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Employee\Create.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Employee\Create.cshtml" />
+  <event action="Analyze" type="Success" name="Create.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Employee\Create.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Employee\Delete.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Employee\Delete.cshtml" />
+  <event action="Analyze" type="Success" name="Delete.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Employee\Delete.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Employee\Details.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Employee\Details.cshtml" />
+  <event action="Analyze" type="Success" name="Details.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Employee\Details.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Employee\Edit.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Employee\Edit.cshtml" />
+  <event action="Analyze" type="Success" name="Edit.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Employee\Edit.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Employee\Index.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Employee\Index.cshtml" />
+  <event action="Analyze" type="Success" name="Index.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Employee\Index.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Home\About.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Home\About.cshtml" />
+  <event action="Analyze" type="Success" name="About.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Home\About.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Home\Contact.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Home\Contact.cshtml" />
+  <event action="Analyze" type="Success" name="Contact.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Home\Contact.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Home\Index.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Home\Index.cshtml" />
+  <event action="Analyze" type="Success" name="Index.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Home\Index.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Manage\AddPhoneNumber.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Manage\AddPhoneNumber.cshtml" />
+  <event action="Analyze" type="Success" name="AddPhoneNumber.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Manage\AddPhoneNumber.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Manage\ChangePassword.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Manage\ChangePassword.cshtml" />
+  <event action="Analyze" type="Success" name="ChangePassword.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Manage\ChangePassword.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Manage\Index.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Manage\Index.cshtml" />
+  <event action="Analyze" type="Success" name="Index.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Manage\Index.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Manage\ManageLogins.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Manage\ManageLogins.cshtml" />
+  <event action="Analyze" type="Success" name="ManageLogins.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Manage\ManageLogins.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Manage\SetPassword.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Manage\SetPassword.cshtml" />
+  <event action="Analyze" type="Success" name="SetPassword.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Manage\SetPassword.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Manage\VerifyPhoneNumber.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Manage\VerifyPhoneNumber.cshtml" />
+  <event action="Analyze" type="Success" name="VerifyPhoneNumber.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Manage\VerifyPhoneNumber.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Order\Details.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Order\Details.cshtml" />
+  <event action="Analyze" type="Success" name="Details.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Order\Details.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Order\DispatchOrder.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Order\DispatchOrder.cshtml" />
+  <event action="Analyze" type="Success" name="DispatchOrder.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Order\DispatchOrder.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Order\DispatchOrderList.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Order\DispatchOrderList.cshtml" />
+  <event action="Analyze" type="Success" name="DispatchOrderList.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Order\DispatchOrderList.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Order\Edit.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Order\Edit.cshtml" />
+  <event action="Analyze" type="Success" name="Edit.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Order\Edit.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Order\Index.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Order\Index.cshtml" />
+  <event action="Analyze" type="Success" name="Index.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Order\Index.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Order\OrderSummary.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Order\OrderSummary.cshtml" />
+  <event action="Analyze" type="Success" name="OrderSummary.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Order\OrderSummary.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Order\ProcessOrder.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Order\ProcessOrder.cshtml" />
+  <event action="Analyze" type="Success" name="ProcessOrder.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Order\ProcessOrder.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Order\TrackOrder.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Order\TrackOrder.cshtml" />
+  <event action="Analyze" type="Success" name="TrackOrder.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Order\TrackOrder.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Products\Create.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Products\Create.cshtml" />
+  <event action="Analyze" type="Success" name="Create.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Products\Create.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Products\Delete.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Products\Delete.cshtml" />
+  <event action="Analyze" type="Success" name="Delete.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Products\Delete.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Products\Details.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Products\Details.cshtml" />
+  <event action="Analyze" type="Success" name="Details.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Products\Details.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Products\Edit.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Products\Edit.cshtml" />
+  <event action="Analyze" type="Success" name="Edit.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Products\Edit.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Products\Index.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Products\Index.cshtml" />
+  <event action="Analyze" type="Success" name="Index.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Products\Index.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\PurchaseOrder\Create.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\PurchaseOrder\Create.cshtml" />
+  <event action="Analyze" type="Success" name="Create.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\PurchaseOrder\Create.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\PurchaseOrder\Delete.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\PurchaseOrder\Delete.cshtml" />
+  <event action="Analyze" type="Success" name="Delete.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\PurchaseOrder\Delete.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\PurchaseOrder\Details.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\PurchaseOrder\Details.cshtml" />
+  <event action="Analyze" type="Success" name="Details.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\PurchaseOrder\Details.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\PurchaseOrder\Edit.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\PurchaseOrder\Edit.cshtml" />
+  <event action="Analyze" type="Success" name="Edit.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\PurchaseOrder\Edit.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\PurchaseOrder\Index.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\PurchaseOrder\Index.cshtml" />
+  <event action="Analyze" type="Success" name="Index.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\PurchaseOrder\Index.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Report\StockReport.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Report\StockReport.cshtml" />
+  <event action="Analyze" type="Success" name="StockReport.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Report\StockReport.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\RolesAdmin\Create.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\RolesAdmin\Create.cshtml" />
+  <event action="Analyze" type="Success" name="Create.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\RolesAdmin\Create.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\RolesAdmin\Delete.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\RolesAdmin\Delete.cshtml" />
+  <event action="Analyze" type="Success" name="Delete.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\RolesAdmin\Delete.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\RolesAdmin\Details.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\RolesAdmin\Details.cshtml" />
+  <event action="Analyze" type="Success" name="Details.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\RolesAdmin\Details.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\RolesAdmin\Edit.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\RolesAdmin\Edit.cshtml" />
+  <event action="Analyze" type="Success" name="Edit.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\RolesAdmin\Edit.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\RolesAdmin\Index.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\RolesAdmin\Index.cshtml" />
+  <event action="Analyze" type="Success" name="Index.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\RolesAdmin\Index.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\_Layout.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\_Layout.cshtml" />
+  <event action="Analyze" type="Success" name="_Layout.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\_Layout.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\_LoginPartial.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\_LoginPartial.cshtml" />
+  <event action="Analyze" type="Success" name="_LoginPartial.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\_LoginPartial.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\EditorTemplates\Currency.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\EditorTemplates\Currency.cshtml" />
+  <event action="Analyze" type="Success" name="Currency.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\EditorTemplates\Currency.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\EditorTemplates\Date.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\EditorTemplates\Date.cshtml" />
+  <event action="Analyze" type="Success" name="Date.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\EditorTemplates\Date.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\EditorTemplates\DateTime.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\EditorTemplates\DateTime.cshtml" />
+  <event action="Analyze" type="Success" name="DateTime.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\EditorTemplates\DateTime.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\EditorTemplates\Email.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\EditorTemplates\Email.cshtml" />
+  <event action="Analyze" type="Success" name="Email.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\EditorTemplates\Email.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\EditorTemplates\EmailAddress.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\EditorTemplates\EmailAddress.cshtml" />
+  <event action="Analyze" type="Success" name="EmailAddress.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\EditorTemplates\EmailAddress.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\EditorTemplates\GridForeignKey.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\EditorTemplates\GridForeignKey.cshtml" />
+  <event action="Analyze" type="Success" name="GridForeignKey.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\EditorTemplates\GridForeignKey.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\EditorTemplates\Integer.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\EditorTemplates\Integer.cshtml" />
+  <event action="Analyze" type="Success" name="Integer.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\EditorTemplates\Integer.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\EditorTemplates\Number.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\EditorTemplates\Number.cshtml" />
+  <event action="Analyze" type="Success" name="Number.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\EditorTemplates\Number.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\EditorTemplates\Password.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\EditorTemplates\Password.cshtml" />
+  <event action="Analyze" type="Success" name="Password.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\EditorTemplates\Password.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\EditorTemplates\String.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\EditorTemplates\String.cshtml" />
+  <event action="Analyze" type="Success" name="String.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\EditorTemplates\String.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\EditorTemplates\Time.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\EditorTemplates\Time.cshtml" />
+  <event action="Analyze" type="Success" name="Time.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\EditorTemplates\Time.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\EditorTemplates\Url.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\EditorTemplates\Url.cshtml" />
+  <event action="Analyze" type="Success" name="Url.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\EditorTemplates\Url.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\Error.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\Error.cshtml" />
+  <event action="Analyze" type="Success" name="Error.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\Error.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\Lockout.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\Lockout.cshtml" />
+  <event action="Analyze" type="Success" name="Lockout.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shared\Lockout.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shopping\_CardDetails.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shopping\_CardDetails.cshtml" />
+  <event action="Analyze" type="Success" name="_CardDetails.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shopping\_CardDetails.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shopping\AddToCart.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shopping\AddToCart.cshtml" />
+  <event action="Analyze" type="Success" name="AddToCart.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shopping\AddToCart.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shopping\Checkout.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shopping\Checkout.cshtml" />
+  <event action="Analyze" type="Success" name="Checkout.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shopping\Checkout.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shopping\Details.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shopping\Details.cshtml" />
+  <event action="Analyze" type="Success" name="Details.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shopping\Details.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shopping\Index.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shopping\Index.cshtml" />
+  <event action="Analyze" type="Success" name="Index.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shopping\Index.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shopping\Payment.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shopping\Payment.cshtml" />
+  <event action="Analyze" type="Success" name="Payment.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Shopping\Payment.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Suppliers\Create.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Suppliers\Create.cshtml" />
+  <event action="Analyze" type="Success" name="Create.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Suppliers\Create.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Suppliers\Delete.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Suppliers\Delete.cshtml" />
+  <event action="Analyze" type="Success" name="Delete.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Suppliers\Delete.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Suppliers\Details.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Suppliers\Details.cshtml" />
+  <event action="Analyze" type="Success" name="Details.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Suppliers\Details.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Suppliers\Edit.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Suppliers\Edit.cshtml" />
+  <event action="Analyze" type="Success" name="Edit.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Suppliers\Edit.cshtml" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Suppliers\Index.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\Views\Suppliers\Index.cshtml" />
+  <event action="Analyze" type="Success" name="Index.cshtml" path="F:\Repository\FireSafetyStore.Web.Client\Views\Suppliers\Index.cshtml" />
+  <event action="Analyze" type="Success" name="Assembly References" path="F:\Repository\FireSafetyStore.Web.Client\Views\Web.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="F:\Repository\FireSafetyStore.Web.Client\Views\Web.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="F:\Repository\FireSafetyStore.Web.Client\Views\Web.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="F:\Repository\FireSafetyStore.Web.Client\Views\Web.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="F:\Repository\FireSafetyStore.Web.Client\Views\Web.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="F:\Repository\FireSafetyStore.Web.Client\Views\Web.config" />
+  <event action="Analyze" type="Success" name="Web.config" path="F:\Repository\FireSafetyStore.Web.Client\Views\Web.config" />
+  <event action="Analyze" type="Success" name="Assembly References" path="F:\Repository\FireSafetyStore.Web.Client\Web.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="F:\Repository\FireSafetyStore.Web.Client\Web.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="F:\Repository\FireSafetyStore.Web.Client\Web.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="F:\Repository\FireSafetyStore.Web.Client\Web.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="F:\Repository\FireSafetyStore.Web.Client\Web.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="F:\Repository\FireSafetyStore.Web.Client\Web.config" />
+  <event action="Analyze" type="Success" name="Web.config" path="F:\Repository\FireSafetyStore.Web.Client\Web.config" />
+  <event action="Analyze" type="Success" name="Assembly References" path="F:\Repository\FireSafetyStore.Web.Client\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="F:\Repository\FireSafetyStore.Web.Client\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="F:\Repository\FireSafetyStore.Web.Client\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="F:\Repository\FireSafetyStore.Web.Client\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="F:\Repository\FireSafetyStore.Web.Client\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="F:\Repository\FireSafetyStore.Web.Client\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Web.Debug.config" path="F:\Repository\FireSafetyStore.Web.Client\Web.Debug.config" />
+  <event action="Analyze" type="Success" name="Assembly References" path="F:\Repository\FireSafetyStore.Web.Client\Web.Release.config" />
+  <event action="Analyze" type="Success" name="Http Handlers" path="F:\Repository\FireSafetyStore.Web.Client\Web.Release.config" />
+  <event action="Analyze" type="Success" name="Handlers (IIS7+)" path="F:\Repository\FireSafetyStore.Web.Client\Web.Release.config" />
+  <event action="Analyze" type="Success" name="Config Sections" path="F:\Repository\FireSafetyStore.Web.Client\Web.Release.config" />
+  <event action="Analyze" type="Success" name="Render Extensions" path="F:\Repository\FireSafetyStore.Web.Client\Web.Release.config" />
+  <event action="Analyze" type="Success" name="Session State Providers" path="F:\Repository\FireSafetyStore.Web.Client\Web.Release.config" />
+  <event action="Analyze" type="Success" name="Web.Release.config" path="F:\Repository\FireSafetyStore.Web.Client\Web.Release.config" />
+  <event action="Analyze" type="Success" name="Register Directives" path="F:\Repository\FireSafetyStore.Web.Client\WebForm1.aspx" />
+  <event action="Analyze" type="Success" name="Assembly Directives" path="F:\Repository\FireSafetyStore.Web.Client\WebForm1.aspx" />
+  <event action="Analyze" type="Success" name="WebForm1.aspx" path="F:\Repository\FireSafetyStore.Web.Client\WebForm1.aspx" />
+  <event action="Analyze" type="Success" name="FireSafetyStore.Web.Client" path="F:\Repository\FireSafetyStore.Web.Client\FireSafetyStore.Web.Client.csproj" />
+  <event action="Analyze" type="Success" name="FireSafetyStore.Web.Client" path="F:\Repository\FireSafetyStore.Web.Client.sln" />
+  <event action="Backup" type="Success" name="FireSafetyStore.Web.Client" path="F:\Repository\FireSafetyStore.Web.Client\FireSafetyStore.Web.Client.csproj" />
+  <event action="Upgrade" type="Success" name="Assembly References" path="F:\Repository\FireSafetyStore.Web.Client\FireSafetyStore.Web.Client.csproj" />
+  <event action="Upgrade" type="Success" name="FireSafetyStore.Web.Client" path="F:\Repository\FireSafetyStore.Web.Client\FireSafetyStore.Web.Client.csproj" />
+  <event action="Upgrade" type="Success" name="FireSafetyStore.Web.Client" path="F:\Repository\FireSafetyStore.Web.Client.sln" />
+</log>
